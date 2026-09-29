@@ -1,0 +1,34 @@
+#!/usr/bin/expect -f
+
+
+# Read in the IP address, username, and password from the file
+#set file "/home/mpotts32/control_comp/pass_ctcpu.txt"
+set file "/data/TrinityLabComputer/control_comp/pass_ctcpu.txt"
+set fh [open $file r]
+gets $fh ip
+gets $fh user
+gets $fh password
+close $fh
+
+set labuser $env(USER)
+spawn ssh -i /home/$labuser/.ssh/ctcpu $user@$ip
+
+
+# Execute a command on the remote computer
+expect "trinity@trinityCPU:~$#"
+send "sudo reboot \r"
+
+
+# Wait for the SSH session to close
+expect eof
+
+
+
+
+
+# Connect to the remote computer using SSH for 43199
+#spawn ssh $user@$ip
+
+# Wait for the password prompt and send the password
+#expect "password:"
+#send "$password\r"

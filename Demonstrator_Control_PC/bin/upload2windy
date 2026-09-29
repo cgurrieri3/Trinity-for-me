@@ -1,0 +1,44 @@
+#!/usr/bin/python3
+
+# Import libs
+import requests
+import os
+from time import sleep
+
+# Key to Windy
+API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaSI6MjUxOTYwNSwiaWF0IjoxNjg5ODAwMzczfQ.f89b5jP00pFS8OchUZuqZhyJ32xNsqQ15CaZflBaVqA'
+
+# API url
+BASE_URL = f'https://stations.windy.com./pws/update/{API_KEY}'
+
+# Find the last line of the latest weather file
+latest_wx_file = os.popen('/bin/ls -rt /root/weather_data/*| /usr/bin/tail -n1').read().split('\n')[0]
+last_line = os.popen(f'/usr/bin/tail -n3 {latest_wx_file}').read().split('\n')
+for line in last_line:
+    if line == '':
+        continue
+    else:
+        last_line = line
+print(latest_wx_file,"\n",last_line)
+
+# Parse out the infromation to uploaded to Windy
+WX_INFO = last_line.split(',')
+WINDDIR = WX_INFO[1]
+try:
+    WINDSPEEDMPH = float(WX_INFO[2])*1.15078 # convert knots to mph
+    WINDGUSTMPH = float(WX_INFO[7])*1.15078 # convert knots to mph
+except:
+    WINDSPEEDMPH = -1.0
+    WINDGUSTMPH = -1.0
+TEMP = WX_INFO[14]
+MBAR = WX_INFO[12]
+DEWPOINT = WX_INFO[15]
+HUMIDITY = WX_INFO[13]
+
+# Construct GET url
+GET_URL = BASE_URL + f'?winddir={WINDDIR}&windspeedmph={WINDSPEEDMPH}&windgustmph={WINDGUSTMPH}&temp={TEMP}&mbar={MBAR}&dewpoint={DEWPOINT}&humidity={HUMIDITY}'
+print(GET_URL)
+
+
+get = requests.get(GET_URL)
+print(get.text)

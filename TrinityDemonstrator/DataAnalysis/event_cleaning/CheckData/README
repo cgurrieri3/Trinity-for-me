@@ -1,0 +1,16 @@
+This script is to check that a data list files are all produced so you have merged, flasher and Event cleaning files created
+- checkECdata.cpp, checkECdata.h
+
+To compile the script open a container that has root and exact or use ./compile script
+
+
+to run with the contianer root and exact container
+            mnt 
+./CheckData y, datalist, eventcleaningfileslocations
+
+to run use the runscripts 
+
+./runscript datalist, eventcleaningfileslocations
+
+                starts from /DataAnalysis                        starts from /event_cleaning/Output
+./run_script.sh data_lists/SS_Rank8_20260105_202410toEOY2025.csv sstepanoff3_DataFiles/SS_20260105_2024toEOY2025

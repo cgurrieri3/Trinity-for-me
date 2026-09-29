@@ -1,0 +1,71 @@
+sysFilePath = /home/sofia.stepanoff/TrinityDemonstrator
+OSDF_path = osdf:///ospool/uw-shared/projects/GATech_Otte/TrinityDemonstrator
+#OSDF_path = osdf:///ospool/ap40/data/sofia.stepanoff/TrinityDemonstrator
++SingularityImage = "$(OSDF_path)/DataAnalysis/containers/rootandexact.sif"
+
+
+universe = vanilla
+
+executable = run_condor.sh
+ # name of the bash script or python or root 
+
+
+
+arguments = $(Date) $(Filename) $ENV(USER)
+getenv = False
+
+# Keep your environment variables
+#getenv = False
+
+log = $(sysFilePath)/DataAnalysis/event_cleaning/.logs/$ENV(USER)/HT_condor_$ENV(USER)_$(Date)_$(Filename).log 
+# HTCondor log
+
+error = $(sysFilePath)/DataAnalysis/event_cleaning/.logs/$ENV(USER)/Program_$ENV(USER)_$(Date)_$(Filename).err 
+#Standard Error - program and HTCondor errors
+
+output = $(sysFilePath)/DataAnalysis/event_cleaning/.logs/$ENV(USER)/Program_$ENV(USER)_$(Date)_$(Filename).out 
+# program terminal output (not output files)
+
+## removing $(Filename) from end of Merged data output path
+transfer_input_files = $(OSDF_path)/DataAnalysis/MergedData/Output/$(Date)/?recursive,\
+$(sysFilePath)/DataAnalysis/event_cleaning/ClusterCleaning/EventCleaning,\
+$(sysFilePath)/DataAnalysis/event_cleaning/ClusterCleaning/EventInfoDict_rdict.pcm,\
+$(sysFilePath)/DataAnalysis/event_cleaning/ClusterCleaning/EventInfo.h,\
+$(sysFilePath)/DataAnalysis/event_cleaning/ClusterCleaning/LinkDef.h,\
+$(OSDF_path)/DataAnalysis/event_cleaning/ClusterCleaning/neighbors/?recursive, \
+$(sysFilePath)/DataAnalysis/event_cleaning/run_condor.sh,\
+$(sysFilePath)/DataAnalysis/flasher_calibration/Output/$(Date)_FlasherCalibration_Factor.root
+#any file that needs to included for the job - everything minus executable
+
+
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_output_files = DataAnalysis/event_cleaning/Output
+
+
+request_cpus = 1
+ # these are PER JOB
+
+request_memory = 1GB 
+# these are PER JOB
+
+# space for all files input and output and intermediate files
+request_disk = 4GB 
+max_retries=3
+# these are PER JOB
+
+JobBatchName = "EC_$(Date)"
+
+# Tell HTCondor to run 3 instances of our job:
+###----------#####
+# Queue! HAS TO BE THE LAST LINE
+###----------#####
+# MAGICAL
+# synatax 
+# queue + num - que this many identical jobs (EXACT  SAME JOB)
+# use case - executable can create independent jobs (script creates difference between jobs)
+# randomw number simulations 
+queue Filename from $(sysFilePath)/DataAnalysis/data_lists/file_list_$(Date).txt
+ 
+

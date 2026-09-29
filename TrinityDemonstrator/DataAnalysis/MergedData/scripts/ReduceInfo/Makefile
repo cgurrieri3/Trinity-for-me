@@ -1,0 +1,94 @@
+
+# Makefile for TCameraPlotEvents
+#
+#
+# 
+#By: Oscar F Romero Matamala
+
+
+BIN_DIR := .
+EXE := $(BIN_DIR)/ReduceDataInfoSaved
+DICT_DIR := ${EXACT_DIR}/dict
+
+ARCH := $(shell uname)
+
+# linux flags
+ifeq ($(ARCH),Linux)
+CXX           = g++
+CXXFLAGS      = -g -O3 -Wall -ggdb3 -fPIC -fno-strict-aliasing -D_FILE_OFFSET_BITS=64 -D_LARGE_FILE_SOURCE -D_LARGEFILE64_SOURCE
+LD            = g++
+LDFLAGS       = -g
+SOFLAGS       = -shared
+endif
+
+# Apple OS X flags
+ifeq ($(ARCH),Darwin)
+CXX           = g++ 
+CXXFLAGS      = -g -O3 -Wall -fPIC  -fno-strict-aliasing
+LD            = g++
+LDFLAGS       = -O
+SOFLAGS       = -shared
+endif
+
+OutPutOpt     = -o
+
+PREFIX		= /usr/local
+# Root
+
+ROOTCFLAGS   := $(shell root-config --cflags)
+ROOTLIBS     := $(shell root-config --libs)
+ROOTGLIBS    := $(shell root-config --glibs)
+ROOTLDFLAGS  := $(shell root-config --ldflags)
+ROOTLIBDIR   := $(shell root-config --libdir)
+
+CLLFLAGS += $(ROOTLDFLAGS)
+
+CXXFLAGS     += $(ROOTCFLAGS)
+LIBS          = $(ROOTGLIBS)
+LIBS         += -lMinuit -L./
+LIBS		+= -L$(DICT_DIR)
+
+
+INCLUDEFLAGS  = -Idict -Iinclude -I./inc/ -I$(DICT_DIR)/include -I./
+CXXFLAGS     += $(INCLUDEFLAGS)
+
+ALLFLAGS = $(CXXFLAGS) $(CPPFLAGS) -Wall
+
+SRC := $(wildcard $(BIN_DIR)/*.cpp)
+OBJ := $(SRC:$(BIN_DIR)/%.cpp=$(BIN_DIR)/%.o)
+
+
+
+CP  := cp
+
+#Recipe
+
+.PHONY: all clean
+all: $(EXE)
+
+$(EXE): $(OBJ) | $(BIN_DIR) 
+	$(LD) $(OBJ) $(CXXFLAGS) $(LDFLAGS) -L$(DICT_DIR) -lExACT $(LIBS) $(OutPutOpt) $@
+	@echo "$@ Compilation done"
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
+	$(LD) $(CXXFLAGS) -c $< -o $@
+
+$(BIN_DIR)/$(OBJ_DIR):
+		mkdir -p $@
+
+clean: 
+
+	@echo "Cleaning up..."
+	rm -f $(BIN_DIR)/*.o $(EXE)
+	@echo "Clean complete."
+
+# rootcling: 
+# 	@echo "reseting rootcling"
+# 	rm -r $(BIN_DIR)/*.o 
+# 	rm -r $(BIN_DIR)/*.pcm
+# 	rootcling -f $(DICT_SRC) -c $(DICT_HDR) $(LINKDEF)
+# 	@echo "rootcling complete"
+
+-include $(OBJ:.o=.d)
+
+.SUFFIXES: .o

@@ -1,0 +1,12 @@
+# Initializing the SIAB Process and Sleeping for 2 seconds
+100300000000000000
+2
+# Initializing the TRGB Process and Sleeping for 2 seconds
+100400000000000000
+2
+# Initializing the COBO Process and Sleeping for 2 seconds
+100500000000000000
+2
+# Initializing the LVPS Process and Sleeping for 5 seconds
+100600000000000000
+5

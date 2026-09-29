@@ -1,0 +1,48 @@
+#!/usr/bin/expect -f
+
+# Set the job parameters
+set timeout 600
+set salloc_command "salloc -N 1 -A hive-aotte6\r"
+
+spawn bash 
+# Start the salloc command
+send $salloc_command
+
+# Wait for the prompt that indicates the interactive session is ready
+expect "$ "
+
+send "cd /storage/hive/project/phy-otte/shared/database/\r"
+expect "$ "
+
+# Once allocation is granted, run the script (example: run 'my_script.sh')
+# You can change this to your script or commands
+send "module load mariadb\r"
+sleep 2
+# Wait for the script to finish
+expect "$ "
+send "start-mariadb\r"
+sleep 5
+expect "$ "
+
+send "mysql -S ./mariadb.sock --user=Sofia -p\r"
+# Exit the interactive session once done
+expect "Enter password:"
+send "trinity22!\r" 
+
+expect "> "
+
+# Switch to the database
+send "USE test;\r"
+
+# Execute the insert_queries.sql file
+send "source /storage/hive/project/phy-otte/shared/Trinity/DataAnalysis/DataCalibration/DatabaseUpload/insert_queries.sql;\r"
+
+expect "> "
+
+send "exit\r"
+
+expect "$ "
+send "exit\r"
+
+# Wait for the job to finish
+expect eof

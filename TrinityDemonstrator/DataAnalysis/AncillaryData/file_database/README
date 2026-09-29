@@ -1,0 +1,74 @@
+Sofia Stepanoff
+Github: 
+sofiastepanoff@gatech.edu
+
+These scripts are all for maintaining the database. 
+
+accessing the database: see wiki for how to set up 
+https://trinity.physics.gatech.edu/internal/index.php?title=Database_for_collected_data
+
+-------
+userUpdateDatabase.py - This script creates all the .sql files using python. The script will prompt the user throughout to fill it in based on the wiki. The .sql files will be in the Output/ folder. This works on one night at a time.Nights with no data have a special NOData entry and should still have all the .sql's created. 
+
+
+Lily: 
+
+Nightly Classification runs as a cron job now and outputs yyyymmdd_AllFiles.txt nightly
+
+if "attention needed" gets output, that means there's only one file for that night for some reason
+
+userUpdateDatabase.py:
+cd UpdateDB/
+    outside container: 
+        ./run_script_a.sh
+    inside container: s_pygroup
+        python3 userUpdateDatabase.py
+input date, path, weather/data/ranking info
+-> outputs weather, datainfo, celestial, ranking sqls to file_database/UpdateDB/Output/
+
+To upload to database: TrinityLabComputer/Database/file_db/
+    see file_db README
+
+
+----
+OLD:
+path = '/mnt' for buzzard
+NightlyClassification.cpp:
+cd NightlyClassificationScripts/
+    outside container:
+        ./run_script_cpp.sh yyyymmdd path
+
+    inside container: s_cgroup
+        ./ClassifyData yyyymmdd path
+-> outputs operation mode information for each file from that night into /Output/AllFiles.txt
+
+to run NightlyClassification and userUpdateDatabase for a night all together:
+./run_script_both.sh yyyymmdd
+this creates the AllFiles.txt from NightlyClassification and immediately runs userUpdateDatabase using that file, input db info as normal
+uses /mnt as the path - dont need to input it anymore until prompted 
+---
+
+
+OUTDATED
+-------
+startDB.sh - this code after being on the computer node starts the mariaDB server to access the database based off the requirements that hive says. 
+    1. Navigate to scripts
+    2. ./startDB <computer-node>
+When complete you can then use this terminal unlike when you run those commands manually you can not use that terminal.
+
+-------
+loadDB.sh - this code is for loading the .sql files that correspond to the date you want to add to the database that has already been opened on the node. This runs a single terminal command for each of the .sql files (ex. weather, celestial, data, ranking etc). 
+    1. Navigate to scripts
+    2. ./loadDB <computer-node> <date> <database>
+    <date> YYYYMMDD
+    <database> whatever database you have in the mariaDB for us it prob TrinityDemonstratorFiles
+You should then check that everything uploaded as expected in the databse - see wiki for those instructions
+
+
+-------
+uploadDB.py - This script combines the loadDB.sh and userUpdateDatabase.py and has two uses. You need to run prior startDB.sh 
+1. Daily uploading python3 uploadDB.py -n <node> -d <database>: 
+    This will assume the need to use the current computer date and time and is expected to be done after observations and before the next observation cycle for the night. It will then run the userUpdateDatabase.py to create the .sql files and then ask you to check them. Once you say yes it will use the loaddb.sh script to upload them to the databasebase.  If you say no it will reprompt you to do the questions and then you can upload after you confirm. It is still recommended to check that it got uploaded properly.
+    
+2. Backlog uploding python3 uploadDB.py -n <node> -d <database> -st <start_date> -in <days_since_start>:
+    This will just load the scripts to the database using loadDB.sh to run multiple nights in a row. This uses python to use datetime so it can work over multiple months. It is still recommended to check the upload in the database after this is complete

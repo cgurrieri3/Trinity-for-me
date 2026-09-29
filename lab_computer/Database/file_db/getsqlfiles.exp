@@ -1,0 +1,14 @@
+#!/usr/bin/expect -f
+
+set date [lindex $argv 0]
+
+set remote_user $env(USER)
+set remote_server "login-hive.pace.gatech.edu"
+
+
+# Get the current date in the format yyyymmdd
+# set current_date [clock format [clock seconds] -format "%Y%m%d"]
+#puts "$date"
+
+spawn scp -i /home/$remote_user/.ssh/hive $remote_user@$remote_server:/storage/hive/project/phy-otte/shared/Trinity/DataAnalysis/DataCalibration/DatabaseUpload/scripts/Output/*$date.sql /data/TrinityLabComputer/Database/file_db/hiveData/Output/.
+expect eof

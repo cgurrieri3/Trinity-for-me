@@ -1,0 +1,742 @@
+\hypertarget{classIEvent}{}\section{I\+Event Class Reference}
+\label{classIEvent}\index{I\+Event@{I\+Event}}
+
+
+Class that contains the raw data plus the auxilliary data.  
+
+
+
+
+{\ttfamily \#include $<$I\+Event.\+h$>$}
+
+
+
+Inheritance diagram for I\+Event\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=125pt]{classIEvent__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for I\+Event\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=125pt]{classIEvent__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIEvent_a57ac7b21eb2e2ebf74889caf85e3991b}\label{classIEvent_a57ac7b21eb2e2ebf74889caf85e3991b}} 
+\hyperlink{classIEvent_a57ac7b21eb2e2ebf74889caf85e3991b}{I\+Event} ()
+\begin{DoxyCompactList}\small\item\em Public constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_ad5e125fd626f0f68152b54472103cc97}\label{classIEvent_ad5e125fd626f0f68152b54472103cc97}} 
+\hyperlink{classIEvent_ad5e125fd626f0f68152b54472103cc97}{$\sim$\+I\+Event} ()
+\begin{DoxyCompactList}\small\item\em Public destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classIEvent_a353512fe50f24076e44296f2b0b49519}{Set\+Parameters\+From\+Timestamp} (int timestamp, std\+::vector$<$ std\+::vector$<$ std\+::string $>$$>$ data, std\+::vector$<$ std\+::vector$<$ std\+::string $>$$>$ data2)
+\begin{DoxyCompactList}\small\item\em Public method to fill in most of the member variables. \end{DoxyCompactList}\item 
+void \hyperlink{classIEvent_aa8d04ba13fcb090b50c25eb07358b9ef}{Set\+Telescope\+Pointing} (int timestamp, std\+::vector$<$ std\+::vector$<$ std\+::string $>$$>$ data)
+\begin{DoxyCompactList}\small\item\em Public method to fill in the tilt\+Angle class members. \end{DoxyCompactList}\item 
+void \hyperlink{classIEvent_a8e05e96983ecca92b777dab1bb7b539a}{Set\+Telescope\+Pointing\+Raw} (int timestamp, std\+::vector$<$ std\+::vector$<$ std\+::string $>$$>$ data)
+\begin{DoxyCompactList}\small\item\em Public method to fill in the tilt\+Angle\+Raw class members. \end{DoxyCompactList}\item 
+int \hyperlink{classIEvent_a9f7a5fc09eeed389d07f73f64d560eeb}{Getclosest\+Timestamp1} () const
+\begin{DoxyCompactList}\small\item\em Public method to get the closest timestamp to the event in the auxilliary data file1. \end{DoxyCompactList}\item 
+int \hyperlink{classIEvent_a1e6f572dc2a804c962c776a6f5ec3cdf}{Getclosest\+Timestamp2} () const
+\begin{DoxyCompactList}\small\item\em Public method to get the closest timestamp to the event in the auxilliary data file2. \end{DoxyCompactList}\item 
+float \hyperlink{classIEvent_a38b7246b464616c40210b03289360f8b}{Get\+Latitude} () const
+\begin{DoxyCompactList}\small\item\em Public method to get the geographic latitute of the balloon at the time the event was recorded. \end{DoxyCompactList}\item 
+float \hyperlink{classIEvent_a1469bbbe341060a2b38180e235b2c1ec}{Get\+Longitude} () const
+\begin{DoxyCompactList}\small\item\em Public method to get the geographic longitude of the balloon at the time the event was recorded. \end{DoxyCompactList}\item 
+int \hyperlink{classIEvent_a0abf87cd9bf704b8ab01ec6b7779f859}{Get\+Altitude} () const
+\begin{DoxyCompactList}\small\item\em Public method to get the altitude of the balloon at the time the event was recorded. \end{DoxyCompactList}\item 
+float \hyperlink{classIEvent_a03e72e60f05ac529c27ed7b916561778}{Get\+Sun\+Azimuth} () const
+\begin{DoxyCompactList}\small\item\em Public method to get the azimuth of the Sun\textquotesingle{}s location in degrees. \end{DoxyCompactList}\item 
+float \hyperlink{classIEvent_a35b19d2db7a0b35c3d0e5219fb619976}{Get\+Sun\+Elevation} () const
+\begin{DoxyCompactList}\small\item\em Public method to get the elevation of the Sun\textquotesingle{}s location in degrees. \end{DoxyCompactList}\item 
+float \hyperlink{classIEvent_a0e07e2093f44fe582dbf0ac2edc2be1e}{Get\+Moon\+Azimuth} () const
+\begin{DoxyCompactList}\small\item\em Public method to get the azimuth of the Moon\textquotesingle{}s location in degrees. \end{DoxyCompactList}\item 
+float \hyperlink{classIEvent_a7d2d4ae598274c81b51392cff18194c8}{Get\+Moon\+Elevation} () const
+\begin{DoxyCompactList}\small\item\em Public method to get the elevation of the Moon\textquotesingle{}s location in degrees. \end{DoxyCompactList}\item 
+float \hyperlink{classIEvent_a7ba773316eefbd7190f5b1ac16206b63}{Get\+Horizon} () const
+\begin{DoxyCompactList}\small\item\em Public method to get the horizon as seen from the balloon in degrees. \end{DoxyCompactList}\item 
+float \hyperlink{classIEvent_a8ea892cd0207dd1fa3ff4a550681f323}{Get\+Azimuth} () const
+\begin{DoxyCompactList}\small\item\em Public method to get the azimuth of the telescope\textquotesingle{}s orientation in degrees. \end{DoxyCompactList}\item 
+int \hyperlink{classIEvent_a773e95dbb87039b7c90f22504a2c20c4}{Get\+Trig\+Event} () const
+\begin{DoxyCompactList}\small\item\em Public method to get the number of triggered events in the run. \end{DoxyCompactList}\item 
+int \hyperlink{classIEvent_ae951ab751628dbad6aa264d3e9bc49ce}{Get\+Temp\+Flag} () const
+\begin{DoxyCompactList}\small\item\em Public method to get if the temperature of in the log is of the micro\+Controller or the Si\+P\+Ms (deprecated) \end{DoxyCompactList}\item 
+int \hyperlink{classIEvent_a4d95eb0bd935bc7089bdf13be6cfb35d}{Get\+Emon1} () const
+\begin{DoxyCompactList}\small\item\em Public method to get the emon1 reading. \end{DoxyCompactList}\item 
+int \hyperlink{classIEvent_a7733e88f4e08eee6073a448d6b75723b}{Get\+Emon2} () const
+\item 
+const std\+::vector$<$ float $>$ \& \hyperlink{classIEvent_aa807a64494e2a7d87c2cf430574a1b0c}{Gethv} () const
+\begin{DoxyCompactList}\small\item\em Public method to get the std\+::vector of size 8 (typically) that contains the high voltage setting for each of the 8 channels. \end{DoxyCompactList}\item 
+const std\+::vector$<$ float $>$ \& \hyperlink{classIEvent_a8bf0dad45d6a5aef35cbd32e58e79d95}{Gethvc} () const
+\begin{DoxyCompactList}\small\item\em Public method to get the std\+::vector of size 8 (typically) that contains the high voltage current for each of the 8 channels. \end{DoxyCompactList}\item 
+const std\+::vector$<$ float $>$ \& \hyperlink{classIEvent_a6b3078eccf01ac33208ef2570aa7565b}{Get\+U\+C\+Temp} () const
+\begin{DoxyCompactList}\small\item\em Public method to get the std\+::vector of size 32 (typically) that contains the temperature of the 32 micro\+Controllers. \end{DoxyCompactList}\item 
+int \hyperlink{classIEvent_a57da66c02aa6bec76d1d04e4993279f4}{Get\+Cpu\+Temp} () const
+\begin{DoxyCompactList}\small\item\em Public method to get the temperature of the C\+PU. \end{DoxyCompactList}\item 
+int \hyperlink{classIEvent_af871e86c8478223d55e3221c7590e3e7}{Get\+Cobo\+Temp} () const
+\begin{DoxyCompactList}\small\item\em Public method to get the temperature of the Co\+Bo. \end{DoxyCompactList}\item 
+int \hyperlink{classIEvent_a81f3a4f65606318ac4d5d99ee9e04fbd}{Get\+Rad\+Temp} () const
+\begin{DoxyCompactList}\small\item\em Public method to get the temperature of the radiator. \end{DoxyCompactList}\item 
+float \hyperlink{classIEvent_add6c647d8ed43c3c54fc3f6948600abc}{Getlvps\+Vol} () const
+\begin{DoxyCompactList}\small\item\em Public method to get the output voltage of the L\+V\+PS. \end{DoxyCompactList}\item 
+float \hyperlink{classIEvent_aa4a82c9fd9a99eee0f84c42d539517bd}{Getpump\+Vol} () const
+\begin{DoxyCompactList}\small\item\em Public method to get the output voltage to the pumps. \end{DoxyCompactList}\item 
+int \hyperlink{classIEvent_ab00b517486f005b0eef9f38c39ab3bdf}{Getlvps\+Cur} () const
+\begin{DoxyCompactList}\small\item\em Public method to get the output current of the L\+V\+PS. \end{DoxyCompactList}\item 
+int \hyperlink{classIEvent_a7acdfd044d5d5e099b6a7d1d6f9d7cd1}{Getpump\+Cur} () const
+\begin{DoxyCompactList}\small\item\em Public method to get the output voltage of the pumps. \end{DoxyCompactList}\item 
+const std\+::vector$<$ int $>$ \& \hyperlink{classIEvent_a3fa8602e84ca81932f2a21a9b5943b1c}{Getsiab\+M\+P\+WR} () const
+\begin{DoxyCompactList}\small\item\em Public method to get the switch setting for each of the 64 M\+U\+S\+I\+Cs. \end{DoxyCompactList}\item 
+const std\+::vector$<$ int $>$ \& \hyperlink{classIEvent_ab2e215d10ab78c04ef8c40a094dd5293}{Gethv\+SW} () const
+\begin{DoxyCompactList}\small\item\em Public method to get the HV switch setting for each of the 32 Si\+PM matrices. \end{DoxyCompactList}\item 
+const std\+::vector$<$ float $>$ \& \hyperlink{classIEvent_a575edf25bf25511b33b8555adea334af}{Get\+Si\+P\+M\+Temp} () const
+\begin{DoxyCompactList}\small\item\em Public method to get the temperature of the Si\+P\+Ms. \end{DoxyCompactList}\item 
+float \hyperlink{classIEvent_aaac27f1be83fb9af936d26847478a44e}{Get\+Tilt\+Angle} () const
+\begin{DoxyCompactList}\small\item\em Public method to obtain the telescope tilt pointing angle after voltage sag corrections. \end{DoxyCompactList}\item 
+float \hyperlink{classIEvent_a460b04b92872b5b4ff27441fae769476}{Get\+Tilt\+Angle\+Raw} () const
+\begin{DoxyCompactList}\small\item\em Public method to obtain the telescope tilt pointing angle without any corrections. \end{DoxyCompactList}\item 
+int \hyperlink{classIEvent_a2828467dd503a15bdfb83b4ce8452aa6}{Get\+Run\+Number} () const
+\begin{DoxyCompactList}\small\item\em Public method to recover the run number to which the event belongs to. \end{DoxyCompactList}\item 
+void \hyperlink{classIEvent_ac6366e40d60fe3ea754f4a019a2fed70}{Set\+Run\+Number} (int n)
+\begin{DoxyCompactList}\small\item\em Public method to set the run\+Number member variable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{classIEvent_a07a5131ed389666370575f89b182816a}{Find\+Closest\+Timestamp\+Index} (std\+::vector$<$ unsigned long long $>$ time\+Array, unsigned long long event\+Time)
+\begin{DoxyCompactList}\small\item\em Public method to find the closest time stamp position in the time vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIEvent_a7b06827fcf1c983a513ecedde056bbba}\label{classIEvent_a7b06827fcf1c983a513ecedde056bbba}} 
+float \hyperlink{classIEvent_a7b06827fcf1c983a513ecedde056bbba}{Icorrection\+Factor}
+\begin{DoxyCompactList}\small\item\em Depreacted. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classIEvent_a9fe52c0b0da4a3768c37b3b4a8c19101}{find\+Closest\+Timestamp} (const std\+::vector$<$ std\+::vector$<$ std\+::string $>$$>$ \&data, int timestamp) const
+\begin{DoxyCompactList}\small\item\em Public method to find the closest time stamp in the data vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIEvent_a94d93d72078bcf03636bbf0e85e74d92}\label{classIEvent_a94d93d72078bcf03636bbf0e85e74d92}} 
+float \hyperlink{classIEvent_a94d93d72078bcf03636bbf0e85e74d92}{latitude}
+\begin{DoxyCompactList}\small\item\em float containing geographic latitude of the balloon \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_a4ac59f6f9eec46a09caba737e462ce2a}\label{classIEvent_a4ac59f6f9eec46a09caba737e462ce2a}} 
+float \hyperlink{classIEvent_a4ac59f6f9eec46a09caba737e462ce2a}{longitude}
+\begin{DoxyCompactList}\small\item\em float containing geographic longitude of the balloon \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_aa14190ff4b5069fcb10a27965bb16530}\label{classIEvent_aa14190ff4b5069fcb10a27965bb16530}} 
+int \hyperlink{classIEvent_aa14190ff4b5069fcb10a27965bb16530}{altitude}
+\begin{DoxyCompactList}\small\item\em int containing the altitude of the balloon \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_a8fc6384a7420498d37420fb310979ad0}\label{classIEvent_a8fc6384a7420498d37420fb310979ad0}} 
+float \hyperlink{classIEvent_a8fc6384a7420498d37420fb310979ad0}{sun\+Azimuth}
+\begin{DoxyCompactList}\small\item\em float containing the azimuth of the Sun \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_a8baa7fd7060b687937d335f02e1e52af}\label{classIEvent_a8baa7fd7060b687937d335f02e1e52af}} 
+float \hyperlink{classIEvent_a8baa7fd7060b687937d335f02e1e52af}{sun\+Elevation}
+\begin{DoxyCompactList}\small\item\em float containing the elevation of the Sun \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_a39ff2d848515814ea91c55b74d779e15}\label{classIEvent_a39ff2d848515814ea91c55b74d779e15}} 
+float \hyperlink{classIEvent_a39ff2d848515814ea91c55b74d779e15}{moon\+Azimuth}
+\begin{DoxyCompactList}\small\item\em float containing the azimuth of the Moon \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_a489a375ab5e89310b3295332f3984e85}\label{classIEvent_a489a375ab5e89310b3295332f3984e85}} 
+float \hyperlink{classIEvent_a489a375ab5e89310b3295332f3984e85}{moon\+Elevation}
+\begin{DoxyCompactList}\small\item\em float containing the elevation of the Moon \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_ab2c52a06033e4e772b583778dcad8cb9}\label{classIEvent_ab2c52a06033e4e772b583778dcad8cb9}} 
+float \hyperlink{classIEvent_ab2c52a06033e4e772b583778dcad8cb9}{horizon}
+\begin{DoxyCompactList}\small\item\em float containing the location of the horizon in degrees \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_a83dc7ce1882703d9a5c5a73ac5183ed0}\label{classIEvent_a83dc7ce1882703d9a5c5a73ac5183ed0}} 
+float \hyperlink{classIEvent_a83dc7ce1882703d9a5c5a73ac5183ed0}{azimuth}
+\begin{DoxyCompactList}\small\item\em float containing the azimuth pointing of the telescope \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_afca5ec272f9a4d4e956bf01764d8a363}\label{classIEvent_afca5ec272f9a4d4e956bf01764d8a363}} 
+int \hyperlink{classIEvent_afca5ec272f9a4d4e956bf01764d8a363}{Trig\+Event}
+\begin{DoxyCompactList}\small\item\em int containing the number of triggers in the run \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_adf8a6ebbadec0290c7b55f928d5e665f}\label{classIEvent_adf8a6ebbadec0290c7b55f928d5e665f}} 
+int \hyperlink{classIEvent_adf8a6ebbadec0290c7b55f928d5e665f}{Temp\+Flag}
+\begin{DoxyCompactList}\small\item\em int flipping between temperature of Si\+PM or Micro\+Controller (obsolete) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_a0fb1f3acc602af4fbce665f4c8c53c51}\label{classIEvent_a0fb1f3acc602af4fbce665f4c8c53c51}} 
+int \hyperlink{classIEvent_a0fb1f3acc602af4fbce665f4c8c53c51}{emon1}
+\begin{DoxyCompactList}\small\item\em int with first emon reading \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_ac3fb249684166a64a82c718dcc6014d3}\label{classIEvent_ac3fb249684166a64a82c718dcc6014d3}} 
+int \hyperlink{classIEvent_ac3fb249684166a64a82c718dcc6014d3}{emon2}
+\begin{DoxyCompactList}\small\item\em int with second emon reading \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_a87f3d87db239c5d8f2e3ee4705dd1bb0}\label{classIEvent_a87f3d87db239c5d8f2e3ee4705dd1bb0}} 
+std\+::vector$<$ float $>$ \hyperlink{classIEvent_a87f3d87db239c5d8f2e3ee4705dd1bb0}{hv}
+\begin{DoxyCompactList}\small\item\em std\+::vector of size 8 containing the setting of the 8 different high voltage channels \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_a29302020da886e4d750f4466b9b25b61}\label{classIEvent_a29302020da886e4d750f4466b9b25b61}} 
+std\+::vector$<$ float $>$ \hyperlink{classIEvent_a29302020da886e4d750f4466b9b25b61}{hvc}
+\begin{DoxyCompactList}\small\item\em std\+::vector of size 8 containing the current of the $\ast$ different high voltage channels \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_a8f69f5d69200e97681be52132fce328c}\label{classIEvent_a8f69f5d69200e97681be52132fce328c}} 
+std\+::vector$<$ float $>$ \hyperlink{classIEvent_a8f69f5d69200e97681be52132fce328c}{uc\+Temp}
+\begin{DoxyCompactList}\small\item\em std\+::vector of size 32 containing the temperature for the 32 micro\+Controllers \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_a0373b3c3c7c5c164bd3f3c9d97ab3147}\label{classIEvent_a0373b3c3c7c5c164bd3f3c9d97ab3147}} 
+int \hyperlink{classIEvent_a0373b3c3c7c5c164bd3f3c9d97ab3147}{Cpu\+Temp}
+\begin{DoxyCompactList}\small\item\em int containing the temperature of the C\+PU \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_aa1976a0d83f49c0565c44f5f5b8e3e6f}\label{classIEvent_aa1976a0d83f49c0565c44f5f5b8e3e6f}} 
+int \hyperlink{classIEvent_aa1976a0d83f49c0565c44f5f5b8e3e6f}{Cobo\+Temp}
+\begin{DoxyCompactList}\small\item\em int containing the temperature of the Co\+Bo \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_ad44520b1d00381acbd260ea5c11fd45c}\label{classIEvent_ad44520b1d00381acbd260ea5c11fd45c}} 
+int \hyperlink{classIEvent_ad44520b1d00381acbd260ea5c11fd45c}{Rad\+Temp}
+\begin{DoxyCompactList}\small\item\em int containing the temperature of the radiator \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_ae1386ab88a27eecac13a67dd53e59f4c}\label{classIEvent_ae1386ab88a27eecac13a67dd53e59f4c}} 
+float \hyperlink{classIEvent_ae1386ab88a27eecac13a67dd53e59f4c}{lvps\+Vol}
+\begin{DoxyCompactList}\small\item\em float containing the output voltage of the L\+V\+PS \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_a0640be30a90c6510362249a871ba9939}\label{classIEvent_a0640be30a90c6510362249a871ba9939}} 
+float \hyperlink{classIEvent_a0640be30a90c6510362249a871ba9939}{pump\+Vol}
+\begin{DoxyCompactList}\small\item\em float containing the ouptu voltage to the pumps \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_a56f761a083af7a8aef769de22fd1cb54}\label{classIEvent_a56f761a083af7a8aef769de22fd1cb54}} 
+int \hyperlink{classIEvent_a56f761a083af7a8aef769de22fd1cb54}{lvps\+Cur}
+\begin{DoxyCompactList}\small\item\em int contiaing the output current of the L\+V\+PS \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_abb1473bb13d226a0a3534a901d5aa777}\label{classIEvent_abb1473bb13d226a0a3534a901d5aa777}} 
+int \hyperlink{classIEvent_abb1473bb13d226a0a3534a901d5aa777}{pump\+Cur}
+\begin{DoxyCompactList}\small\item\em int containing the current of the pump \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_a85729bba9cfb041b45c6fcef16fa826d}\label{classIEvent_a85729bba9cfb041b45c6fcef16fa826d}} 
+std\+::vector$<$ int $>$ \hyperlink{classIEvent_a85729bba9cfb041b45c6fcef16fa826d}{siab\+M\+P\+WR}
+\begin{DoxyCompactList}\small\item\em std\+::vector$<$int$>$ of the M\+U\+S\+IC power switch \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_a5c3a4a98098fc4f76352565312969ae2}\label{classIEvent_a5c3a4a98098fc4f76352565312969ae2}} 
+std\+::vector$<$ int $>$ \hyperlink{classIEvent_a5c3a4a98098fc4f76352565312969ae2}{hv\+SW}
+\begin{DoxyCompactList}\small\item\em std\+::vector$<$int$>$ of the High voltage power switch \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_a7f2634e0595a1961538b9a9be3aaf4b9}\label{classIEvent_a7f2634e0595a1961538b9a9be3aaf4b9}} 
+std\+::vector$<$ float $>$ \hyperlink{classIEvent_a7f2634e0595a1961538b9a9be3aaf4b9}{sipm\+Temp}
+\begin{DoxyCompactList}\small\item\em std\+::vector$<$float$>$ of the temperature of the Si\+PM matrices \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_a00ed8bd66889b65f7485895ec008940a}\label{classIEvent_a00ed8bd66889b65f7485895ec008940a}} 
+float \hyperlink{classIEvent_a00ed8bd66889b65f7485895ec008940a}{tilt\+Angle}
+\begin{DoxyCompactList}\small\item\em float with the corrected tilt angle without voltage sag \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_a22570a7771466dac96c5285b758dd717}\label{classIEvent_a22570a7771466dac96c5285b758dd717}} 
+float \hyperlink{classIEvent_a22570a7771466dac96c5285b758dd717}{tilt\+Angle\+Raw}
+\begin{DoxyCompactList}\small\item\em float containing the raw tilt angle from state messages \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEvent_a976b0ef3331ef124d3b13e988e91a026}\label{classIEvent_a976b0ef3331ef124d3b13e988e91a026}} 
+int \hyperlink{classIEvent_a976b0ef3331ef124d3b13e988e91a026}{run\+Number}
+\begin{DoxyCompactList}\small\item\em int containing the number of the run \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class that contains the raw data plus the auxilliary data. 
+
+Inherits from class \hyperlink{classEvent}{Event} and adds new data to each of the events based on the auxilliary data obtained from the State Messages. Data contains information about the telescope conditions at the time of trigger \begin{DoxySeeAlso}{See also}
+\hyperlink{classEvent_a5a40dd4708297f7031e29b39e039ae10}{Event()} 
+\end{DoxySeeAlso}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classIEvent_a9fe52c0b0da4a3768c37b3b4a8c19101}\label{classIEvent_a9fe52c0b0da4a3768c37b3b4a8c19101}} 
+\index{I\+Event@{I\+Event}!find\+Closest\+Timestamp@{find\+Closest\+Timestamp}}
+\index{find\+Closest\+Timestamp@{find\+Closest\+Timestamp}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{find\+Closest\+Timestamp()}{findClosestTimestamp()}}
+{\footnotesize\ttfamily int I\+Event\+::find\+Closest\+Timestamp (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ std\+::string $>$$>$ \&}]{data,  }\item[{int}]{timestamp }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Public method to find the closest time stamp in the data vector. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classIEvent_a353512fe50f24076e44296f2b0b49519}{Set\+Parameters\+From\+Timestamp}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em data} & A std\+::vector containing all the information from the auxilliary data file \\
+\hline
+{\em timestamp} & An int with the time the event was recorded in seconds after some reference (May 13th) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An int with the closest time stamp 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_a07a5131ed389666370575f89b182816a}\label{classIEvent_a07a5131ed389666370575f89b182816a}} 
+\index{I\+Event@{I\+Event}!Find\+Closest\+Timestamp\+Index@{Find\+Closest\+Timestamp\+Index}}
+\index{Find\+Closest\+Timestamp\+Index@{Find\+Closest\+Timestamp\+Index}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Find\+Closest\+Timestamp\+Index()}{FindClosestTimestampIndex()}}
+{\footnotesize\ttfamily static int I\+Event\+::\+Find\+Closest\+Timestamp\+Index (\begin{DoxyParamCaption}\item[{std\+::vector$<$ unsigned long long $>$}]{time\+Array,  }\item[{unsigned long long}]{event\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Public method to find the closest time stamp position in the time vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em time\+Array} & A std\+::vector containing all the time stamps from the file \\
+\hline
+{\em event\+Time} & An unsigned long long containing the time when the event was recorded in 10s of nano seconds. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An int with the position of the closest time stamp 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_a0abf87cd9bf704b8ab01ec6b7779f859}\label{classIEvent_a0abf87cd9bf704b8ab01ec6b7779f859}} 
+\index{I\+Event@{I\+Event}!Get\+Altitude@{Get\+Altitude}}
+\index{Get\+Altitude@{Get\+Altitude}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Get\+Altitude()}{GetAltitude()}}
+{\footnotesize\ttfamily int I\+Event\+::\+Get\+Altitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to get the altitude of the balloon at the time the event was recorded. 
+
+\begin{DoxyReturn}{Returns}
+An int with the altitude in meters 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_a8ea892cd0207dd1fa3ff4a550681f323}\label{classIEvent_a8ea892cd0207dd1fa3ff4a550681f323}} 
+\index{I\+Event@{I\+Event}!Get\+Azimuth@{Get\+Azimuth}}
+\index{Get\+Azimuth@{Get\+Azimuth}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Get\+Azimuth()}{GetAzimuth()}}
+{\footnotesize\ttfamily float I\+Event\+::\+Get\+Azimuth (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to get the azimuth of the telescope\textquotesingle{}s orientation in degrees. 
+
+\begin{DoxyReturn}{Returns}
+A float with the azimuthal orientation in degrees 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_a9f7a5fc09eeed389d07f73f64d560eeb}\label{classIEvent_a9f7a5fc09eeed389d07f73f64d560eeb}} 
+\index{I\+Event@{I\+Event}!Getclosest\+Timestamp1@{Getclosest\+Timestamp1}}
+\index{Getclosest\+Timestamp1@{Getclosest\+Timestamp1}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Getclosest\+Timestamp1()}{GetclosestTimestamp1()}}
+{\footnotesize\ttfamily int I\+Event\+::\+Getclosest\+Timestamp1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to get the closest timestamp to the event in the auxilliary data file1. 
+
+\begin{DoxyReturn}{Returns}
+An int with the closest timestamp 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_a1e6f572dc2a804c962c776a6f5ec3cdf}\label{classIEvent_a1e6f572dc2a804c962c776a6f5ec3cdf}} 
+\index{I\+Event@{I\+Event}!Getclosest\+Timestamp2@{Getclosest\+Timestamp2}}
+\index{Getclosest\+Timestamp2@{Getclosest\+Timestamp2}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Getclosest\+Timestamp2()}{GetclosestTimestamp2()}}
+{\footnotesize\ttfamily int I\+Event\+::\+Getclosest\+Timestamp2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to get the closest timestamp to the event in the auxilliary data file2. 
+
+\begin{DoxyReturn}{Returns}
+An int with the closest timestamp 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_af871e86c8478223d55e3221c7590e3e7}\label{classIEvent_af871e86c8478223d55e3221c7590e3e7}} 
+\index{I\+Event@{I\+Event}!Get\+Cobo\+Temp@{Get\+Cobo\+Temp}}
+\index{Get\+Cobo\+Temp@{Get\+Cobo\+Temp}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Get\+Cobo\+Temp()}{GetCoboTemp()}}
+{\footnotesize\ttfamily int I\+Event\+::\+Get\+Cobo\+Temp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to get the temperature of the Co\+Bo. 
+
+\begin{DoxyReturn}{Returns}
+An int with the Co\+Bo temperature in C 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_a57da66c02aa6bec76d1d04e4993279f4}\label{classIEvent_a57da66c02aa6bec76d1d04e4993279f4}} 
+\index{I\+Event@{I\+Event}!Get\+Cpu\+Temp@{Get\+Cpu\+Temp}}
+\index{Get\+Cpu\+Temp@{Get\+Cpu\+Temp}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Get\+Cpu\+Temp()}{GetCpuTemp()}}
+{\footnotesize\ttfamily int I\+Event\+::\+Get\+Cpu\+Temp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to get the temperature of the C\+PU. 
+
+\begin{DoxyReturn}{Returns}
+An int with the C\+PU temperature in C 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_a4d95eb0bd935bc7089bdf13be6cfb35d}\label{classIEvent_a4d95eb0bd935bc7089bdf13be6cfb35d}} 
+\index{I\+Event@{I\+Event}!Get\+Emon1@{Get\+Emon1}}
+\index{Get\+Emon1@{Get\+Emon1}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Get\+Emon1()}{GetEmon1()}}
+{\footnotesize\ttfamily int I\+Event\+::\+Get\+Emon1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to get the emon1 reading. 
+
+\begin{DoxyReturn}{Returns}
+An int with the emon reading in pW 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_a7733e88f4e08eee6073a448d6b75723b}\label{classIEvent_a7733e88f4e08eee6073a448d6b75723b}} 
+\index{I\+Event@{I\+Event}!Get\+Emon2@{Get\+Emon2}}
+\index{Get\+Emon2@{Get\+Emon2}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Get\+Emon2()}{GetEmon2()}}
+{\footnotesize\ttfamily int I\+Event\+::\+Get\+Emon2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classIEvent_a4d95eb0bd935bc7089bdf13be6cfb35d}{Get\+Emon1()} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classIEvent_a7ba773316eefbd7190f5b1ac16206b63}\label{classIEvent_a7ba773316eefbd7190f5b1ac16206b63}} 
+\index{I\+Event@{I\+Event}!Get\+Horizon@{Get\+Horizon}}
+\index{Get\+Horizon@{Get\+Horizon}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Get\+Horizon()}{GetHorizon()}}
+{\footnotesize\ttfamily float I\+Event\+::\+Get\+Horizon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to get the horizon as seen from the balloon in degrees. 
+
+\begin{DoxyReturn}{Returns}
+A float with the horizon location in degrees 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_aa807a64494e2a7d87c2cf430574a1b0c}\label{classIEvent_aa807a64494e2a7d87c2cf430574a1b0c}} 
+\index{I\+Event@{I\+Event}!Gethv@{Gethv}}
+\index{Gethv@{Gethv}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Gethv()}{Gethv()}}
+{\footnotesize\ttfamily const std\+::vector$<$float$>$\& I\+Event\+::\+Gethv (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to get the std\+::vector of size 8 (typically) that contains the high voltage setting for each of the 8 channels. 
+
+\begin{DoxyReturn}{Returns}
+A std\+::vector$<$float$>$ with the high voltage setting in V 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_a8bf0dad45d6a5aef35cbd32e58e79d95}\label{classIEvent_a8bf0dad45d6a5aef35cbd32e58e79d95}} 
+\index{I\+Event@{I\+Event}!Gethvc@{Gethvc}}
+\index{Gethvc@{Gethvc}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Gethvc()}{Gethvc()}}
+{\footnotesize\ttfamily const std\+::vector$<$float$>$\& I\+Event\+::\+Gethvc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to get the std\+::vector of size 8 (typically) that contains the high voltage current for each of the 8 channels. 
+
+\begin{DoxyReturn}{Returns}
+A std\+::vector$<$float$>$ with the high voltage current in mA 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_ab2e215d10ab78c04ef8c40a094dd5293}\label{classIEvent_ab2e215d10ab78c04ef8c40a094dd5293}} 
+\index{I\+Event@{I\+Event}!Gethv\+SW@{Gethv\+SW}}
+\index{Gethv\+SW@{Gethv\+SW}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Gethv\+S\+W()}{GethvSW()}}
+{\footnotesize\ttfamily const std\+::vector$<$int$>$\& I\+Event\+::\+Gethv\+SW (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to get the HV switch setting for each of the 32 Si\+PM matrices. 
+
+\begin{DoxyReturn}{Returns}
+A std\+::vector$<$int$>$ with the HV power switch 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_a38b7246b464616c40210b03289360f8b}\label{classIEvent_a38b7246b464616c40210b03289360f8b}} 
+\index{I\+Event@{I\+Event}!Get\+Latitude@{Get\+Latitude}}
+\index{Get\+Latitude@{Get\+Latitude}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Get\+Latitude()}{GetLatitude()}}
+{\footnotesize\ttfamily float I\+Event\+::\+Get\+Latitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to get the geographic latitute of the balloon at the time the event was recorded. 
+
+\begin{DoxyReturn}{Returns}
+A float with the latitude in degrees 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_a1469bbbe341060a2b38180e235b2c1ec}\label{classIEvent_a1469bbbe341060a2b38180e235b2c1ec}} 
+\index{I\+Event@{I\+Event}!Get\+Longitude@{Get\+Longitude}}
+\index{Get\+Longitude@{Get\+Longitude}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Get\+Longitude()}{GetLongitude()}}
+{\footnotesize\ttfamily float I\+Event\+::\+Get\+Longitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to get the geographic longitude of the balloon at the time the event was recorded. 
+
+\begin{DoxyReturn}{Returns}
+A float with the longitude in degrees 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_ab00b517486f005b0eef9f38c39ab3bdf}\label{classIEvent_ab00b517486f005b0eef9f38c39ab3bdf}} 
+\index{I\+Event@{I\+Event}!Getlvps\+Cur@{Getlvps\+Cur}}
+\index{Getlvps\+Cur@{Getlvps\+Cur}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Getlvps\+Cur()}{GetlvpsCur()}}
+{\footnotesize\ttfamily int I\+Event\+::\+Getlvps\+Cur (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to get the output current of the L\+V\+PS. 
+
+\begin{DoxyReturn}{Returns}
+An int with the output current in mA 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_add6c647d8ed43c3c54fc3f6948600abc}\label{classIEvent_add6c647d8ed43c3c54fc3f6948600abc}} 
+\index{I\+Event@{I\+Event}!Getlvps\+Vol@{Getlvps\+Vol}}
+\index{Getlvps\+Vol@{Getlvps\+Vol}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Getlvps\+Vol()}{GetlvpsVol()}}
+{\footnotesize\ttfamily float I\+Event\+::\+Getlvps\+Vol (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to get the output voltage of the L\+V\+PS. 
+
+\begin{DoxyReturn}{Returns}
+A float with the output voltage in V 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_a0e07e2093f44fe582dbf0ac2edc2be1e}\label{classIEvent_a0e07e2093f44fe582dbf0ac2edc2be1e}} 
+\index{I\+Event@{I\+Event}!Get\+Moon\+Azimuth@{Get\+Moon\+Azimuth}}
+\index{Get\+Moon\+Azimuth@{Get\+Moon\+Azimuth}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Get\+Moon\+Azimuth()}{GetMoonAzimuth()}}
+{\footnotesize\ttfamily float I\+Event\+::\+Get\+Moon\+Azimuth (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to get the azimuth of the Moon\textquotesingle{}s location in degrees. 
+
+\begin{DoxyReturn}{Returns}
+A float with the azimuth in degrees 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_a7d2d4ae598274c81b51392cff18194c8}\label{classIEvent_a7d2d4ae598274c81b51392cff18194c8}} 
+\index{I\+Event@{I\+Event}!Get\+Moon\+Elevation@{Get\+Moon\+Elevation}}
+\index{Get\+Moon\+Elevation@{Get\+Moon\+Elevation}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Get\+Moon\+Elevation()}{GetMoonElevation()}}
+{\footnotesize\ttfamily float I\+Event\+::\+Get\+Moon\+Elevation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to get the elevation of the Moon\textquotesingle{}s location in degrees. 
+
+\begin{DoxyReturn}{Returns}
+A float with the elevation in degrees 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_a7acdfd044d5d5e099b6a7d1d6f9d7cd1}\label{classIEvent_a7acdfd044d5d5e099b6a7d1d6f9d7cd1}} 
+\index{I\+Event@{I\+Event}!Getpump\+Cur@{Getpump\+Cur}}
+\index{Getpump\+Cur@{Getpump\+Cur}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Getpump\+Cur()}{GetpumpCur()}}
+{\footnotesize\ttfamily int I\+Event\+::\+Getpump\+Cur (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to get the output voltage of the pumps. 
+
+\begin{DoxyReturn}{Returns}
+An int with the current in mA 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_aa4a82c9fd9a99eee0f84c42d539517bd}\label{classIEvent_aa4a82c9fd9a99eee0f84c42d539517bd}} 
+\index{I\+Event@{I\+Event}!Getpump\+Vol@{Getpump\+Vol}}
+\index{Getpump\+Vol@{Getpump\+Vol}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Getpump\+Vol()}{GetpumpVol()}}
+{\footnotesize\ttfamily float I\+Event\+::\+Getpump\+Vol (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to get the output voltage to the pumps. 
+
+\begin{DoxyReturn}{Returns}
+A float with the output voltage in V 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_a81f3a4f65606318ac4d5d99ee9e04fbd}\label{classIEvent_a81f3a4f65606318ac4d5d99ee9e04fbd}} 
+\index{I\+Event@{I\+Event}!Get\+Rad\+Temp@{Get\+Rad\+Temp}}
+\index{Get\+Rad\+Temp@{Get\+Rad\+Temp}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Get\+Rad\+Temp()}{GetRadTemp()}}
+{\footnotesize\ttfamily int I\+Event\+::\+Get\+Rad\+Temp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to get the temperature of the radiator. 
+
+\begin{DoxyReturn}{Returns}
+An int with the radiator temperature in C 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_a2828467dd503a15bdfb83b4ce8452aa6}\label{classIEvent_a2828467dd503a15bdfb83b4ce8452aa6}} 
+\index{I\+Event@{I\+Event}!Get\+Run\+Number@{Get\+Run\+Number}}
+\index{Get\+Run\+Number@{Get\+Run\+Number}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Get\+Run\+Number()}{GetRunNumber()}}
+{\footnotesize\ttfamily int I\+Event\+::\+Get\+Run\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to recover the run number to which the event belongs to. 
+
+\begin{DoxyReturn}{Returns}
+An int with the run number 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_a3fa8602e84ca81932f2a21a9b5943b1c}\label{classIEvent_a3fa8602e84ca81932f2a21a9b5943b1c}} 
+\index{I\+Event@{I\+Event}!Getsiab\+M\+P\+WR@{Getsiab\+M\+P\+WR}}
+\index{Getsiab\+M\+P\+WR@{Getsiab\+M\+P\+WR}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Getsiab\+M\+P\+W\+R()}{GetsiabMPWR()}}
+{\footnotesize\ttfamily const std\+::vector$<$int$>$\& I\+Event\+::\+Getsiab\+M\+P\+WR (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to get the switch setting for each of the 64 M\+U\+S\+I\+Cs. 
+
+\begin{DoxyReturn}{Returns}
+A std\+::vector$<$int$>$ with the M\+U\+S\+IC power switch 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_a575edf25bf25511b33b8555adea334af}\label{classIEvent_a575edf25bf25511b33b8555adea334af}} 
+\index{I\+Event@{I\+Event}!Get\+Si\+P\+M\+Temp@{Get\+Si\+P\+M\+Temp}}
+\index{Get\+Si\+P\+M\+Temp@{Get\+Si\+P\+M\+Temp}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Get\+Si\+P\+M\+Temp()}{GetSiPMTemp()}}
+{\footnotesize\ttfamily const std\+::vector$<$float$>$\& I\+Event\+::\+Get\+Si\+P\+M\+Temp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to get the temperature of the Si\+P\+Ms. 
+
+\begin{DoxyReturn}{Returns}
+An std\+::vector$<$float$>$ with the temperature of the 32 Si\+P\+Ms in C 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_a03e72e60f05ac529c27ed7b916561778}\label{classIEvent_a03e72e60f05ac529c27ed7b916561778}} 
+\index{I\+Event@{I\+Event}!Get\+Sun\+Azimuth@{Get\+Sun\+Azimuth}}
+\index{Get\+Sun\+Azimuth@{Get\+Sun\+Azimuth}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Get\+Sun\+Azimuth()}{GetSunAzimuth()}}
+{\footnotesize\ttfamily float I\+Event\+::\+Get\+Sun\+Azimuth (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to get the azimuth of the Sun\textquotesingle{}s location in degrees. 
+
+\begin{DoxyReturn}{Returns}
+A float with the azimuth in degrees 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_a35b19d2db7a0b35c3d0e5219fb619976}\label{classIEvent_a35b19d2db7a0b35c3d0e5219fb619976}} 
+\index{I\+Event@{I\+Event}!Get\+Sun\+Elevation@{Get\+Sun\+Elevation}}
+\index{Get\+Sun\+Elevation@{Get\+Sun\+Elevation}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Get\+Sun\+Elevation()}{GetSunElevation()}}
+{\footnotesize\ttfamily float I\+Event\+::\+Get\+Sun\+Elevation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to get the elevation of the Sun\textquotesingle{}s location in degrees. 
+
+\begin{DoxyReturn}{Returns}
+A float with the elevation in degrees 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_ae951ab751628dbad6aa264d3e9bc49ce}\label{classIEvent_ae951ab751628dbad6aa264d3e9bc49ce}} 
+\index{I\+Event@{I\+Event}!Get\+Temp\+Flag@{Get\+Temp\+Flag}}
+\index{Get\+Temp\+Flag@{Get\+Temp\+Flag}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Get\+Temp\+Flag()}{GetTempFlag()}}
+{\footnotesize\ttfamily int I\+Event\+::\+Get\+Temp\+Flag (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to get if the temperature of in the log is of the micro\+Controller or the Si\+P\+Ms (deprecated) 
+
+\begin{DoxyReturn}{Returns}
+An int switch 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_aaac27f1be83fb9af936d26847478a44e}\label{classIEvent_aaac27f1be83fb9af936d26847478a44e}} 
+\index{I\+Event@{I\+Event}!Get\+Tilt\+Angle@{Get\+Tilt\+Angle}}
+\index{Get\+Tilt\+Angle@{Get\+Tilt\+Angle}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Get\+Tilt\+Angle()}{GetTiltAngle()}}
+{\footnotesize\ttfamily float I\+Event\+::\+Get\+Tilt\+Angle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to obtain the telescope tilt pointing angle after voltage sag corrections. 
+
+\begin{DoxyReturn}{Returns}
+float with the angle from horizontal in degrees 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_a460b04b92872b5b4ff27441fae769476}\label{classIEvent_a460b04b92872b5b4ff27441fae769476}} 
+\index{I\+Event@{I\+Event}!Get\+Tilt\+Angle\+Raw@{Get\+Tilt\+Angle\+Raw}}
+\index{Get\+Tilt\+Angle\+Raw@{Get\+Tilt\+Angle\+Raw}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Get\+Tilt\+Angle\+Raw()}{GetTiltAngleRaw()}}
+{\footnotesize\ttfamily float I\+Event\+::\+Get\+Tilt\+Angle\+Raw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to obtain the telescope tilt pointing angle without any corrections. 
+
+\begin{DoxyReturn}{Returns}
+float with the angle from horizontal in degrees 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_a773e95dbb87039b7c90f22504a2c20c4}\label{classIEvent_a773e95dbb87039b7c90f22504a2c20c4}} 
+\index{I\+Event@{I\+Event}!Get\+Trig\+Event@{Get\+Trig\+Event}}
+\index{Get\+Trig\+Event@{Get\+Trig\+Event}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Get\+Trig\+Event()}{GetTrigEvent()}}
+{\footnotesize\ttfamily int I\+Event\+::\+Get\+Trig\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to get the number of triggered events in the run. 
+
+\begin{DoxyReturn}{Returns}
+An int with the number of triggered events 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_a6b3078eccf01ac33208ef2570aa7565b}\label{classIEvent_a6b3078eccf01ac33208ef2570aa7565b}} 
+\index{I\+Event@{I\+Event}!Get\+U\+C\+Temp@{Get\+U\+C\+Temp}}
+\index{Get\+U\+C\+Temp@{Get\+U\+C\+Temp}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Get\+U\+C\+Temp()}{GetUCTemp()}}
+{\footnotesize\ttfamily const std\+::vector$<$float$>$\& I\+Event\+::\+Get\+U\+C\+Temp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Public method to get the std\+::vector of size 32 (typically) that contains the temperature of the 32 micro\+Controllers. 
+
+\begin{DoxyReturn}{Returns}
+A std\+::vector$<$float$>$ with the micro\+Controller temperature in C 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIEvent_a353512fe50f24076e44296f2b0b49519}\label{classIEvent_a353512fe50f24076e44296f2b0b49519}} 
+\index{I\+Event@{I\+Event}!Set\+Parameters\+From\+Timestamp@{Set\+Parameters\+From\+Timestamp}}
+\index{Set\+Parameters\+From\+Timestamp@{Set\+Parameters\+From\+Timestamp}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Set\+Parameters\+From\+Timestamp()}{SetParametersFromTimestamp()}}
+{\footnotesize\ttfamily void I\+Event\+::\+Set\+Parameters\+From\+Timestamp (\begin{DoxyParamCaption}\item[{int}]{timestamp,  }\item[{std\+::vector$<$ std\+::vector$<$ std\+::string $>$$>$}]{data,  }\item[{std\+::vector$<$ std\+::vector$<$ std\+::string $>$$>$}]{data2 }\end{DoxyParamCaption})}
+
+
+
+Public method to fill in most of the member variables. 
+
+Vectors have size row x cols, depending on the csv file used to obtain them. Each of the rows corresponds to a different time stamp and each column to different values of the different auxilliary data sources. Column 0 should be the timestamp
+
+
+\begin{DoxyParams}{Parameters}
+{\em timestamp} & An int storing the time of trigger in seconds after a preset vlaue (May 13th) \\
+\hline
+{\em data} & A std\+::vector of strings with size row x cols from the .csv file containing the balloon infromation. \\
+\hline
+{\em data2} & A std\+::vector of strings containing the state message information. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classIEvent_ac6366e40d60fe3ea754f4a019a2fed70}\label{classIEvent_ac6366e40d60fe3ea754f4a019a2fed70}} 
+\index{I\+Event@{I\+Event}!Set\+Run\+Number@{Set\+Run\+Number}}
+\index{Set\+Run\+Number@{Set\+Run\+Number}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Set\+Run\+Number()}{SetRunNumber()}}
+{\footnotesize\ttfamily void I\+Event\+::\+Set\+Run\+Number (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Public method to set the run\+Number member variable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & An int with the run number \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classIEvent_aa8d04ba13fcb090b50c25eb07358b9ef}\label{classIEvent_aa8d04ba13fcb090b50c25eb07358b9ef}} 
+\index{I\+Event@{I\+Event}!Set\+Telescope\+Pointing@{Set\+Telescope\+Pointing}}
+\index{Set\+Telescope\+Pointing@{Set\+Telescope\+Pointing}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Set\+Telescope\+Pointing()}{SetTelescopePointing()}}
+{\footnotesize\ttfamily void I\+Event\+::\+Set\+Telescope\+Pointing (\begin{DoxyParamCaption}\item[{int}]{timestamp,  }\item[{std\+::vector$<$ std\+::vector$<$ std\+::string $>$$>$}]{data }\end{DoxyParamCaption})}
+
+
+
+Public method to fill in the tilt\+Angle class members. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timestamp} & An int storing the time of trigger in seconds after a preset vlaue (May 13th) \\
+\hline
+{\em data} & A std\+::vector of strings with size row x cols from the .csv file containing the tilt infromation. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classIEvent_a8e05e96983ecca92b777dab1bb7b539a}\label{classIEvent_a8e05e96983ecca92b777dab1bb7b539a}} 
+\index{I\+Event@{I\+Event}!Set\+Telescope\+Pointing\+Raw@{Set\+Telescope\+Pointing\+Raw}}
+\index{Set\+Telescope\+Pointing\+Raw@{Set\+Telescope\+Pointing\+Raw}!I\+Event@{I\+Event}}
+\subsubsection{\texorpdfstring{Set\+Telescope\+Pointing\+Raw()}{SetTelescopePointingRaw()}}
+{\footnotesize\ttfamily void I\+Event\+::\+Set\+Telescope\+Pointing\+Raw (\begin{DoxyParamCaption}\item[{int}]{timestamp,  }\item[{std\+::vector$<$ std\+::vector$<$ std\+::string $>$$>$}]{data }\end{DoxyParamCaption})}
+
+
+
+Public method to fill in the tilt\+Angle\+Raw class members. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timestamp} & An int storing the time of trigger in seconds after a preset vlaue (May 13th) \\
+\hline
+{\em data} & A std\+::vector of strings with size row x cols from the .csv file containing the tilt infromation. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+dict/include/I\+Event.\+h\end{DoxyCompactItemize}

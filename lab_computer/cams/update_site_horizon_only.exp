@@ -1,0 +1,13 @@
+#!/usr/bin/expect -f
+
+# Read login info from file
+set user "trinity"
+
+# Spawn Horizon cam 
+#spawn scp -i ~/.ssh/trinitySite /home/mpotts32/cams/Horizon/jpg/horizon_snap.jpg $user@130.207.188.86:/httpdocs/wp-content/uploads/demonstrator-uploads/Horizon.jpg
+
+#expect eof
+
+spawn scp -i /home/sstepanoff3/.ssh/trinitySite /data/TrinityLabComputer/cams/Horizon/jpg/horizon_snap.jpg $user@130.207.49.19:/httpdocs/wp-content/uploads/demonstrator-uploads/Horizon.jpg
+
+expect eof

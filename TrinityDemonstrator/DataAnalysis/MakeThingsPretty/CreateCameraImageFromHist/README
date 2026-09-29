@@ -1,0 +1,18 @@
+How to run 
+./MakeCamera filename
+
+./MakeCamera hey
+
+ouput dir
+/storage/hive/project/phy-otte/sstepanoff3/MakeThingsPretty/Images/
+
+Loaded with a text file to read from 
+/storage/hive/project/phy-otte/sstepanoff3/MakeThingsPretty/Images.txt
+
+
+./MakeCamera /DataAnalysis/MakeThingsPretty/Images.txt y
+
+
+
+/storage/hive/project/phy-otte/sstepanoff3/event_cleaning/OutputRank8test/
+EventCleanedCluster20250424_TC_481_TB_239_NP_481_s_256_FA_800_mp_1_er_100_tr_1.root

@@ -1,0 +1,109 @@
+\hypertarget{classIPlotTools}{}\section{I\+Plot\+Tools Class Reference}
+\label{classIPlotTools}\index{I\+Plot\+Tools@{I\+Plot\+Tools}}
+
+
+Methods to facilitate plotting the camera in Ex\+A\+CT.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIPlotTools_ac2b1bdd22c8ffe2ed5fa11ea206a666f}\label{classIPlotTools_ac2b1bdd22c8ffe2ed5fa11ea206a666f}} 
+\hyperlink{classIPlotTools_ac2b1bdd22c8ffe2ed5fa11ea206a666f}{I\+Plot\+Tools} ()
+\begin{DoxyCompactList}\small\item\em Public constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIPlotTools_a589ad6d93c9144cde064faaafd0eb9fe}\label{classIPlotTools_a589ad6d93c9144cde064faaafd0eb9fe}} 
+\hyperlink{classIPlotTools_a589ad6d93c9144cde064faaafd0eb9fe}{$\sim$\+I\+Plot\+Tools} ()
+\begin{DoxyCompactList}\small\item\em Public destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classIPlotTools_a75098e1fcab37127a4a855c0833b00e3}{Find\+Bin} (int pixel\+ID, int $\ast$nx, int $\ast$ny)
+\begin{DoxyCompactList}\small\item\em A method to find the bin to which a pixel ID belongs to, based on a camera that is 16 rows by 32 columns and follows the E\+U\+S\+O-\/\+S\+P\+B2 numbering standard. \end{DoxyCompactList}\item 
+static int \hyperlink{classIPlotTools_a56f33f65542d4f6e82905bef404452ae}{Find\+Pixel} (int nx, int ny)
+\begin{DoxyCompactList}\small\item\em A method to calculate the pixel ID corresponding to a certain row and column in the camera. \end{DoxyCompactList}\item 
+static int \hyperlink{classIPlotTools_a0e2f7e9cf1a12de048199efadf86088f}{Get\+M\+U\+S\+I\+C\+Cursor\+ID} (int x, int y)
+\begin{DoxyCompactList}\small\item\em A method used to calculate the M\+U\+S\+IC ID (trigger cell) over which the mouse is hovering on a R\+O\+OT plot of the camera. \end{DoxyCompactList}\item 
+static void \hyperlink{classIPlotTools_a77fc4a8cc4240cf78c1f32876a0267ec}{Draw\+M\+U\+S\+I\+C\+Boundaries} ()
+\begin{DoxyCompactList}\small\item\em A method used to draw the trigger cell boundaries grouping the pixels connected to the same discriminator together. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Methods to facilitate plotting the camera in Ex\+A\+CT. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classIPlotTools_a77fc4a8cc4240cf78c1f32876a0267ec}\label{classIPlotTools_a77fc4a8cc4240cf78c1f32876a0267ec}} 
+\index{I\+Plot\+Tools@{I\+Plot\+Tools}!Draw\+M\+U\+S\+I\+C\+Boundaries@{Draw\+M\+U\+S\+I\+C\+Boundaries}}
+\index{Draw\+M\+U\+S\+I\+C\+Boundaries@{Draw\+M\+U\+S\+I\+C\+Boundaries}!I\+Plot\+Tools@{I\+Plot\+Tools}}
+\subsubsection{\texorpdfstring{Draw\+M\+U\+S\+I\+C\+Boundaries()}{DrawMUSICBoundaries()}}
+{\footnotesize\ttfamily static void I\+Plot\+Tools\+::\+Draw\+M\+U\+S\+I\+C\+Boundaries (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+A method used to draw the trigger cell boundaries grouping the pixels connected to the same discriminator together. 
+
+\mbox{\Hypertarget{classIPlotTools_a75098e1fcab37127a4a855c0833b00e3}\label{classIPlotTools_a75098e1fcab37127a4a855c0833b00e3}} 
+\index{I\+Plot\+Tools@{I\+Plot\+Tools}!Find\+Bin@{Find\+Bin}}
+\index{Find\+Bin@{Find\+Bin}!I\+Plot\+Tools@{I\+Plot\+Tools}}
+\subsubsection{\texorpdfstring{Find\+Bin()}{FindBin()}}
+{\footnotesize\ttfamily static void I\+Plot\+Tools\+::\+Find\+Bin (\begin{DoxyParamCaption}\item[{int}]{pixel\+ID,  }\item[{int $\ast$}]{nx,  }\item[{int $\ast$}]{ny }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+A method to find the bin to which a pixel ID belongs to, based on a camera that is 16 rows by 32 columns and follows the E\+U\+S\+O-\/\+S\+P\+B2 numbering standard. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pixel\+ID} & An int with the ID of the pixel \\
+\hline
+{\em nx} & An int$\ast$ where to store the column bin number \\
+\hline
+{\em ny} & An int$\ast$ where to store the row bin number \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classIPlotTools_a56f33f65542d4f6e82905bef404452ae}\label{classIPlotTools_a56f33f65542d4f6e82905bef404452ae}} 
+\index{I\+Plot\+Tools@{I\+Plot\+Tools}!Find\+Pixel@{Find\+Pixel}}
+\index{Find\+Pixel@{Find\+Pixel}!I\+Plot\+Tools@{I\+Plot\+Tools}}
+\subsubsection{\texorpdfstring{Find\+Pixel()}{FindPixel()}}
+{\footnotesize\ttfamily static int I\+Plot\+Tools\+::\+Find\+Pixel (\begin{DoxyParamCaption}\item[{int}]{nx,  }\item[{int}]{ny }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+A method to calculate the pixel ID corresponding to a certain row and column in the camera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nx} & An int with the column number \\
+\hline
+{\em ny} & An int with the row number\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An int with the pixel number 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIPlotTools_a0e2f7e9cf1a12de048199efadf86088f}\label{classIPlotTools_a0e2f7e9cf1a12de048199efadf86088f}} 
+\index{I\+Plot\+Tools@{I\+Plot\+Tools}!Get\+M\+U\+S\+I\+C\+Cursor\+ID@{Get\+M\+U\+S\+I\+C\+Cursor\+ID}}
+\index{Get\+M\+U\+S\+I\+C\+Cursor\+ID@{Get\+M\+U\+S\+I\+C\+Cursor\+ID}!I\+Plot\+Tools@{I\+Plot\+Tools}}
+\subsubsection{\texorpdfstring{Get\+M\+U\+S\+I\+C\+Cursor\+I\+D()}{GetMUSICCursorID()}}
+{\footnotesize\ttfamily static int I\+Plot\+Tools\+::\+Get\+M\+U\+S\+I\+C\+Cursor\+ID (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+A method used to calculate the M\+U\+S\+IC ID (trigger cell) over which the mouse is hovering on a R\+O\+OT plot of the camera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & An int with the x coordinate of the cursor \\
+\hline
+{\em y} & An int with the y coordinate of the cursor\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An int witht the M\+U\+S\+IC ID. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+dict/include/I\+Plot\+Tools.\+h\end{DoxyCompactItemize}

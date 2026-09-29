@@ -1,0 +1,89 @@
+#!/usr/bin/expect -f
+
+if {[llength $argv] ==0} {
+    puts stderr "Usage: $argv0 PDU_ID OLT_INDEX ACTION
+    PDU_ID    : wc (wall cabinet) or rc (rolling cabinet)
+    OLT_INDEX : 1-8, type STATUS to get status of PDU outlets
+    ACTION    : reboot, on, off"
+    exit 1
+}
+
+# SSH into PDU
+proc spawn_ssh {} {
+
+    #spawn ssh -o ConnectTimeout=5 -c aes128-cbc $::user@$::IP
+    spawn ssh -o HostKeyAlgorithms=+ssh-rsa -c aes128-cbc $::user@$::IP
+    expect {
+	"password: " {
+	    send "$::pass\r"
+	    puts "SSH connection to PDU successful."
+	    expect {
+		"> " {
+		    if {$::index == "STATUS" || $::index == "status"} {
+			send "oltsta show\r"
+			expect "> "
+			send "exit\r"
+			expect eof
+			exit
+		    } elseif {$::index == "LOAD" || $::index == "load"} {
+			send "devsta show\r"
+			expect "> "
+			send "exit\r"
+			expect eof
+			exit
+		    } else {
+			# Set the action to do to the selected outlet
+			set act [lindex $::argv 2]
+			send "oltctrl index $::index act $act\r"
+			
+			sleep 3
+			expect "> "
+			send "oltsta show\r"
+			
+			if {$act == "reboot"} {
+			    sleep 3
+			    expect "> "
+			    send "oltsta show\r"
+			}
+			
+			expect "> "
+			send "exit\r"
+			expect eof
+			exit
+		    }
+
+		}
+	    }
+	}
+	eof {
+	    puts "SSH connection timeout! Check overall network connectivity."
+	    exit
+	}
+    }
+}
+
+# Read login info from file
+set fh [open /data/TrinityLabComputer/control_comp/pass.txt]
+gets $fh user
+gets $fh pass
+close $fh
+
+# Set timeout
+set timeout -1
+
+# Set PDU id
+set pduid [lindex $argv 0]
+
+# Set IP based off user input
+if {$pduid == "wc"} { # wall cabinet
+    set IP 172.16.17.76
+}
+if {$pduid == "rc"} { # rolling cabinet
+    set IP 172.16.17.80
+}
+
+# Set outlet index
+set index [lindex $argv 1]
+
+spawn_ssh
+

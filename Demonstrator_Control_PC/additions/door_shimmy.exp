@@ -1,0 +1,10 @@
+#!/usr/bin/expect
+
+set PASS "welsm"
+set i 1
+set timeout 1
+while {$i<11} {
+	send -- "ls"
+	expect eof
+		incr i
+}

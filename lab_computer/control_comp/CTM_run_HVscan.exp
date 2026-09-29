@@ -1,0 +1,68 @@
+#!/usr/bin/expect -f
+
+
+# Read in the IP address, username, and password from the file
+set file "/data/TrinityLabComputer/control_comp/pass_ctcpu.txt"
+set fh [open $file r]
+gets $fh ip
+gets $fh user
+gets $fh password
+close $fh
+
+# Get Direction from user input
+set start [lindex $argv 0]
+set size  [lindex $argv 1]
+set step  [lindex $argv 2]
+
+
+# Connect to the remote computer using SSH
+spawn ssh $user@$ip
+
+# Wait for the password prompt and send the password
+expect "password:"
+send "$password\r"
+
+# Execute a command on the remote computer
+expect "trinity@trinityCPU:~$#"
+send "cd ctmessaging \r"
+
+# Execute a command on the remote computer
+expect "trinity@trinityCPU:~/ctmessaging$"
+send "sudo ./CTMessaging \r"
+
+# Execute a command on the remote computer
+expect "*?trinity:*"
+send "$password\r"
+
+# Execute a command on the remote computer
+expect "*?Hi Operator! Please type your name:*"
+send "autoTriggerScan\r"
+
+# Execute a command on the remote computer
+expect "CTM>"
+send "RemoteControl SMdisable\r"
+
+# Sleep for 5 seconds
+sleep 20
+
+# Execute a command on the remote computer
+expect "CTM>"
+send "RemoteControl HVScan -s $start -ns $step -sz $size -i 20  \r"
+
+sleep 10
+
+#Execute a command on the remote computer
+expect "CTM>"
+send "send \x04"
+
+# Wait for the command prompt again
+expect "trinity@trinityCPU:~/ctmessaging$"
+send "exit\r"
+
+# Wait for the SSH session to close
+expect eof
+
+
+
+
+

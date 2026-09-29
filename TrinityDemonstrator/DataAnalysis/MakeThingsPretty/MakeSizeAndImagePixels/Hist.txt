@@ -1,0 +1,3 @@
+Output,Title,Histogram,File,Zaxis
+SIZEandIP,Image_Pixels_vs_Size,combined_Size_SPCTH2F,/storage/hive/project/phy-otte/sstepanoff3/event_cleaning/CombineEventCleaningFiles/Rank8_3PixelsCut_noSize_20250702_all.root,PE
+SIZEandIPCut,Image_Pixels_vs_Size,combined_Size_SPCTH2F,/storage/hive/project/phy-otte/sstepanoff3/event_cleaning/CombineEventCleaningFiles/Rank85Pixels_noSizeCut_20250703_all.root,PE

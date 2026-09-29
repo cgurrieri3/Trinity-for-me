@@ -1,0 +1,1038 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "To be used during observation to monitor the conditions at the site.",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 3,
+  "links": [],
+  "liveNow": true,
+  "panels": [
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "idMkHa-Vk"
+      },
+      "description": "wind speed and/or direction, uncorrected, but relative to the north marker, which\nmay not be facing north\nsee pages 132-135 and ",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": true,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#6ED0E0",
+                "value": 15
+              },
+              {
+                "color": "#EAB839",
+                "value": 25
+              },
+              {
+                "color": "red",
+                "value": 35
+              }
+            ]
+          },
+          "unit": "velocityms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 21,
+        "w": 11,
+        "x": 0,
+        "y": 0
+      },
+      "id": 5,
+      "options": {
+        "legend": {
+          "calcs": [
+            "variance"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "idMkHa-Vk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "/^$Measurement$/",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT distinct(\"AverageRelativeWindSpeed\") FROM \"autogen\"./^$Measurement$/ WHERE $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "AverageRelativeWindSpeed"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "distinct"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Average Relative Wind Speed",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "idMkHa-Vk"
+      },
+      "description": "Provides the last Relative wind speed from the panel to the left",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#6ED0E0",
+                "value": 15
+              },
+              {
+                "color": "#EAB839",
+                "value": 25
+              },
+              {
+                "color": "red",
+                "value": 35
+              }
+            ]
+          },
+          "unit": "velocityms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 3,
+        "x": 11,
+        "y": 0
+      },
+      "id": 9,
+      "options": {
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "limit": 1,
+          "values": true
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "idMkHa-Vk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "/^$Measurement$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"AverageRelativeWindSpeed\") FROM /^$Measurement$/ WHERE $timeFilter ORDER BY time DESC LIMIT 1\n",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "AverageRelativeWindDirection"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Latest Value RWS",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "idMkHa-Vk"
+      },
+      "description": "Gets the last value of the panel to the left",
+      "gridPos": {
+        "h": 14,
+        "w": 10,
+        "x": 14,
+        "y": 0
+      },
+      "id": 12,
+      "options": {
+        "baidu": {
+          "callback": "bmapReady",
+          "key": ""
+        },
+        "editor": {
+          "format": "auto",
+          "height": 600
+        },
+        "gaode": {
+          "key": "",
+          "plugin": "AMap.Scale,AMap.ToolBar"
+        },
+        "getOption": "let sData = [];\nlet sTime = [];\ndata.series.map((s) => {\n  sData = s.fields.find((f) => f.type === 'number').values.buffer || s.fields.find((f) => f.type === 'number').values;\n  sTime = s.fields.find((f) => f.type === 'time').values.buffer || s.fields.find((f) => f.type === 'time').values;\n\n});\n\nreturn {\n  series: [\n    {\n      name: 'hour',\n      type: 'gauge',\n      startAngle: 90,\n      endAngle: -270,\n      min: 0,\n      max: 360,\n      splitNumber: 8,\n      clockwise: true,\n      axisLine: {\n        lineStyle: {\n          width: 15,\n          color: [[1, 'rgba(0,0,0,0.7)']],\n          shadowColor: 'rgba(0, 0, 0, 0.5)',\n          shadowBlur: 15\n        }\n      },\n      splitLine: {\n        lineStyle: {\n          shadowColor: 'rgba(0, 0, 0, 0.3)',\n          shadowBlur: 3,\n          shadowOffsetX: 1,\n          shadowOffsetY: 2\n        }\n      },\n      axisLabel: {\n        fontSize: 25,\n        distance: 45,\n        formatter: function (value) {\n          if (value === 360) {\n            return '';\n          }\n          if (value === 0) {\n            return 'N';\n          }\n          if (value === 45) {\n            return 'NE';\n          }\n          if (value === 90) {\n            return 'E';\n          }\n          if (value === 135) {\n            return 'SE';\n          }\n          if (value === 180) {\n            return 'S';\n          }\n          if (value === 225) {\n            return 'SW';\n          }\n          if (value === 270) {\n            return 'W';\n          }\n          if (value === 315) {\n            return 'NW';\n          }\n          return value + '';\n        }\n      },\n      pointer: {\n        width: 12,\n        length: '77%',\n        offsetCenter: [0, '8%'],\n        itemStyle: {\n          color: '#57A341',\n          shadowColor: 'rgba(0, 0, 0, 0.3)',\n          shadowBlur: 8,\n          shadowOffsetX: 2,\n          shadowOffsetY: 4\n        }\n      },\n      detail: {\n        valueAnimation: true,\n        formatter: function (value) {\n          return '{value|' + value.toFixed(0) + '}{unit|o}';\n        },\n        offsetCenter: ['100%', '100%'],\n        rich: {\n          value: {\n            fontSize: 35,\n            fontWeight: 'bolder',\n            color: '#57A341',\n          },\n          unit: {\n            fontSize: 20,\n            color: '#57A341',\n            padding: [0, 0, 35, 5]\n          }\n        }\n      },\n      title: {\n        offsetCenter: [0, '30%']\n      },\n      data: [\n        {\n          value: sData\n        }\n      ]\n    },\n  ]\n};\n\n\n\n",
+        "google": {
+          "callback": "gmapReady",
+          "key": ""
+        },
+        "map": "none",
+        "renderer": "canvas",
+        "themeEditor": {
+          "config": "{}",
+          "height": 400,
+          "name": "default"
+        }
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "idMkHa-Vk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "/^$Measurement$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"AverageCorrectedWindDirection\")  FROM /^$Measurement$/ WHERE $timeFilter ORDER BY time DESC LIMIT 1\n",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "AverageRelativeWindDirection"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Latest Value ACWD",
+      "type": "volkovlabs-echarts-panel"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "idMkHa-Vk"
+      },
+      "description": "The relative humidity at the the station.\nRelative Humidity also output, expressed as a percent, measures the current absolute humidity\nrelative to the maximum for that temperature. see page 137",
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 75
+              }
+            ]
+          },
+          "unit": "humidity"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 11,
+        "y": 6
+      },
+      "id": 27,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "firstNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "idMkHa-Vk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "20230316",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT last(\"Relative_Humidity\") FROM /^$Measurement$/ WHERE $timeFilter ORDER BY time DESC LIMIT 1\n",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Relative Humidity ",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "idMkHa-Vk"
+      },
+      "description": "Current Temperature at the weather station. see page 137",
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "degree"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 11,
+        "y": 10
+      },
+      "id": 2,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "firstNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "idMkHa-Vk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "20230316",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT last(\"Temperature\") FROM /^$Measurement$/ WHERE $timeFilter ORDER BY time DESC LIMIT 1\n",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Tempature",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "idMkHa-Vk"
+      },
+      "description": "Current dew point at the weather station. see page 137",
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "degree"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 11,
+        "y": 14
+      },
+      "id": 25,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "idMkHa-Vk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "20230316",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT last(\"Dewpoint\") FROM /^$Measurement$/ WHERE $timeFilter ORDER BY time DESC LIMIT 1\n",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Dewpoint",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "idMkHa-Vk"
+      },
+      "description": "Corrected Wind Direction shall be computed as the Apparent Wind Direction (i.e.: using Compass Heading)\nwhen Compass Heading is available but any one (or more) of GPS Speed and GPS Heading are unavailable. Corrected Wind Direction shall not be computed when Compass Heading is unavailable.\nSee Page 133 ",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "dark-green",
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisGridShow": true,
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "points",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "degree"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 10,
+        "x": 14,
+        "y": 14
+      },
+      "id": 11,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "idMkHa-Vk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "/^$Measurement$/",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "SELECT distinct(\"AverageCorrectedWindDirection\") FROM \"autogen\"./^$Measurement$/ WHERE $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "AverageRelativeWindSpeed"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "distinct"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Corrected Average Relative Wind Direction",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "idMkHa-Vk"
+      },
+      "description": "If it's not zero see page 130 of the manual\n",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 11,
+        "y": 18
+      },
+      "id": 23,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "firstNotNull"
+          ],
+          "fields": "/^last$/",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "idMkHa-Vk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "/^$Measurement$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"Status\") FROM /^$Measurement$/ WHERE $timeFilter ORDER BY time DESC LIMIT 1",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Overall Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "idMkHa-Vk"
+      },
+      "description": "If it's not zero see page 130 of the manual\n",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "fillOpacity": 70,
+            "lineWidth": 0,
+            "spanNulls": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 6,
+        "x": 0,
+        "y": 21
+      },
+      "id": 26,
+      "options": {
+        "alignValue": "left",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "mergeValues": true,
+        "rowHeight": 0.9,
+        "showValue": "auto",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "idMkHa-Vk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "/^$Measurement$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT distict(\"Status\") FROM /^$Measurement$/  WHERE $timeFilter GROUP BY time($__interval) fill(null)\n",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "WindSensorStatus"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "distinct"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Overall Status",
+      "type": "state-timeline"
+    }
+  ],
+  "refresh": "1m",
+  "revision": 1,
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allValue": "All data",
+        "current": {
+          "selected": true,
+          "text": [
+            "20240201",
+            "20240410"
+          ],
+          "value": [
+            "20240201",
+            "20240410"
+          ]
+        },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "idMkHa-Vk"
+        },
+        "definition": "SHOW MEASUREMENTS ORDER BY time DESC",
+        "description": "A varirable that adjust for the most recent day",
+        "hide": 0,
+        "includeAll": true,
+        "label": "Meas",
+        "multi": true,
+        "name": "Measurement",
+        "options": [],
+        "query": "SHOW MEASUREMENTS ORDER BY time DESC",
+        "refresh": 1,
+        "regex": "\\d{8}",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now+2h"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ]
+  },
+  "timezone": "utc",
+  "title": "Trinity Weather Database Observing",
+  "uid": "7KNa-igSz",
+  "version": 23,
+  "weekStart": ""
+}

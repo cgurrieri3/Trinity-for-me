@@ -1,0 +1,384 @@
+\hypertarget{classIUtilities}{}\section{I\+Utilities Class Reference}
+\label{classIUtilities}\index{I\+Utilities@{I\+Utilities}}
+
+
+A class containing methods used in aiding analysis.  
+
+
+
+
+{\ttfamily \#include $<$I\+Utilities.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIUtilities_af27b581f37f5044d0da9944de69bfea8}\label{classIUtilities_af27b581f37f5044d0da9944de69bfea8}} 
+\hyperlink{classIUtilities_af27b581f37f5044d0da9944de69bfea8}{I\+Utilities} ()
+\begin{DoxyCompactList}\small\item\em Public constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIUtilities_a79894025d9c2fa3d2cec7338e6b7da80}\label{classIUtilities_a79894025d9c2fa3d2cec7338e6b7da80}} 
+\hyperlink{classIUtilities_a79894025d9c2fa3d2cec7338e6b7da80}{$\sim$\+I\+Utilities} ()
+\begin{DoxyCompactList}\small\item\em Public destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static uint64\+\_\+t \hyperlink{classIUtilities_af2a541760de5896aa5d89a684c2cd8d6}{Convert\+U\+T\+Cto\+Unix} (const std\+::string \&utc\+Time\+Str)
+\begin{DoxyCompactList}\small\item\em Public method to convert U\+TC time to Unix epoch. \end{DoxyCompactList}\item 
+static std\+::vector$<$ std\+::string $>$ \hyperlink{classIUtilities_affbe6e61c3f1c6169044273a7e1f83ba}{Get\+Files\+In\+Directory} (std\+::string dirname, std\+::string extension=\char`\"{}.root\char`\"{})
+\begin{DoxyCompactList}\small\item\em Public method to obtain all the files with a certain extension in a directory. \end{DoxyCompactList}\item 
+static int \hyperlink{classIUtilities_a6a2664bbaa82bed0028c676a2b1b411a}{Get\+Maximum\+Pixel\+ID} (std\+::vector$<$ float $>$ amplitude, int music\+ID=-\/1)
+\begin{DoxyCompactList}\small\item\em Public method to find the Pixel ID (assuming the amplitude vector is sorted in ascending pixel\+ID number) of the maximum number in a std\+::vector. \end{DoxyCompactList}\item 
+static int \hyperlink{classIUtilities_aa5cc1c99b228caf689176928478995cd}{Get\+Maximum\+Pixel\+ID} (std\+::vector$<$ float $>$ amplitude, std\+::vector$<$ int $>$ roi\+Pixels=std\+::vector$<$ int $>$(0))
+\begin{DoxyCompactList}\small\item\em Public method to find the Pixel ID for the maximum number in a std\+::vector within the region of interest as described in \hyperlink{classEvent}{Event}. \end{DoxyCompactList}\item 
+static float \hyperlink{classIUtilities_a13f7d8d17e744480f85c2b2e789e544e}{Get\+Maximum} (std\+::vector$<$ float $>$ amplitude, int music\+ID=-\/1)
+\begin{DoxyCompactList}\small\item\em Public method to find the maximum number in a std\+::vector. \end{DoxyCompactList}\item 
+static float \hyperlink{classIUtilities_af77a578e3f7924e82545205e3a766bd0}{Get\+Maximum} (std\+::vector$<$ float $>$ amplitude, std\+::vector$<$ int $>$ roi\+Pixels=std\+::vector$<$ int $>$(0))
+\begin{DoxyCompactList}\small\item\em Public method to find the maximum number in a std\+::vector within the region of interest as described in \hyperlink{classEvent}{Event}. \end{DoxyCompactList}\item 
+static int \hyperlink{classIUtilities_ae7db5eec63bd72ddfd50aa0abbb03a6d}{Get\+Minimum\+Pixel\+ID} (std\+::vector$<$ float $>$ amplitude, int music\+ID=-\/1)
+\begin{DoxyCompactList}\small\item\em Public method to find the Pixel ID of the minimum number in a std\+::vector. \end{DoxyCompactList}\item 
+static int \hyperlink{classIUtilities_a2e1fadb4432d146d004d747af2ab447b}{Get\+Minimum\+Pixel\+ID} (std\+::vector$<$ float $>$ amplitude, std\+::vector$<$ int $>$ roi\+Pixels=std\+::vector$<$ int $>$(0))
+\begin{DoxyCompactList}\small\item\em Public method to find the Pixel ID for the minimum number in a std\+::vector within the region of interest as described in \hyperlink{classEvent}{Event}. \end{DoxyCompactList}\item 
+static float \hyperlink{classIUtilities_a9b38571c8548ab538cc65aad6f238fe8}{Get\+Minimum} (std\+::vector$<$ float $>$ amplitude, int music\+ID=-\/1)
+\begin{DoxyCompactList}\small\item\em Public method to find the minimum number in a std\+::vector. \end{DoxyCompactList}\item 
+static float \hyperlink{classIUtilities_ae3f9e408e055f71e9f08d2c12dec2117}{Get\+Minimum} (std\+::vector$<$ float $>$ amplitude, std\+::vector$<$ int $>$ roi\+Pixels=std\+::vector$<$ int $>$(0))
+\begin{DoxyCompactList}\small\item\em Public method to find the minimum number in a std\+::vector within the region of interest as described in \hyperlink{classEvent}{Event}. \end{DoxyCompactList}\item 
+static float \hyperlink{classIUtilities_a65527a73c39d6cae81f6a09fb9a44d93}{Get\+Pedestal\+Average} (std\+::vector$<$ int $>$ trace, int t\+Window=20, int pad=10, bool is\+Un\+Correlated=true)
+\begin{DoxyCompactList}\small\item\em Public method to calculate the pedestal based on the algorithm developed for uncorrelated samples in a trace The average of all samples in the specified time window is calculated. \end{DoxyCompactList}\item 
+static int \hyperlink{classIUtilities_a722cad62278e16b2593a220a70c40d8e}{Get\+H\+V\+Channel} (int pixel\+ID)
+\begin{DoxyCompactList}\small\item\em Public method to obtain the High Voltage channel to which the pixel ID is connected. \end{DoxyCompactList}\item 
+static double \hyperlink{classIUtilities_ab5e39d8f11930bca06ad1fbd441e781e}{Interpolate} (double x1, double y1, double x2, double y2, double x\+New)
+\begin{DoxyCompactList}\small\item\em Public method to linearly interpolate between 2 data points. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class containing methods used in aiding analysis. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classIUtilities_af2a541760de5896aa5d89a684c2cd8d6}\label{classIUtilities_af2a541760de5896aa5d89a684c2cd8d6}} 
+\index{I\+Utilities@{I\+Utilities}!Convert\+U\+T\+Cto\+Unix@{Convert\+U\+T\+Cto\+Unix}}
+\index{Convert\+U\+T\+Cto\+Unix@{Convert\+U\+T\+Cto\+Unix}!I\+Utilities@{I\+Utilities}}
+\subsubsection{\texorpdfstring{Convert\+U\+T\+Cto\+Unix()}{ConvertUTCtoUnix()}}
+{\footnotesize\ttfamily static uint64\+\_\+t I\+Utilities\+::\+Convert\+U\+T\+Cto\+Unix (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{utc\+Time\+Str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Public method to convert U\+TC time to Unix epoch. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em utc\+Time\+Str} & A time string containing the date and time to be converted\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An unsigned 64 bit number containing the U\+N\+IX epoch 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIUtilities_affbe6e61c3f1c6169044273a7e1f83ba}\label{classIUtilities_affbe6e61c3f1c6169044273a7e1f83ba}} 
+\index{I\+Utilities@{I\+Utilities}!Get\+Files\+In\+Directory@{Get\+Files\+In\+Directory}}
+\index{Get\+Files\+In\+Directory@{Get\+Files\+In\+Directory}!I\+Utilities@{I\+Utilities}}
+\subsubsection{\texorpdfstring{Get\+Files\+In\+Directory()}{GetFilesInDirectory()}}
+{\footnotesize\ttfamily static std\+::vector$<$std\+::string$>$ I\+Utilities\+::\+Get\+Files\+In\+Directory (\begin{DoxyParamCaption}\item[{std\+::string}]{dirname,  }\item[{std\+::string}]{extension = {\ttfamily \char`\"{}.root\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Public method to obtain all the files with a certain extension in a directory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dirname} & A string with the path to the directory\\
+\hline
+\end{DoxyParams}
+Optional parameters\+: 
+\begin{DoxyParams}{Parameters}
+{\em extension} & A string with the extension of files to accept. Default is \char`\"{}.\+root\char`\"{}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A std\+::vector of std\+::strings for each of the files in the directory 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIUtilities_a722cad62278e16b2593a220a70c40d8e}\label{classIUtilities_a722cad62278e16b2593a220a70c40d8e}} 
+\index{I\+Utilities@{I\+Utilities}!Get\+H\+V\+Channel@{Get\+H\+V\+Channel}}
+\index{Get\+H\+V\+Channel@{Get\+H\+V\+Channel}!I\+Utilities@{I\+Utilities}}
+\subsubsection{\texorpdfstring{Get\+H\+V\+Channel()}{GetHVChannel()}}
+{\footnotesize\ttfamily static int I\+Utilities\+::\+Get\+H\+V\+Channel (\begin{DoxyParamCaption}\item[{int}]{pixel\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Public method to obtain the High Voltage channel to which the pixel ID is connected. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pixel\+ID} & An int with the pixel ID\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An int with the HV channel the pixel is connected to 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIUtilities_a13f7d8d17e744480f85c2b2e789e544e}\label{classIUtilities_a13f7d8d17e744480f85c2b2e789e544e}} 
+\index{I\+Utilities@{I\+Utilities}!Get\+Maximum@{Get\+Maximum}}
+\index{Get\+Maximum@{Get\+Maximum}!I\+Utilities@{I\+Utilities}}
+\subsubsection{\texorpdfstring{Get\+Maximum()}{GetMaximum()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static float I\+Utilities\+::\+Get\+Maximum (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$}]{amplitude,  }\item[{int}]{music\+ID = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Public method to find the maximum number in a std\+::vector. 
+
+If music\+ID is not equal -\/1, the maximum is searched for only in the 8 channels connected to that M\+U\+S\+IC.
+
+
+\begin{DoxyParams}{Parameters}
+{\em amplitude} & A std\+::vector containing amplitude or charge values for all of the camera\\
+\hline
+\end{DoxyParams}
+Optional parameter\+: 
+\begin{DoxyParams}{Parameters}
+{\em music\+ID} & An int specifying which M\+U\+S\+IC chip to analyze. Default is -\/1, the maximum is searched for in all of the camera\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float containing the maximum value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIUtilities_af77a578e3f7924e82545205e3a766bd0}\label{classIUtilities_af77a578e3f7924e82545205e3a766bd0}} 
+\index{I\+Utilities@{I\+Utilities}!Get\+Maximum@{Get\+Maximum}}
+\index{Get\+Maximum@{Get\+Maximum}!I\+Utilities@{I\+Utilities}}
+\subsubsection{\texorpdfstring{Get\+Maximum()}{GetMaximum()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static float I\+Utilities\+::\+Get\+Maximum (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$}]{amplitude,  }\item[{std\+::vector$<$ int $>$}]{roi\+Pixels = {\ttfamily std\+:\+:vector$<$~int~$>$(0)} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Public method to find the maximum number in a std\+::vector within the region of interest as described in \hyperlink{classEvent}{Event}. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classEvent}{Event()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em amplitude} & A std\+::vector containing amplitude or charge values for all of the camera\\
+\hline
+\end{DoxyParams}
+Optional parameter\+: 
+\begin{DoxyParams}{Parameters}
+{\em roi\+Pixels} & A std\+::vector with the pixel I\+Ds describing the R\+OI. If not specified, the maximum is searched for int the whole amplitde vector. Default is 0.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float containing the maximum value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIUtilities_a6a2664bbaa82bed0028c676a2b1b411a}\label{classIUtilities_a6a2664bbaa82bed0028c676a2b1b411a}} 
+\index{I\+Utilities@{I\+Utilities}!Get\+Maximum\+Pixel\+ID@{Get\+Maximum\+Pixel\+ID}}
+\index{Get\+Maximum\+Pixel\+ID@{Get\+Maximum\+Pixel\+ID}!I\+Utilities@{I\+Utilities}}
+\subsubsection{\texorpdfstring{Get\+Maximum\+Pixel\+I\+D()}{GetMaximumPixelID()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static int I\+Utilities\+::\+Get\+Maximum\+Pixel\+ID (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$}]{amplitude,  }\item[{int}]{music\+ID = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Public method to find the Pixel ID (assuming the amplitude vector is sorted in ascending pixel\+ID number) of the maximum number in a std\+::vector. 
+
+If music\+ID is not equal -\/1, the maximum is searched for only in the 8 channels connected to that M\+U\+S\+IC.
+
+
+\begin{DoxyParams}{Parameters}
+{\em amplitude} & A std\+::vector containing amplitude or charge values for all of the camera\\
+\hline
+\end{DoxyParams}
+Optional parameter\+: 
+\begin{DoxyParams}{Parameters}
+{\em music\+ID} & An int specifying which M\+U\+S\+IC chip to analyze. Default is -\/1, the maximum is searched for in all of the camera\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int With the pixel ID 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIUtilities_aa5cc1c99b228caf689176928478995cd}\label{classIUtilities_aa5cc1c99b228caf689176928478995cd}} 
+\index{I\+Utilities@{I\+Utilities}!Get\+Maximum\+Pixel\+ID@{Get\+Maximum\+Pixel\+ID}}
+\index{Get\+Maximum\+Pixel\+ID@{Get\+Maximum\+Pixel\+ID}!I\+Utilities@{I\+Utilities}}
+\subsubsection{\texorpdfstring{Get\+Maximum\+Pixel\+I\+D()}{GetMaximumPixelID()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static int I\+Utilities\+::\+Get\+Maximum\+Pixel\+ID (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$}]{amplitude,  }\item[{std\+::vector$<$ int $>$}]{roi\+Pixels = {\ttfamily std\+:\+:vector$<$~int~$>$(0)} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Public method to find the Pixel ID for the maximum number in a std\+::vector within the region of interest as described in \hyperlink{classEvent}{Event}. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classEvent}{Event()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em amplitude} & A std\+::vector containing amplitude or charge values for all of the camera\\
+\hline
+\end{DoxyParams}
+Optional parameter\+: 
+\begin{DoxyParams}{Parameters}
+{\em roi\+Pixels} & A std\+::vector with the pixel I\+Ds describing the R\+OI. If not specified, the maximum is searched for int the whole amplitde vector. Default is 0.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int With the pixel ID 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIUtilities_a9b38571c8548ab538cc65aad6f238fe8}\label{classIUtilities_a9b38571c8548ab538cc65aad6f238fe8}} 
+\index{I\+Utilities@{I\+Utilities}!Get\+Minimum@{Get\+Minimum}}
+\index{Get\+Minimum@{Get\+Minimum}!I\+Utilities@{I\+Utilities}}
+\subsubsection{\texorpdfstring{Get\+Minimum()}{GetMinimum()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static float I\+Utilities\+::\+Get\+Minimum (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$}]{amplitude,  }\item[{int}]{music\+ID = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Public method to find the minimum number in a std\+::vector. 
+
+If music\+ID is not equal -\/1, the maximum is searched for only in the 8 channels connected to that M\+U\+S\+IC.
+
+
+\begin{DoxyParams}{Parameters}
+{\em amplitude} & A std\+::vector containing amplitude or charge values for all of the camera\\
+\hline
+\end{DoxyParams}
+Optional parameter\+: 
+\begin{DoxyParams}{Parameters}
+{\em music\+ID} & An int specifying which M\+U\+S\+IC chip to analyze. Default is -\/1, the maximum is searched for in all of the camera\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float containing the minimum value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIUtilities_ae3f9e408e055f71e9f08d2c12dec2117}\label{classIUtilities_ae3f9e408e055f71e9f08d2c12dec2117}} 
+\index{I\+Utilities@{I\+Utilities}!Get\+Minimum@{Get\+Minimum}}
+\index{Get\+Minimum@{Get\+Minimum}!I\+Utilities@{I\+Utilities}}
+\subsubsection{\texorpdfstring{Get\+Minimum()}{GetMinimum()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static float I\+Utilities\+::\+Get\+Minimum (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$}]{amplitude,  }\item[{std\+::vector$<$ int $>$}]{roi\+Pixels = {\ttfamily std\+:\+:vector$<$~int~$>$(0)} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Public method to find the minimum number in a std\+::vector within the region of interest as described in \hyperlink{classEvent}{Event}. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classEvent}{Event()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em amplitude} & A std\+::vector containing amplitude or charge values for all of the camera\\
+\hline
+\end{DoxyParams}
+Optional parameter\+: 
+\begin{DoxyParams}{Parameters}
+{\em roi\+Pixels} & A std\+::vector with the pixel I\+Ds describing the R\+OI. If not specified, the maximum is searched for int the whole amplitde vector. Default is 0.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float containing the minimum value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIUtilities_ae7db5eec63bd72ddfd50aa0abbb03a6d}\label{classIUtilities_ae7db5eec63bd72ddfd50aa0abbb03a6d}} 
+\index{I\+Utilities@{I\+Utilities}!Get\+Minimum\+Pixel\+ID@{Get\+Minimum\+Pixel\+ID}}
+\index{Get\+Minimum\+Pixel\+ID@{Get\+Minimum\+Pixel\+ID}!I\+Utilities@{I\+Utilities}}
+\subsubsection{\texorpdfstring{Get\+Minimum\+Pixel\+I\+D()}{GetMinimumPixelID()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static int I\+Utilities\+::\+Get\+Minimum\+Pixel\+ID (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$}]{amplitude,  }\item[{int}]{music\+ID = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Public method to find the Pixel ID of the minimum number in a std\+::vector. 
+
+If music\+ID is not equal -\/1, the maximum is searched for only in the 8 channels connected to that M\+U\+S\+IC.
+
+
+\begin{DoxyParams}{Parameters}
+{\em amplitude} & A std\+::vector containing amplitude or charge values for all of the camera\\
+\hline
+\end{DoxyParams}
+Optional parameter\+: 
+\begin{DoxyParams}{Parameters}
+{\em music\+ID} & An int specifying which M\+U\+S\+IC chip to analyze. Default is -\/1, the maximum is searched for in all of the camera\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int With the pixel ID 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIUtilities_a2e1fadb4432d146d004d747af2ab447b}\label{classIUtilities_a2e1fadb4432d146d004d747af2ab447b}} 
+\index{I\+Utilities@{I\+Utilities}!Get\+Minimum\+Pixel\+ID@{Get\+Minimum\+Pixel\+ID}}
+\index{Get\+Minimum\+Pixel\+ID@{Get\+Minimum\+Pixel\+ID}!I\+Utilities@{I\+Utilities}}
+\subsubsection{\texorpdfstring{Get\+Minimum\+Pixel\+I\+D()}{GetMinimumPixelID()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static int I\+Utilities\+::\+Get\+Minimum\+Pixel\+ID (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$}]{amplitude,  }\item[{std\+::vector$<$ int $>$}]{roi\+Pixels = {\ttfamily std\+:\+:vector$<$~int~$>$(0)} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Public method to find the Pixel ID for the minimum number in a std\+::vector within the region of interest as described in \hyperlink{classEvent}{Event}. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classEvent}{Event()}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em amplitude} & A std\+::vector containing amplitude or charge values for all of the camera\\
+\hline
+\end{DoxyParams}
+Optional parameter\+: 
+\begin{DoxyParams}{Parameters}
+{\em roi\+Pixels} & A std\+::vector with the pixel I\+Ds describing the R\+OI. If not specified, the maximum is searched for int the whole amplitde vector. Default is 0.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int With the pixel ID 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIUtilities_a65527a73c39d6cae81f6a09fb9a44d93}\label{classIUtilities_a65527a73c39d6cae81f6a09fb9a44d93}} 
+\index{I\+Utilities@{I\+Utilities}!Get\+Pedestal\+Average@{Get\+Pedestal\+Average}}
+\index{Get\+Pedestal\+Average@{Get\+Pedestal\+Average}!I\+Utilities@{I\+Utilities}}
+\subsubsection{\texorpdfstring{Get\+Pedestal\+Average()}{GetPedestalAverage()}}
+{\footnotesize\ttfamily static float I\+Utilities\+::\+Get\+Pedestal\+Average (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$}]{trace,  }\item[{int}]{t\+Window = {\ttfamily 20},  }\item[{int}]{pad = {\ttfamily 10},  }\item[{bool}]{is\+Un\+Correlated = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Public method to calculate the pedestal based on the algorithm developed for uncorrelated samples in a trace The average of all samples in the specified time window is calculated. 
+
+If is\+Un\+Correlated is true, then the following pad samples are skipped. The process is repeated for the length of the trace std\+::vector. The std\+::vector provided should only include pedestal samples and not signal.
+
+
+\begin{DoxyParams}{Parameters}
+{\em trace} & A std\+::vector containing the trace of the pixel to be analyzed\\
+\hline
+\end{DoxyParams}
+Optional parametes\+: 
+\begin{DoxyParams}{Parameters}
+{\em t\+Window} & The size of the window in 10s of ns to use. Default is 20 samples. \\
+\hline
+{\em pad} & The number of samples to skipa after each time window \\
+\hline
+{\em is\+Un\+Correlated} & A bool specifying whether to skip the pad number of samples or not\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A float with the average of the different window samples 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIUtilities_ab5e39d8f11930bca06ad1fbd441e781e}\label{classIUtilities_ab5e39d8f11930bca06ad1fbd441e781e}} 
+\index{I\+Utilities@{I\+Utilities}!Interpolate@{Interpolate}}
+\index{Interpolate@{Interpolate}!I\+Utilities@{I\+Utilities}}
+\subsubsection{\texorpdfstring{Interpolate()}{Interpolate()}}
+{\footnotesize\ttfamily static double I\+Utilities\+::\+Interpolate (\begin{DoxyParamCaption}\item[{double}]{x1,  }\item[{double}]{y1,  }\item[{double}]{x2,  }\item[{double}]{y2,  }\item[{double}]{x\+New }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Public method to linearly interpolate between 2 data points. 
+
+The linear interpolation is done the following way
+
+f(x) = ((y2-\/y1)/(x2-\/x1))$\ast$x + (f(x1)-\/((y2-\/y1)/(x2-\/x1))$\ast$x1)
+
+
+\begin{DoxyParams}{Parameters}
+{\em x1} & A double of the x coordinate of the first point \\
+\hline
+{\em y1} & A double of the y coordinate of the first point \\
+\hline
+{\em x2} & A double of the x coordinate of the second point \\
+\hline
+{\em y2} & A double of the y coordinate of the second point \\
+\hline
+{\em x\+New} & A double of the x coordinate of the point to find, between x1 and x2. (There is no strict need for x\+New to be within the range, but the result will not be an interpolation but an extrapolation.)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A double with the y coordinate corresponding to x\+New 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+dict/include/I\+Utilities.\+h\end{DoxyCompactItemize}

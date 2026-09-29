@@ -1,0 +1,48 @@
+#!/usr/bin/expect -f
+
+
+
+# Spawn a shell
+spawn /bin/bash
+
+# Change the working directory to the target directory
+send "cd /home/trinity/ctmessaging \r"
+
+expect ".*\\$ $"
+send "sudo ./CTMessaging \r"
+
+
+
+# Execute a command on the remote computer
+expect "*?trinity:*"
+send "trinity22!\r"
+
+# Execute a command on the remote computer
+expect "*?Hi Operator! Please type your name:*"
+send "autoshutdown_ctcpu\r"
+
+# Execute a command on the remote computer
+expect "CTM>"
+send "Sequence stop\r"
+
+# Sleep for 5 seconds
+sleep 40
+
+# Execute a command on the remote computer
+expect "CTM>"
+send "RemoteControl SMdisable\r"
+
+sleep 20
+
+# Execute a command on the remote computer
+expect "CTM>"
+send "Sequence powerOff\r"
+
+sleep 10
+
+#Execute a command on the remote computer
+expect "CTM>"
+send "\x04"
+
+# Close the shell
+exit

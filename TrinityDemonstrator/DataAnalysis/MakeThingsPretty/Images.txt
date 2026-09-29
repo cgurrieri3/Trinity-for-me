@@ -1,0 +1,11 @@
+Output,Title,Histogram,File,Zaxis
+DoorClosedMuon1,Muon_Track_Sample_1,PreN20241022-FMerged_CoBo0_AsAd0_2024-10-22T04:50:57.557_0000.root-E5TH2F,/mnt/DataAnalysis/event_cleaning/Output/sstepanoff3_DataFiles/SS_20260105_2024toEOY2025/ESplots/EventSelectionPlots_Closed.root,PE
+DoorClosedMuon2,Muon_Track_Sample_2,PreN20250225-FMerged_CoBo0_AsAd0_2025-02-25T03:29:58.499_0000.root-E10TH2F,/mnt/DataAnalysis/event_cleaning/Output/sstepanoff3_DataFiles/SS_20260105_2024toEOY2025/ESplots/EventSelectionPlots_Closed.root,PE
+DoorClosedMuon3,Muon_Track_Sample_3,PreN20251030-FMerged_CoBo0_AsAd0_2025-10-30T05:31:00.279_0000.root-E9TH2F,/mnt/DataAnalysis/event_cleaning/Output/sstepanoff3_DataFiles/SS_20260105_2024toEOY2025/ESplots/EventSelectionPlots_Closed.root,PE
+DoorClosedMuon4,Muon_Track_Sample_4,PreN20250106-FMerged_CoBo0_AsAd0_2025-01-06T07:26:44.309_0000.root-E28TH2F,/mnt/DataAnalysis/event_cleaning/Output/sstepanoff3_DataFiles/SS_20260105_2024toEOY2025/ESplots/EventSelectionPlots_Closed.root,PE
+PreIC_OpenDoor,Muon_Track_Sample_1,PreN20250225-FMerged_CoBo0_AsAd0_2025-02-25T04:07:58.498_0000.root-E30TH2F,/mnt/DataAnalysis/event_cleaning/Output/sstepanoff3_DataFiles/SS_20260105_2024toEOY2025/ESplots/EventSelectionPlots_Open.root,PE
+PostIC_OpenDoor,Muon_Track_Sample_5,PostN20250225-FMerged_CoBo0_AsAd0_2025-02-25T04:07:58.498_0000.root-E30TH2F,/mnt/DataAnalysis/event_cleaning/Output/sstepanoff3_DataFiles/SS_20260105_2024toEOY2025/ESplots/EventSelectionPlots_Open.root,PE
+Fuzzy3,Fuzzy3,PreN20250619-FMerged_CoBo0_AsAd0_2025-06-19T07:28:18.003_0000.root-E16TH2F,/mnt/DataAnalysis/event_cleaning/Output/sstepanoff3_DataFiles/SS_20260105_2024toEOY2025/ESplots/EventSelectionPlots_Open.root,PE
+Chenkov,Chenkov,PreN20250125-FMerged_CoBo0_AsAd0_2025-01-25T04:32:37.311_0000.root-E31TH2F,/mnt/DataAnalysis/event_cleaning/Output/sstepanoff3_DataFiles/SS_20260105_2024toEOY2025/ESplots/EventSelectionPlots_Open.root,PE
+Sim1,Sim1,hsimprod1028_BSM_1.000_E_8.000000_Ze_45.000000_Az_0.000000_0.rootPixelsPE,/mnt/DataAnalysis/SimulationAnalysis/data/20251031/plots_1511222474_ers_simprod1028_BSM_1.000_E_8.000000_Ze_45.000000_Az_0.000000_0.root,PE
+

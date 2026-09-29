@@ -1,0 +1,279 @@
+Exception in thread Thread-1:
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/mpotts32/Database/ctcpu_state_mess/decodeT.py", line 221, in continous_monitor
+    db.write_db_entry(status_dict1)
+  File "/home/mpotts32/Database/ctcpu_state_mess/DB_config.py", line 29, in write_db_entry
+    client.write_points(entry)
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 608, in write_points
+    consistency=consistency)
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 685, in _write_points
+    protocol=protocol
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 419, in write
+    headers=headers
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 378, in request
+    raise InfluxDBClientError(err_msg, response.status_code)
+influxdb.exceptions.InfluxDBClientError: 400: {"error":"partial write: field type conflict: input field \"value1\" on measurement \"TriggerRate\" is type string, already exists as type integer dropped=1"}
+
+Exception in thread Thread-2:
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/mpotts32/Database/ctcpu_state_mess/decodeT.py", line 221, in continous_monitor
+    db.write_db_entry(status_dict1)
+  File "/home/mpotts32/Database/ctcpu_state_mess/DB_config.py", line 29, in write_db_entry
+    client.write_points(entry)
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 608, in write_points
+    consistency=consistency)
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 685, in _write_points
+    protocol=protocol
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 419, in write
+    headers=headers
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 378, in request
+    raise InfluxDBClientError(err_msg, response.status_code)
+influxdb.exceptions.InfluxDBClientError: 400: {"error":"partial write: field type conflict: input field \"value1\" on measurement \"TriggerRate\" is type string, already exists as type integer dropped=1"}
+
+Exception in thread Thread-3:
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/mpotts32/Database/ctcpu_state_mess/decodeT.py", line 221, in continous_monitor
+    db.write_db_entry(status_dict1)
+  File "/home/mpotts32/Database/ctcpu_state_mess/DB_config.py", line 29, in write_db_entry
+    client.write_points(entry)
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 608, in write_points
+    consistency=consistency)
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 685, in _write_points
+    protocol=protocol
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 419, in write
+    headers=headers
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 378, in request
+    raise InfluxDBClientError(err_msg, response.status_code)
+influxdb.exceptions.InfluxDBClientError: 400: {"error":"partial write: field type conflict: input field \"value1\" on measurement \"TriggerRate\" is type string, already exists as type integer dropped=1"}
+
+Exception in thread Thread-4:
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/mpotts32/Database/ctcpu_state_mess/decodeT.py", line 221, in continous_monitor
+    db.write_db_entry(status_dict1)
+  File "/home/mpotts32/Database/ctcpu_state_mess/DB_config.py", line 29, in write_db_entry
+    client.write_points(entry)
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 608, in write_points
+    consistency=consistency)
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 685, in _write_points
+    protocol=protocol
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 419, in write
+    headers=headers
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 378, in request
+    raise InfluxDBClientError(err_msg, response.status_code)
+influxdb.exceptions.InfluxDBClientError: 400: {"error":"partial write: field type conflict: input field \"value1\" on measurement \"TriggerRate\" is type string, already exists as type integer dropped=1"}
+
+Exception in thread Thread-5:
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/mpotts32/Database/ctcpu_state_mess/decodeT.py", line 221, in continous_monitor
+    db.write_db_entry(status_dict1)
+  File "/home/mpotts32/Database/ctcpu_state_mess/DB_config.py", line 29, in write_db_entry
+    client.write_points(entry)
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 608, in write_points
+    consistency=consistency)
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 685, in _write_points
+    protocol=protocol
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 419, in write
+    headers=headers
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 378, in request
+    raise InfluxDBClientError(err_msg, response.status_code)
+influxdb.exceptions.InfluxDBClientError: 400: {"error":"partial write: field type conflict: input field \"value1\" on measurement \"TriggerRate\" is type string, already exists as type integer dropped=1"}
+
+Exception in thread Thread-6:
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/mpotts32/Database/ctcpu_state_mess/decodeT.py", line 221, in continous_monitor
+    db.write_db_entry(status_dict1)
+  File "/home/mpotts32/Database/ctcpu_state_mess/DB_config.py", line 29, in write_db_entry
+    client.write_points(entry)
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 608, in write_points
+    consistency=consistency)
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 685, in _write_points
+    protocol=protocol
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 419, in write
+    headers=headers
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 378, in request
+    raise InfluxDBClientError(err_msg, response.status_code)
+influxdb.exceptions.InfluxDBClientError: 400: {"error":"partial write: field type conflict: input field \"value1\" on measurement \"TriggerRate\" is type string, already exists as type integer dropped=1"}
+
+Exception in thread Thread-476:
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/mpotts32/Database/ctcpu_state_mess/decodeT.py", line 221, in continous_monitor
+    db.write_db_entry(status_dict1)
+  File "/home/mpotts32/Database/ctcpu_state_mess/DB_config.py", line 29, in write_db_entry
+    client.write_points(entry)
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 608, in write_points
+    consistency=consistency)
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 685, in _write_points
+    protocol=protocol
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 419, in write
+    headers=headers
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 378, in request
+    raise InfluxDBClientError(err_msg, response.status_code)
+influxdb.exceptions.InfluxDBClientError: 400: {"error":"partial write: field type conflict: input field \"value1\" on measurement \"TriggerRate\" is type string, already exists as type integer dropped=1"}
+
+Exception in thread Thread-477:
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/mpotts32/Database/ctcpu_state_mess/decodeT.py", line 221, in continous_monitor
+    db.write_db_entry(status_dict1)
+  File "/home/mpotts32/Database/ctcpu_state_mess/DB_config.py", line 29, in write_db_entry
+    client.write_points(entry)
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 608, in write_points
+    consistency=consistency)
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 685, in _write_points
+    protocol=protocol
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 419, in write
+    headers=headers
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 378, in request
+    raise InfluxDBClientError(err_msg, response.status_code)
+influxdb.exceptions.InfluxDBClientError: 400: {"error":"partial write: field type conflict: input field \"value1\" on measurement \"TriggerRate\" is type string, already exists as type integer dropped=1"}
+
+Exception in thread Thread-480:
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/mpotts32/Database/ctcpu_state_mess/decodeT.py", line 221, in continous_monitor
+    db.write_db_entry(status_dict1)
+  File "/home/mpotts32/Database/ctcpu_state_mess/DB_config.py", line 29, in write_db_entry
+    client.write_points(entry)
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 608, in write_points
+    consistency=consistency)
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 685, in _write_points
+    protocol=protocol
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 419, in write
+    headers=headers
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 378, in request
+    raise InfluxDBClientError(err_msg, response.status_code)
+influxdb.exceptions.InfluxDBClientError: 400: {"error":"partial write: field type conflict: input field \"value1\" on measurement \"TriggerRate\" is type string, already exists as type integer dropped=1"}
+
+Exception in thread Thread-481:
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/mpotts32/Database/ctcpu_state_mess/decodeT.py", line 221, in continous_monitor
+    db.write_db_entry(status_dict1)
+  File "/home/mpotts32/Database/ctcpu_state_mess/DB_config.py", line 29, in write_db_entry
+    client.write_points(entry)
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 608, in write_points
+    consistency=consistency)
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 685, in _write_points
+    protocol=protocol
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 419, in write
+    headers=headers
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 378, in request
+    raise InfluxDBClientError(err_msg, response.status_code)
+influxdb.exceptions.InfluxDBClientError: 400: {"error":"partial write: field type conflict: input field \"value1\" on measurement \"TriggerRate\" is type string, already exists as type integer dropped=1"}
+
+Exception in thread Thread-482:
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/mpotts32/Database/ctcpu_state_mess/decodeT.py", line 221, in continous_monitor
+    db.write_db_entry(status_dict1)
+  File "/home/mpotts32/Database/ctcpu_state_mess/DB_config.py", line 29, in write_db_entry
+    client.write_points(entry)
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 608, in write_points
+    consistency=consistency)
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 685, in _write_points
+    protocol=protocol
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 419, in write
+    headers=headers
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 378, in request
+    raise InfluxDBClientError(err_msg, response.status_code)
+influxdb.exceptions.InfluxDBClientError: 400: {"error":"partial write: field type conflict: input field \"value1\" on measurement \"TriggerRate\" is type string, already exists as type integer dropped=1"}
+
+Exception in thread Thread-483:
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/mpotts32/Database/ctcpu_state_mess/decodeT.py", line 221, in continous_monitor
+    db.write_db_entry(status_dict1)
+  File "/home/mpotts32/Database/ctcpu_state_mess/DB_config.py", line 29, in write_db_entry
+    client.write_points(entry)
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 608, in write_points
+    consistency=consistency)
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 685, in _write_points
+    protocol=protocol
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 419, in write
+    headers=headers
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 378, in request
+    raise InfluxDBClientError(err_msg, response.status_code)
+influxdb.exceptions.InfluxDBClientError: 400: {"error":"partial write: field type conflict: input field \"value1\" on measurement \"TriggerRate\" is type string, already exists as type integer dropped=1"}
+
+Exception in thread Thread-542:
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/mpotts32/Database/ctcpu_state_mess/decodeT.py", line 221, in continous_monitor
+    db.write_db_entry(status_dict1)
+  File "/home/mpotts32/Database/ctcpu_state_mess/DB_config.py", line 29, in write_db_entry
+    client.write_points(entry)
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 608, in write_points
+    consistency=consistency)
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 685, in _write_points
+    protocol=protocol
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 419, in write
+    headers=headers
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 378, in request
+    raise InfluxDBClientError(err_msg, response.status_code)
+influxdb.exceptions.InfluxDBClientError: 400: {"error":"partial write: field type conflict: input field \"value1\" on measurement \"TriggerRate\" is type string, already exists as type integer dropped=1"}
+
+Exception in thread Thread-543:
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/threading.py", line 916, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.6/threading.py", line 864, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/mpotts32/Database/ctcpu_state_mess/decodeT.py", line 221, in continous_monitor
+    db.write_db_entry(status_dict1)
+  File "/home/mpotts32/Database/ctcpu_state_mess/DB_config.py", line 29, in write_db_entry
+    client.write_points(entry)
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 608, in write_points
+    consistency=consistency)
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 685, in _write_points
+    protocol=protocol
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 419, in write
+    headers=headers
+  File "/home/mpotts32/.local/lib/python3.6/site-packages/influxdb/client.py", line 378, in request
+    raise InfluxDBClientError(err_msg, response.status_code)
+influxdb.exceptions.InfluxDBClientError: 400: {"error":"partial write: field type conflict: input field \"value1\" on measurement \"TriggerRate\" is type string, already exists as type integer dropped=1"}

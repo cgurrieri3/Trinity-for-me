@@ -1,0 +1,13 @@
+To be able to run everythign use the lab machine 
+cos-4a10345.cos.gatech.edu
+
+The script in the /scripts directory converts simulations outputs from GROPTs to 
+act like the demonstrator data. 
+
+to run navigate the /scripts 
+see Readme there
+
+once complete navigate to /data
+you will want to reduce all the root files into one and generate a pdf 
+cd /data
+/run_script.sh YYYYMMDD 

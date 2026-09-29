@@ -1,0 +1,6 @@
+Moonrise Time: 2024-08-11 19:40:00
+Moonset Time: 2024-08-11 05:24:00
+Sunrise Time: 2024-08-11 12:46:00
+Sunset Time: 2024-08-11 02:32:00
+Start Time: <built-in method strftime of datetime.datetime object at 0x7fafb7a4c480>
+End Time: 2024-08-11 11:24:00

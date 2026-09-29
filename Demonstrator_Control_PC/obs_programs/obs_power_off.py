@@ -1,0 +1,14 @@
+#!/usr/bin/env python3
+
+import subprocess
+
+print("Turning off the chiller")
+subprocess.call("pdu rc 1 off", shell = True)
+
+print("Turing off the MicroTSA crate")
+subprocess.call("pdu rc 6 off", shell = True)
+
+print("Turing off the Magma PS")
+subprocess.call("pdu rc 7 off", shell = True)
+
+print("Completed power off")

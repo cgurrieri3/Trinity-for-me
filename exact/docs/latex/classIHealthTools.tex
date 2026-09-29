@@ -1,0 +1,320 @@
+\hypertarget{classIHealthTools}{}\section{I\+Health\+Tools Class Reference}
+\label{classIHealthTools}\index{I\+Health\+Tools@{I\+Health\+Tools}}
+
+
+Class with methods used in analysis of the traces obtained for each of the events.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIHealthTools_a1f3acfba154e7662a740a113160005fa}\label{classIHealthTools_a1f3acfba154e7662a740a113160005fa}} 
+\hyperlink{classIHealthTools_a1f3acfba154e7662a740a113160005fa}{I\+Health\+Tools} ()
+\begin{DoxyCompactList}\small\item\em Public constructor with no parameters Only needed for R\+O\+OT library creation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIHealthTools_a2dd894876801a649b6384be460f1bcda}\label{classIHealthTools_a2dd894876801a649b6384be460f1bcda}} 
+\hyperlink{classIHealthTools_a2dd894876801a649b6384be460f1bcda}{$\sim$\+I\+Health\+Tools} ()
+\begin{DoxyCompactList}\small\item\em Public destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::vector$<$ float $>$ \hyperlink{classIHealthTools_aa6bdf03f0f7595eec0a894c7c73134ea}{Camera\+Pedestal} (\hyperlink{classIFile}{I\+File} $\ast$file, int entry, unsigned long long l\+Time\+Start, unsigned long long l\+Time\+End, std\+::string tree, float voltage, unsigned long long $\ast$event\+Time, int i\+T\+W\+Start=200, int i\+T\+W\+End=300, float f\+Tilt\+Low=-\/100, float f\+Tilt\+High=100)
+\begin{DoxyCompactList}\small\item\em Public method to calculate the pedestal of the trace for each of the traces in an event. \end{DoxyCompactList}\item 
+static std\+::vector$<$ float $>$ \hyperlink{classIHealthTools_a6adf7b141d8cf397ec7f6abdbd81befd}{Camera\+Pedestal\+R\+MS} (\hyperlink{classIFile}{I\+File} $\ast$file, int entry, unsigned long long l\+Time\+Start, unsigned long long l\+Time\+End, std\+::string tree, float voltage, unsigned long long $\ast$event\+Time, int i\+T\+W\+Start=200, int i\+T\+W\+End=300, float f\+Tilt\+Low=-\/100, float f\+Tilt\+High=100)
+\begin{DoxyCompactList}\small\item\em Public method to calculate the pedestal R\+MS for each of the traces in the event. \end{DoxyCompactList}\item 
+static std\+::vector$<$ float $>$ \hyperlink{classIHealthTools_a93e06807e441043c9597391754537dc4}{Camera\+Amplitude} (\hyperlink{classIFile}{I\+File} $\ast$file, int entry, unsigned long long l\+Time\+Start, unsigned long long l\+Time\+End, std\+::string tree, float voltage, unsigned long long $\ast$event\+Time, int i\+T\+W\+Start=200, int i\+T\+W\+End=300, float f\+Tilt\+Low=-\/100, float f\+Tilt\+High=100)
+\begin{DoxyCompactList}\small\item\em Public method to calculate the amplitude within the specified time window for each of the traces in the event. \end{DoxyCompactList}\item 
+static std\+::vector$<$ float $>$ \hyperlink{classIHealthTools_a51f94cdf8490167d3169defc6d214feb}{Camera\+Amplitude} (\hyperlink{classIFile}{I\+File} $\ast$file, int entry, std\+::string tree, int i\+T\+W\+Start=200, int i\+T\+W\+End=300)
+\begin{DoxyCompactList}\small\item\em Public method to calculate the amplitude within the specified time window for each of the traces in the event. \end{DoxyCompactList}\item 
+static std\+::vector$<$ float $>$ \hyperlink{classIHealthTools_a37c86d665727324db9248a0027a8b871}{Camera\+Amplitude} (std\+::vector$<$ std\+::vector$<$ int $>$$>$ traces, int i\+T\+W\+Start=200, int i\+T\+W\+End=300)
+\begin{DoxyCompactList}\small\item\em Public method to calculate the amplitude within the specified time window for each of the traces in a std\+::vector of size 512x512 (typically). \end{DoxyCompactList}\item 
+static std\+::vector$<$ float $>$ \hyperlink{classIHealthTools_a41b5b3c853af74854ebb778dfe6aaa76}{Camera\+Charge} (\hyperlink{classIFile}{I\+File} $\ast$file, int entry, unsigned long long l\+Time\+Start, unsigned long long l\+Time\+End, std\+::string tree, float voltage, unsigned long long $\ast$event\+Time, int i\+T\+W\+Start=200, int i\+T\+W\+End=300, float f\+Tilt\+Low=-\/100, float f\+Tilt\+High=100)
+\begin{DoxyCompactList}\small\item\em Public method to calculate the charge within the specified time window for each of the traces in the event. \end{DoxyCompactList}\item 
+static std\+::vector$<$ float $>$ \hyperlink{classIHealthTools_ac312d1227c3c1bf187dd4a4ea69fff7f}{Camera\+Peaking\+Time} (\hyperlink{classIFile}{I\+File} $\ast$file, int entry, unsigned long long l\+Time\+Start, unsigned long long l\+Time\+End, std\+::string tree, float voltage, unsigned long long $\ast$event\+Time, int i\+T\+W\+Start=200, int i\+T\+W\+End=300, float f\+Tilt\+Low=-\/100, float f\+Tilt\+High=100)
+\begin{DoxyCompactList}\small\item\em Public method to calculate the peaking time within the specified time window for each of the traces in the event. \end{DoxyCompactList}\item 
+static bool \hyperlink{classIHealthTools_ab44aea2194293cba7ed3975cf1b788cf}{Is\+Bad\+Event} (std\+::vector$<$ std\+::vector$<$ int $>$$>$ traces, int i\+T\+W\+Start, int i\+T\+W\+End, int n\+Pixels\+Tolerance=20, int n\+Samples\+Tolerance=10)
+\begin{DoxyCompactList}\small\item\em Public method to identify if the digitized data from the camera constitutes a bad event. \end{DoxyCompactList}\item 
+static bool \hyperlink{classIHealthTools_a47f9868f08d011ff8f180a3b50116a11}{Is\+Bad\+Event} (\hyperlink{classIFile}{I\+File} $\ast$file, int entry, std\+::string tree\+Name, int i\+T\+W\+Start, int i\+T\+W\+End, int n\+Pixels\+Tolerance=20, int n\+Samples\+Tolerance=10)
+\begin{DoxyCompactList}\small\item\em Public method to identify if the digitized data from the camera constitutes a bad event. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \hyperlink{classIHealthTools_ac3ac1d03cafa1046bf6ff6e591e30bb8}{Is\+Time\+In\+Range} (unsigned long long l\+Time, unsigned long long l\+Time\+Start, unsigned long long l\+Time\+End)
+\begin{DoxyCompactList}\small\item\em Private member to check if the time stamp of the event is within the range specified. \end{DoxyCompactList}\item 
+static bool \hyperlink{classIHealthTools_a0ece49def5b92e43a6f3630e42223dbd}{Is\+Tilt\+In\+Range} (float ftilt, float f\+Tilt\+Low, float f\+Tilt\+High)
+\begin{DoxyCompactList}\small\item\em Private memeber to check if the tilt of the telescope is within range. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class with methods used in analysis of the traces obtained for each of the events. 
+
+All methods require the same arguments to be used. Some of the arguments are optional. Some methods have been overloadad in order for them to be used under different conditions and applied to different data sets. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classIHealthTools_a93e06807e441043c9597391754537dc4}\label{classIHealthTools_a93e06807e441043c9597391754537dc4}} 
+\index{I\+Health\+Tools@{I\+Health\+Tools}!Camera\+Amplitude@{Camera\+Amplitude}}
+\index{Camera\+Amplitude@{Camera\+Amplitude}!I\+Health\+Tools@{I\+Health\+Tools}}
+\subsubsection{\texorpdfstring{Camera\+Amplitude()}{CameraAmplitude()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily static std\+::vector$<$float$>$ I\+Health\+Tools\+::\+Camera\+Amplitude (\begin{DoxyParamCaption}\item[{\hyperlink{classIFile}{I\+File} $\ast$}]{file,  }\item[{int}]{entry,  }\item[{unsigned long long}]{l\+Time\+Start,  }\item[{unsigned long long}]{l\+Time\+End,  }\item[{std\+::string}]{tree,  }\item[{float}]{voltage,  }\item[{unsigned long long $\ast$}]{event\+Time,  }\item[{int}]{i\+T\+W\+Start = {\ttfamily 200},  }\item[{int}]{i\+T\+W\+End = {\ttfamily 300},  }\item[{float}]{f\+Tilt\+Low = {\ttfamily -\/100},  }\item[{float}]{f\+Tilt\+High = {\ttfamily 100} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Public method to calculate the amplitude within the specified time window for each of the traces in the event. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classIHealthTools_aa6bdf03f0f7595eec0a894c7c73134ea}{Camera\+Pedestal}(\hyperlink{classIFile}{I\+File} $\ast$file, int entry,unsigned long long l\+Time\+Start, unsigned long long l\+Time\+End, std\+::string tree, float voltage, unsigned long long $\ast$event\+Time,int i\+T\+W\+Start=200, int i\+T\+W\+End=300,float f\+Tilt\+Low=-\/100,float f\+Tilt\+High=100)
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$float$>$ With the calculated amplitude for each of the traces in the event if accepted. If the event is not accepted, all entries in the vector are set to -\/1. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIHealthTools_a51f94cdf8490167d3169defc6d214feb}\label{classIHealthTools_a51f94cdf8490167d3169defc6d214feb}} 
+\index{I\+Health\+Tools@{I\+Health\+Tools}!Camera\+Amplitude@{Camera\+Amplitude}}
+\index{Camera\+Amplitude@{Camera\+Amplitude}!I\+Health\+Tools@{I\+Health\+Tools}}
+\subsubsection{\texorpdfstring{Camera\+Amplitude()}{CameraAmplitude()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily static std\+::vector$<$float$>$ I\+Health\+Tools\+::\+Camera\+Amplitude (\begin{DoxyParamCaption}\item[{\hyperlink{classIFile}{I\+File} $\ast$}]{file,  }\item[{int}]{entry,  }\item[{std\+::string}]{tree,  }\item[{int}]{i\+T\+W\+Start = {\ttfamily 200},  }\item[{int}]{i\+T\+W\+End = {\ttfamily 300} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Public method to calculate the amplitude within the specified time window for each of the traces in the event. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classIHealthTools_aa6bdf03f0f7595eec0a894c7c73134ea}{Camera\+Pedestal}(\hyperlink{classIFile}{I\+File} $\ast$file, int entry,unsigned long long l\+Time\+Start, unsigned long long l\+Time\+End, std\+::string tree, float voltage, unsigned long long $\ast$event\+Time,int i\+T\+W\+Start=200, int i\+T\+W\+End=300,float f\+Tilt\+Low=-\/100,float f\+Tilt\+High=100)
+\end{DoxySeeAlso}
+
+\begin{DoxyItemize}
+\item 
+\begin{DoxyParams}{Parameters}
+{\em file} & \hyperlink{classIFile}{I\+File} Object defined in Ex\+A\+CT. Contains the merged file and the 4 data Trees (H\+L\+ED, Bi\+Focal, Test, Forced) \\
+\hline
+{\em entry} & An int with the entry (event number) to be extracted \\
+\hline
+{\em tree} & A std\+::string with the name of the tree to access. Can be (hled,bifocal,test,forced) \\
+\hline
+{\em i\+T\+W\+Start} & An int with the start of the time window for the trace analysis (10s of nanoseconds). Default is 200 \\
+\hline
+{\em i\+T\+W\+End} & An int with the end of the time window for the trace analysis (10s of nanoseconds). Default is 300\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$float$>$ With the calculated amplitude for each of the traces in the event if accepted. If the event is not accepted, all entries in the vector are set to -\/1. 
+\end{DoxyReturn}
+
+\end{DoxyItemize}\mbox{\Hypertarget{classIHealthTools_a37c86d665727324db9248a0027a8b871}\label{classIHealthTools_a37c86d665727324db9248a0027a8b871}} 
+\index{I\+Health\+Tools@{I\+Health\+Tools}!Camera\+Amplitude@{Camera\+Amplitude}}
+\index{Camera\+Amplitude@{Camera\+Amplitude}!I\+Health\+Tools@{I\+Health\+Tools}}
+\subsubsection{\texorpdfstring{Camera\+Amplitude()}{CameraAmplitude()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily static std\+::vector$<$float$>$ I\+Health\+Tools\+::\+Camera\+Amplitude (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ int $>$$>$}]{traces,  }\item[{int}]{i\+T\+W\+Start = {\ttfamily 200},  }\item[{int}]{i\+T\+W\+End = {\ttfamily 300} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Public method to calculate the amplitude within the specified time window for each of the traces in a std\+::vector of size 512x512 (typically). 
+
+Where there are 512 pixels each with 512 digitized samples
+
+
+\begin{DoxyParams}{Parameters}
+{\em traces} & A std\+::vector of ints with size m x n. Where m is the number of pixels and n the number of samples. \\
+\hline
+{\em i\+T\+W\+Start} & An int with the start of the time window for the trace analysis (10s of nanoseconds). Default is 200 \\
+\hline
+{\em i\+T\+W\+End} & An int with the end of the time window for the trace analysis (10s of nanoseconds). Default is 300 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classIHealthTools_a41b5b3c853af74854ebb778dfe6aaa76}\label{classIHealthTools_a41b5b3c853af74854ebb778dfe6aaa76}} 
+\index{I\+Health\+Tools@{I\+Health\+Tools}!Camera\+Charge@{Camera\+Charge}}
+\index{Camera\+Charge@{Camera\+Charge}!I\+Health\+Tools@{I\+Health\+Tools}}
+\subsubsection{\texorpdfstring{Camera\+Charge()}{CameraCharge()}}
+{\footnotesize\ttfamily static std\+::vector$<$float$>$ I\+Health\+Tools\+::\+Camera\+Charge (\begin{DoxyParamCaption}\item[{\hyperlink{classIFile}{I\+File} $\ast$}]{file,  }\item[{int}]{entry,  }\item[{unsigned long long}]{l\+Time\+Start,  }\item[{unsigned long long}]{l\+Time\+End,  }\item[{std\+::string}]{tree,  }\item[{float}]{voltage,  }\item[{unsigned long long $\ast$}]{event\+Time,  }\item[{int}]{i\+T\+W\+Start = {\ttfamily 200},  }\item[{int}]{i\+T\+W\+End = {\ttfamily 300},  }\item[{float}]{f\+Tilt\+Low = {\ttfamily -\/100},  }\item[{float}]{f\+Tilt\+High = {\ttfamily 100} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Public method to calculate the charge within the specified time window for each of the traces in the event. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classIHealthTools_aa6bdf03f0f7595eec0a894c7c73134ea}{Camera\+Pedestal}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$float$>$ With the calculated charge for each of the traces in the event if accepted. If the event is not accepted, all entries in the vector are set to -\/1. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIHealthTools_ac312d1227c3c1bf187dd4a4ea69fff7f}\label{classIHealthTools_ac312d1227c3c1bf187dd4a4ea69fff7f}} 
+\index{I\+Health\+Tools@{I\+Health\+Tools}!Camera\+Peaking\+Time@{Camera\+Peaking\+Time}}
+\index{Camera\+Peaking\+Time@{Camera\+Peaking\+Time}!I\+Health\+Tools@{I\+Health\+Tools}}
+\subsubsection{\texorpdfstring{Camera\+Peaking\+Time()}{CameraPeakingTime()}}
+{\footnotesize\ttfamily static std\+::vector$<$float$>$ I\+Health\+Tools\+::\+Camera\+Peaking\+Time (\begin{DoxyParamCaption}\item[{\hyperlink{classIFile}{I\+File} $\ast$}]{file,  }\item[{int}]{entry,  }\item[{unsigned long long}]{l\+Time\+Start,  }\item[{unsigned long long}]{l\+Time\+End,  }\item[{std\+::string}]{tree,  }\item[{float}]{voltage,  }\item[{unsigned long long $\ast$}]{event\+Time,  }\item[{int}]{i\+T\+W\+Start = {\ttfamily 200},  }\item[{int}]{i\+T\+W\+End = {\ttfamily 300},  }\item[{float}]{f\+Tilt\+Low = {\ttfamily -\/100},  }\item[{float}]{f\+Tilt\+High = {\ttfamily 100} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Public method to calculate the peaking time within the specified time window for each of the traces in the event. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classIHealthTools_aa6bdf03f0f7595eec0a894c7c73134ea}{Camera\+Pedestal}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$float$>$ With the peaking time amplitude for each of the traces in the event if accepted. If the event is not accepted, all entries in the vector are set to -\/1. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIHealthTools_aa6bdf03f0f7595eec0a894c7c73134ea}\label{classIHealthTools_aa6bdf03f0f7595eec0a894c7c73134ea}} 
+\index{I\+Health\+Tools@{I\+Health\+Tools}!Camera\+Pedestal@{Camera\+Pedestal}}
+\index{Camera\+Pedestal@{Camera\+Pedestal}!I\+Health\+Tools@{I\+Health\+Tools}}
+\subsubsection{\texorpdfstring{Camera\+Pedestal()}{CameraPedestal()}}
+{\footnotesize\ttfamily static std\+::vector$<$float$>$ I\+Health\+Tools\+::\+Camera\+Pedestal (\begin{DoxyParamCaption}\item[{\hyperlink{classIFile}{I\+File} $\ast$}]{file,  }\item[{int}]{entry,  }\item[{unsigned long long}]{l\+Time\+Start,  }\item[{unsigned long long}]{l\+Time\+End,  }\item[{std\+::string}]{tree,  }\item[{float}]{voltage,  }\item[{unsigned long long $\ast$}]{event\+Time,  }\item[{int}]{i\+T\+W\+Start = {\ttfamily 200},  }\item[{int}]{i\+T\+W\+End = {\ttfamily 300},  }\item[{float}]{f\+Tilt\+Low = {\ttfamily -\/100},  }\item[{float}]{f\+Tilt\+High = {\ttfamily 100} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Public method to calculate the pedestal of the trace for each of the traces in an event. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & \hyperlink{classIFile}{I\+File} Object defined in Ex\+A\+CT. Contains the merged file and the 4 data Trees (H\+L\+ED, Bi\+Focal, Test, Forced) \\
+\hline
+{\em entry} & An int with the entry (event number) to be extracted \\
+\hline
+{\em l\+Time\+Start} & An unsigned long long with the unix time start of the time window over which to accept events (in 10s of nanoseconds) \\
+\hline
+{\em l\+Time\+End} & An unsigned long long with the unix time end of the time window over which to accept events (in 10s of nanoseconds) \\
+\hline
+{\em tree} & A std\+::string with the name of the tree to access. Can be (hled,bifocal,test,forced) \\
+\hline
+{\em voltage} & A float with the voltage setting which to accept events (tolerance is 0.\+1 V) \\
+\hline
+{\em event\+Time} & An unsigned long long$\ast$ where to store the time of the event if accepted. (Set to 0 if event does not satisfy one of the time or voltage conditions)\\
+\hline
+\end{DoxyParams}
+Optional parameters 
+\begin{DoxyParams}{Parameters}
+{\em i\+T\+W\+Start} & An int with the start of the time window for the trace analysis (10s of nanoseconds). Default is 200 \\
+\hline
+{\em i\+T\+W\+End} & An int with the end of the time window for the trace analysis (10s of nanoseconds). Default is 300 \\
+\hline
+{\em f\+Tilt\+Low} & A float with the lower range for acceptable tilt angle in degrees w.\+r.\+t. the horizon. Default is -\/100 \\
+\hline
+{\em f\+Tilt\+High} & A float with the lower range for acceptable tilt angle in degrees w.\+r.\+t. the horizon. Default is 100\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$float$>$ With the calculated pedestal for each of the traces in the event if accepted. If the event is not accepted, all entries in the vector are set to -\/1. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIHealthTools_a6adf7b141d8cf397ec7f6abdbd81befd}\label{classIHealthTools_a6adf7b141d8cf397ec7f6abdbd81befd}} 
+\index{I\+Health\+Tools@{I\+Health\+Tools}!Camera\+Pedestal\+R\+MS@{Camera\+Pedestal\+R\+MS}}
+\index{Camera\+Pedestal\+R\+MS@{Camera\+Pedestal\+R\+MS}!I\+Health\+Tools@{I\+Health\+Tools}}
+\subsubsection{\texorpdfstring{Camera\+Pedestal\+R\+M\+S()}{CameraPedestalRMS()}}
+{\footnotesize\ttfamily static std\+::vector$<$float$>$ I\+Health\+Tools\+::\+Camera\+Pedestal\+R\+MS (\begin{DoxyParamCaption}\item[{\hyperlink{classIFile}{I\+File} $\ast$}]{file,  }\item[{int}]{entry,  }\item[{unsigned long long}]{l\+Time\+Start,  }\item[{unsigned long long}]{l\+Time\+End,  }\item[{std\+::string}]{tree,  }\item[{float}]{voltage,  }\item[{unsigned long long $\ast$}]{event\+Time,  }\item[{int}]{i\+T\+W\+Start = {\ttfamily 200},  }\item[{int}]{i\+T\+W\+End = {\ttfamily 300},  }\item[{float}]{f\+Tilt\+Low = {\ttfamily -\/100},  }\item[{float}]{f\+Tilt\+High = {\ttfamily 100} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Public method to calculate the pedestal R\+MS for each of the traces in the event. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classIHealthTools_aa6bdf03f0f7595eec0a894c7c73134ea}{Camera\+Pedestal}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$float$>$ With the calculated pedestal for each of the traces in the event if accepted. If the event is not accepted, all entries in the vector are set to -\/1. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIHealthTools_ab44aea2194293cba7ed3975cf1b788cf}\label{classIHealthTools_ab44aea2194293cba7ed3975cf1b788cf}} 
+\index{I\+Health\+Tools@{I\+Health\+Tools}!Is\+Bad\+Event@{Is\+Bad\+Event}}
+\index{Is\+Bad\+Event@{Is\+Bad\+Event}!I\+Health\+Tools@{I\+Health\+Tools}}
+\subsubsection{\texorpdfstring{Is\+Bad\+Event()}{IsBadEvent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static bool I\+Health\+Tools\+::\+Is\+Bad\+Event (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ int $>$$>$}]{traces,  }\item[{int}]{i\+T\+W\+Start,  }\item[{int}]{i\+T\+W\+End,  }\item[{int}]{n\+Pixels\+Tolerance = {\ttfamily 20},  }\item[{int}]{n\+Samples\+Tolerance = {\ttfamily 10} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Public method to identify if the digitized data from the camera constitutes a bad event. 
+
+When the system overtriggers (the trigger rate is higher than the electronics can handle), the beginning of the traces overflows the digitizer. This is shown as a flat line pedestal. The method checks all the traces in an event to identify if it constitutes one of these overflowed events.
+
+
+\begin{DoxyParams}{Parameters}
+{\em traces} & A std\+:vector of size m x n, where m is the number of pixels and n the number of samples. Contains the traces for all the pixels in the camera \\
+\hline
+{\em i\+T\+W\+Start} & An int with the start of the time window for the trace analysis (10s of nanoseconds). Default is 200 \\
+\hline
+{\em i\+T\+W\+End} & An int with the end of the time window for the trace analysis (10s of nanoseconds). Default is 300 \\
+\hline
+{\em n\+Pixels\+Tolerance} & An int defining how many pixels must be overflowed to consider it a bad event \\
+\hline
+{\em n\+Samples\+Tolerance} & An int defining how many samples must be overflowed consecutively to consider it a bad event\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool with the evaluation of whether the event is bad or not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIHealthTools_a47f9868f08d011ff8f180a3b50116a11}\label{classIHealthTools_a47f9868f08d011ff8f180a3b50116a11}} 
+\index{I\+Health\+Tools@{I\+Health\+Tools}!Is\+Bad\+Event@{Is\+Bad\+Event}}
+\index{Is\+Bad\+Event@{Is\+Bad\+Event}!I\+Health\+Tools@{I\+Health\+Tools}}
+\subsubsection{\texorpdfstring{Is\+Bad\+Event()}{IsBadEvent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static bool I\+Health\+Tools\+::\+Is\+Bad\+Event (\begin{DoxyParamCaption}\item[{\hyperlink{classIFile}{I\+File} $\ast$}]{file,  }\item[{int}]{entry,  }\item[{std\+::string}]{tree\+Name,  }\item[{int}]{i\+T\+W\+Start,  }\item[{int}]{i\+T\+W\+End,  }\item[{int}]{n\+Pixels\+Tolerance = {\ttfamily 20},  }\item[{int}]{n\+Samples\+Tolerance = {\ttfamily 10} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Public method to identify if the digitized data from the camera constitutes a bad event. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classIHealthTools_ab44aea2194293cba7ed3975cf1b788cf}{Is\+Bad\+Event}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em file} & \hyperlink{classIFile}{I\+File} Object defined in Ex\+A\+CT. Contains the merged file and the 4 data Trees (H\+L\+ED, Bi\+Focal, Test, Forced) \\
+\hline
+{\em entry} & An int with the entry (event number) to be extracted \\
+\hline
+{\em tree\+Name} & A std\+::string with the name of the tree to access. Can be (hled,bifocal,test,forced) \\
+\hline
+{\em i\+T\+W\+Start} & An int with the start of the time window for the trace analysis (10s of nanoseconds). Default is 200 \\
+\hline
+{\em i\+T\+W\+End} & An int with the end of the time window for the trace analysis (10s of nanoseconds). Default is 300 \\
+\hline
+{\em n\+Pixels\+Tolerance} & An int defining how many pixels must be overflowed to consider it a bad event \\
+\hline
+{\em n\+Samples\+Tolerance} & An int defining how many samples must be overflowed consecutively to consider it a bad event\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool with the evaluation of whether the event is bad or not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIHealthTools_a0ece49def5b92e43a6f3630e42223dbd}\label{classIHealthTools_a0ece49def5b92e43a6f3630e42223dbd}} 
+\index{I\+Health\+Tools@{I\+Health\+Tools}!Is\+Tilt\+In\+Range@{Is\+Tilt\+In\+Range}}
+\index{Is\+Tilt\+In\+Range@{Is\+Tilt\+In\+Range}!I\+Health\+Tools@{I\+Health\+Tools}}
+\subsubsection{\texorpdfstring{Is\+Tilt\+In\+Range()}{IsTiltInRange()}}
+{\footnotesize\ttfamily static bool I\+Health\+Tools\+::\+Is\+Tilt\+In\+Range (\begin{DoxyParamCaption}\item[{float}]{ftilt,  }\item[{float}]{f\+Tilt\+Low,  }\item[{float}]{f\+Tilt\+High }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Private memeber to check if the tilt of the telescope is within range. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ftilt} & A float with the tilt position of the telescope in degrees w.\+r.\+t. the horizon \\
+\hline
+{\em f\+Tilt\+Low} & A float with the lower range for acceptable tilt angle in degrees w.\+r.\+t. the horizon. Default is -\/100 \\
+\hline
+{\em f\+Tilt\+High} & A float with the lower range for acceptable tilt angle in degrees w.\+r.\+t. the horizon. Default is 100\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool With information if it is within the tilt range 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIHealthTools_ac3ac1d03cafa1046bf6ff6e591e30bb8}\label{classIHealthTools_ac3ac1d03cafa1046bf6ff6e591e30bb8}} 
+\index{I\+Health\+Tools@{I\+Health\+Tools}!Is\+Time\+In\+Range@{Is\+Time\+In\+Range}}
+\index{Is\+Time\+In\+Range@{Is\+Time\+In\+Range}!I\+Health\+Tools@{I\+Health\+Tools}}
+\subsubsection{\texorpdfstring{Is\+Time\+In\+Range()}{IsTimeInRange()}}
+{\footnotesize\ttfamily static bool I\+Health\+Tools\+::\+Is\+Time\+In\+Range (\begin{DoxyParamCaption}\item[{unsigned long long}]{l\+Time,  }\item[{unsigned long long}]{l\+Time\+Start,  }\item[{unsigned long long}]{l\+Time\+End }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Private member to check if the time stamp of the event is within the range specified. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l\+Time} & An unsigned long long containing the trigger time in 10s of nanoseconds \\
+\hline
+{\em l\+Time\+Start} & An unsigned long long with the unix time start of the time window over which to accept events (in 10s of nanoseconds) \\
+\hline
+{\em l\+Time\+End} & An unsigned long long with the unix time end of the time window over which to accept events (in 10s of nanoseconds)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool With information if it is within the time range 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+dict/include/I\+Health\+Tools.\+h\end{DoxyCompactItemize}

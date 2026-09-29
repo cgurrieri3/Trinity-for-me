@@ -1,0 +1,284 @@
+import datetime
+import threading
+#import DB_config as db
+
+
+
+
+# format Dictionary enrty for the status values
+def composeDict(measurement, metric1, metric2, value1, value2, message):
+    retDict = {}
+    retDict["measurement"] = measurement
+    retDict["tags"] = {}
+    retDict["tags"]["metric1"] = metric1
+    retDict["tags"]["metric2"] = metric2
+    retDict["time"] = decodeTimeStamp(message)
+    retDict["fields"] = {}
+    retDict["fields"]["value1"] = value1
+    retDict["fields"]["value2"] = value2
+    return(retDict)
+
+# format Dictionary enrty for SIABs and HV data any values that are repeated
+def composeDict2(measurement2, metric3, CompNum, value3, stateMess, message):
+	retDict = {}
+	retDict["measurement"] = measurement2
+	retDict["tags"] = {}
+	retDict["tags"]["metric"] = metric3
+	retDict["time"] = decodeTimeStamp(message)
+	retDict["fields"] = {}
+	for CompNum, value3 in enumerate(stateMess):
+		retDict["fields"][CompNum+1] = value3
+	return(retDict)
+
+def decodeStatesOfModules(message):
+    #print(f'triggere rate before {message[1]}')
+    #TrigerRate = int.from_bytes(message[6:8], "big")
+    h_size =  2 # gets size of the bits string
+    message_partial = message[1]
+    ModulesStatus = (bin(message_partial)[2:]).zfill(h_size)[::-1] # converts bytes to hex, then to bits
+    #print(NLCTS)
+    # assigns each bits to dictionary
+    for ix, x in enumerate(ModulesStatus):
+        di = composeDict2('Modules_Status', 'on/off', ix, x, ModulesStatus, message)
+    return(di)
+    
+
+def decodeTrigerRate(message):
+    #print(f'triggere rate before {message[1]}')
+    #TrigerRate = int.from_bytes(message[6:8], "big")
+    
+    TrigerRate = message[2]
+    #print(f'trigger rate after  {TrigerRate}')
+    return(composeDict('TriggerRate', 'num', 'null', TrigerRate,"null", message))
+
+# time stamp format for database: "yyyy-mm-ddThh:mm:ssZ"
+def decodeTimeStamp(message):
+  	
+    time = datetime.datetime.utcfromtimestamp(message[3]) # convert unix time to formated time
+    time_formated = str(time).split(" ")
+    #print(time)
+    return(time_formated[0] + 'T' + time_formated[1] + 'z')
+
+
+def decodeMUSICPWR(message):
+# status on/off for each siab, all SIABs are in 4 bytes and the 32 bits are each status point for each SIAB
+    h_size =  8 # gets size of the bits string
+    message_partial = message[4]
+    MUSICPWR = (bin(message_partial)[2:]).zfill(h_size)[::-1] # converts bytes to hex, then to bits
+    #print(MUSICPWR)
+    # assigns each bits to dictionary
+    for ix, x in enumerate(MUSICPWR):
+        di = composeDict2('MUSIC_Power', 'on/off', ix, x, MUSICPWR, message)
+    return(di)
+
+
+def decodeHVStatus(message):
+# status on/off for each siab
+    h_size = 8
+    message_partial = message[5]
+    HVStatus = (bin(message_partial)[2:]).zfill(h_size)[::-1]
+    #print(HVStatus)
+    for ix, x in enumerate(HVStatus):
+        di = composeDict2('HV_Status', 'on/off', ix+16, x, HVStatus, message)
+    return(di)
+
+def decodeASADCurrent(message):
+	ASADCurrent = message[6] * 2.441406*10**(-4)
+	#print(ASADCurrent)
+	return(composeDict('ASADCurrent', 'mA', 'null', ASADCurrent,"null", message))
+
+def decodeTBCurrent(message):
+	TBCurrent = message[7] * 2.441406*10**(-4)
+	#print(TBCurrent)
+	return(composeDict('TBCurrent', 'mA', 'null', TBCurrent,"null", message))
+
+def decodeHV(message):
+# like unix time, adc count-change with converion number to Voltage
+# 1.245117*10^-5
+    #print(f'decodeHV {message}')
+    HV1 = message[8]*(1.245117*(10**-5))
+    HV2 = message[9]*(1.245117*(10**-5))
+    HV3 = message[10]*(1.245117*(10**-5))
+    HV4 = message[11]*(1.245117*(10**-5))
+    
+
+    HVs = [HV1, HV2, HV3, HV4]
+    #print(HVs)
+    for ix, x in enumerate(HVs):
+        di = composeDict2('HV', 'V', ix, x, HVs, message)
+    return(di)
+
+def decodeHVcurrent(message):
+# mA
+# devide decimal by 5 to get the value
+	HVcus = message[12:16]
+	#print(HVcus)
+	#HVcus = decodeMessage(HVcusRaw)
+    #print(HVcus)
+	HVcusCal = [k/5 for k in HVcus]
+	#print(HVcusCal)
+	for ix, x in enumerate(HVcusCal):
+		di = composeDict2('HV_currents', 'mA', ix, x, HVcusCal, message)
+	return(di)
+
+def decodeReserved(message):
+	reserved = message[16:18]
+	pass
+
+def decodeSiPMtemp(message):
+	tempatures = message[18:34]
+	#print(tempatures)
+	for ix, x in enumerate(tempatures):
+		di = composeDict2('SiPM_temps', 'C', ix, x, tempatures, message)
+	return(di)
+
+def decodeUCtemp(message):
+	Utempatures = message[34:50]
+	#print(Utempatures)
+	for ix, x in enumerate(Utempatures):
+		di = composeDict2('UC_temps', 'C', ix, x, Utempatures, message)
+	return(di)
+
+def decodeOther(message):
+    temper = message[50:]
+    #print(Utempatures)
+    for ix, x in enumerate(temper):
+        di = composeDict2('other', 'X', ix, x, temper, message)
+    return(di)
+
+
+# once a message is recieved from CT , writing the message to database
+def continous_monitor(message):
+    # while True:
+        
+    #print("Incoming Decimal Message:")
+    #print(message)
+    #print("\n")
+   #status = message
+
+    
+    status_dict= [decodeStatesOfModules(message)]
+    print('Time Stamp: ' + str(decodeStatesOfModules(message)['time']))
+    print(str(decodeStatesOfModules(message)['measurement']) + ': ' + str(decodeStatesOfModules(message)['fields']) + ', ' + str(decodeStatesOfModules(message)['tags']))
+    status_dict1 = [decodeTrigerRate(message)]
+    print(str(decodeTrigerRate(message)['measurement']) + ': ' + str(decodeTrigerRate(message)['fields']) + ', ' + str(decodeTrigerRate(message)['tags']))
+    status_dict5 = [decodeMUSICPWR(message)]
+    print(str(decodeMUSICPWR(message)['measurement']) + ': ' + str(decodeMUSICPWR(message)['fields']) + ', ' + str(decodeMUSICPWR(message)['tags']))
+    status_dict6 = [decodeHVStatus(message)]
+    print(str(decodeHVStatus(message)['measurement']) + ': ' + str(decodeHVStatus(message)['fields']) + ', ' + str(decodeHVStatus(message)['tags']))
+    status_dict61 = [decodeASADCurrent(message)]
+    print(str(decodeASADCurrent(message)['measurement']) + ': ' + str(decodeASADCurrent(message)['fields']) + ', ' + str(decodeASADCurrent(message)['tags']))
+    status_dict62 = [decodeTBCurrent(message)]
+    print(str(decodeTBCurrent(message)['measurement']) + ': ' + str(decodeTBCurrent(message)['fields']) + ', ' + str(decodeTBCurrent(message)['tags']))
+    
+    status_dict7 = [decodeHV(message)]
+    print(str(decodeHV(message)['measurement']) + ': ' + str(decodeHV(message)['fields']) + ', ' + str(decodeHV(message)['tags']))
+    status_dict8 = [decodeHVcurrent(message)]
+    print(str(decodeHVcurrent(message)['measurement']) + ': ' + str(decodeHVcurrent(message)['fields']) + ', ' + str(decodeHVcurrent(message)['tags']))
+    status_dict9 = [decodeSiPMtemp(message)]
+    print(str(decodeSiPMtemp(message)['measurement']) + ': ' + str(decodeSiPMtemp(message)['fields']) + ', ' + str(decodeSiPMtemp(message)['tags']))
+    status_dict10= [decodeUCtemp(message)]
+    print(str(decodeUCtemp(message)['measurement']) + ': ' + str(decodeUCtemp(message)['fields']) + ', ' + str(decodeUCtemp(message)['tags']))
+    status_dict11= [decodeOther(message)]
+    print(str(decodeOther(message)['measurement']) + ': ' + str(decodeOther(message)['fields']) + ', ' + str(decodeOther(message)['tags']))
+    
+
+
+    # db.write_db_entry(status_dict)
+    # db.write_db_entry(status_dict1)
+   
+    # db.write_db_entry(status_dict5)
+    # db.write_db_entry(status_dict6)
+    # db.write_db_entry(status_dict61)
+    # db.write_db_entry(status_dict62)
+    # db.write_db_entry(status_dict7)
+    # db.write_db_entry(status_dict8)
+    # db.write_db_entry(status_dict9)
+    # db.write_db_entry(status_dict10)
+    # db.write_db_entry(status_dict11)
+    print('Waiting for next data load in 30 seconds...')
+        # log raw values to a file everyday
+        #logRawMessage(str(decodeTimeStamp(message)) + " || "  + str(message) + "\n")
+        # wait 30 sec to ask for a new message
+
+
+
+def main(message):
+	# starting to listen for message and writing to database
+    t1 = threading.Thread(target=continous_monitor,args=(message,))
+    t1.start()
+
+if __name__ == "__main__":
+	#message = ['C', 31, 100, 1695219895, 65535, 65535, 59756, 53987, 3450921, 3463961, 3467795, 3477385, 70, 65, 64, 64, 0, 0, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400, 400]
+
+	main(message)
+
+# def get_array(m_hex):
+#     LENGTHS = [2,2,4,8,4,4,4,4,8,8,8,8,2,2,2,2,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4]
+#     results = []
+#     start = 0
+#     #print(m_hex)
+#     for length in LENGTHS:
+#         hex_element = m_hex[start:start+length]
+#         #rint(hex_element)
+#         decimal_element = int(hex_element, 16)
+
+#         if decimal_element != 67: # if it is the letter c
+#             results.append(decimal_element)
+#         else:
+#             char_element = chr(decimal_element)
+#             results.append(char_element)
+
+#         start += length
+
+#     #print(results)
+#     return results
+
+
+
+# with open('Log/State_MSG_LOG_230920.txt', 'rb') as file:
+
+#     file.seek(-104, 2) 
+
+#     last_104_bytes = file.read()
+#     #print(last_104_bytes)
+#     hex_string = last_104_bytes.hex()
+#     #print(hex_string)
+
+#     dec_array=get_array(hex_string)
+    
+    # decodeTrigerRate(dec_array)
+    # # decodeStatesOfModules(dec_array,'MCPWR')
+    # decodeMUSICPWR(dec_array)
+    # decodeHVStatus(dec_array)
+    # decodeASADCurrent(dec_array)
+    # decodeTBCurrent(dec_array)
+    # decodeHV(dec_array)
+    # decodeHVcurrent(dec_array)
+    # decodeSiPMtemp(dec_array)
+    # decodeUCtemp(dec_array)
+
+    
+
+    # print(int(str(last_104_bytes)[5:7],16))
+
+    # remove=str(last_104_bytes).replace('\\x', '  ')
+    # print(remove)
+
+    # array = remove.split()
+    # print(array)
+    # #print(int(remove[8:10],16))
+
+    # for el in range(1,len(array)): 
+    # 	try:
+	   #  	array_dec = int(array[el],16)
+	   #  	print(array_dec)
+	   #  except:
+	   #  	el = el +1
+
+    # array_dec[0] = 'C'
+    # print(array_dec)
+
+    
+
+ 

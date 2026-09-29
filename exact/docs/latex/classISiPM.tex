@@ -1,0 +1,229 @@
+\hypertarget{classISiPM}{}\section{I\+Si\+PM Class Reference}
+\label{classISiPM}\index{I\+Si\+PM@{I\+Si\+PM}}
+
+
+A container class for all the Si\+PM information for camera calibration.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classISiPM_a10389a28cc11a3a591de1c249d3f1cd9}\label{classISiPM_a10389a28cc11a3a591de1c249d3f1cd9}} 
+\hyperlink{classISiPM_a10389a28cc11a3a591de1c249d3f1cd9}{I\+Si\+PM} ()
+\begin{DoxyCompactList}\small\item\em Public empty constructor. \end{DoxyCompactList}\item 
+\hyperlink{classISiPM_afa4d53f967af2c55bc355733fd803e97}{I\+Si\+PM} (int n\+Pixels)
+\begin{DoxyCompactList}\small\item\em Public constructor using the number of pixels. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classISiPM_af5f6a902ed903598c2cb7855fe048857}\label{classISiPM_af5f6a902ed903598c2cb7855fe048857}} 
+\hyperlink{classISiPM_af5f6a902ed903598c2cb7855fe048857}{$\sim$\+I\+Si\+PM} ()
+\begin{DoxyCompactList}\small\item\em Public destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classISiPM_acc5ee63d1ff626fa22d5f522005ca289}{Set\+Gain} (std\+::vector$<$ double $>$ values)
+\begin{DoxyCompactList}\small\item\em Public method to set the gain value for each of the Si\+P\+Ms in the camera. \end{DoxyCompactList}\item 
+void \hyperlink{classISiPM_a656bda14a56128160c5ff06f01ec8c1e}{Set\+Opt\+X\+Talk} (std\+::vector$<$ double $>$ values)
+\begin{DoxyCompactList}\small\item\em Public method to set the optical cross-\/talk value for each of the Si\+P\+Ms in the camera. \end{DoxyCompactList}\item 
+void \hyperlink{classISiPM_a915471416f44f92380cc450dce689e25}{Set\+T\+Correction} (std\+::vector$<$ double $>$ values)
+\begin{DoxyCompactList}\small\item\em Public method to set the temperature correction value for each of the Si\+P\+Ms in the camera. \end{DoxyCompactList}\item 
+void \hyperlink{classISiPM_a232f9d00787139b7c972fa6834bc2a43}{Set\+Ampl\+To\+PE} (std\+::vector$<$ double $>$ values)
+\begin{DoxyCompactList}\small\item\em Public method to set the amplitude in A\+DC to photo-\/electron value for each of the Si\+P\+Ms in the camera. \end{DoxyCompactList}\item 
+void \hyperlink{classISiPM_a7f96e36528e099f75a32d54133917ca8}{Set\+Chg\+To\+PE} (std\+::vector$<$ double $>$ values)
+\begin{DoxyCompactList}\small\item\em Public method to set the charge in A\+DC to photo-\/electron value for each of the Si\+P\+Ms in the camera Note\+: The charge should be calculated using the sum of the peak of the trace, the sample immediately before and the one immediately after. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \hyperlink{classISiPM_aac9fd397344bc7ca1263cc91edc61118}{Get\+Gain} ()
+\begin{DoxyCompactList}\small\item\em Public method to get the gain as stored in the object. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \hyperlink{classISiPM_ad8b5408dd198cc4e70f2cdc8244e69c2}{Get\+Opt\+X\+Talk} ()
+\begin{DoxyCompactList}\small\item\em Public method to get the optical cross-\/talk as stored in the object. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \hyperlink{classISiPM_ac5dce66434f6fca0dfca279f4a157f30}{Get\+T\+Correction} ()
+\begin{DoxyCompactList}\small\item\em Public method to get the temperature correction as stored in the object. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \hyperlink{classISiPM_af4f61eeb6e0be8e5c291b3a2407746e8}{Get\+Ampl\+To\+PE} ()
+\begin{DoxyCompactList}\small\item\em Public method to get the amplitude in A\+DC to photo-\/electron as stored in the object. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \hyperlink{classISiPM_ab6246048aee23e50fe66262dde6a6e78}{Get\+Chg\+To\+PE} ()
+\begin{DoxyCompactList}\small\item\em Public method to get the charge in A\+DC to photo-\/electron as stored in the object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classISiPM_a0e6e60edfd0ae916061f377d6aa0dee7}\label{classISiPM_a0e6e60edfd0ae916061f377d6aa0dee7}} 
+std\+::vector$<$ double $>$ \hyperlink{classISiPM_a0e6e60edfd0ae916061f377d6aa0dee7}{gain}
+\begin{DoxyCompactList}\small\item\em A std\+::vector containing the gain values for all the pixels. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classISiPM_a884d52c009e94d0b14f2433047426de2}\label{classISiPM_a884d52c009e94d0b14f2433047426de2}} 
+std\+::vector$<$ double $>$ \hyperlink{classISiPM_a884d52c009e94d0b14f2433047426de2}{opt\+X\+Talk}
+\begin{DoxyCompactList}\small\item\em A std\+::vector containing the optical cross-\/talk values for all the pixels. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classISiPM_aa7646f6c5d67cbac967c6a74c921c4f7}\label{classISiPM_aa7646f6c5d67cbac967c6a74c921c4f7}} 
+std\+::vector$<$ double $>$ \hyperlink{classISiPM_aa7646f6c5d67cbac967c6a74c921c4f7}{gain\+T\+Correction}
+\begin{DoxyCompactList}\small\item\em A std\+::vector containing the temperature correction values for all the pixels. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classISiPM_a0ada2f9e52daf574c77557c8ab634034}\label{classISiPM_a0ada2f9e52daf574c77557c8ab634034}} 
+std\+::vector$<$ double $>$ \hyperlink{classISiPM_a0ada2f9e52daf574c77557c8ab634034}{ampl\+To\+PE}
+\begin{DoxyCompactList}\small\item\em A std\+::vector containing the amplitude in A\+DC to photo-\/electron values for all the pixels. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classISiPM_a8959e99d36d6ebcab0e17ebc0aa533b5}\label{classISiPM_a8959e99d36d6ebcab0e17ebc0aa533b5}} 
+std\+::vector$<$ double $>$ \hyperlink{classISiPM_a8959e99d36d6ebcab0e17ebc0aa533b5}{chg\+To\+PE}
+\begin{DoxyCompactList}\small\item\em A std\+::vector containing the charge in A\+DC to photo-\/electron values for all the pixels. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A container class for all the Si\+PM information for camera calibration. 
+
+These class stores the values needed to calibrate each of the Si\+P\+Ms in the camera. It contains conversion factors from A\+DC to PE for both charge and amplitude. All the values are based on lab measurements and have been corrected for operating voltage at the time the event was recorded 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classISiPM_afa4d53f967af2c55bc355733fd803e97}\label{classISiPM_afa4d53f967af2c55bc355733fd803e97}} 
+\index{I\+Si\+PM@{I\+Si\+PM}!I\+Si\+PM@{I\+Si\+PM}}
+\index{I\+Si\+PM@{I\+Si\+PM}!I\+Si\+PM@{I\+Si\+PM}}
+\subsubsection{\texorpdfstring{I\+Si\+P\+M()}{ISiPM()}}
+{\footnotesize\ttfamily I\+Si\+P\+M\+::\+I\+Si\+PM (\begin{DoxyParamCaption}\item[{int}]{n\+Pixels }\end{DoxyParamCaption})}
+
+
+
+Public constructor using the number of pixels. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+Pixels} & An int with the total number of pixels in the camera \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classISiPM_af4f61eeb6e0be8e5c291b3a2407746e8}\label{classISiPM_af4f61eeb6e0be8e5c291b3a2407746e8}} 
+\index{I\+Si\+PM@{I\+Si\+PM}!Get\+Ampl\+To\+PE@{Get\+Ampl\+To\+PE}}
+\index{Get\+Ampl\+To\+PE@{Get\+Ampl\+To\+PE}!I\+Si\+PM@{I\+Si\+PM}}
+\subsubsection{\texorpdfstring{Get\+Ampl\+To\+P\+E()}{GetAmplToPE()}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ I\+Si\+P\+M\+::\+Get\+Ampl\+To\+PE (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Public method to get the amplitude in A\+DC to photo-\/electron as stored in the object. 
+
+\begin{DoxyReturn}{Returns}
+a std\+::vector$<$double$>$ of size n\+Pixels with the amplitude in A\+DC to photo-\/electron values 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classISiPM_ab6246048aee23e50fe66262dde6a6e78}\label{classISiPM_ab6246048aee23e50fe66262dde6a6e78}} 
+\index{I\+Si\+PM@{I\+Si\+PM}!Get\+Chg\+To\+PE@{Get\+Chg\+To\+PE}}
+\index{Get\+Chg\+To\+PE@{Get\+Chg\+To\+PE}!I\+Si\+PM@{I\+Si\+PM}}
+\subsubsection{\texorpdfstring{Get\+Chg\+To\+P\+E()}{GetChgToPE()}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ I\+Si\+P\+M\+::\+Get\+Chg\+To\+PE (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Public method to get the charge in A\+DC to photo-\/electron as stored in the object. 
+
+\begin{DoxyReturn}{Returns}
+a std\+::vector$<$double$>$ of size n\+Pixels with the charge in A\+DC to photo-\/electron values 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classISiPM_aac9fd397344bc7ca1263cc91edc61118}\label{classISiPM_aac9fd397344bc7ca1263cc91edc61118}} 
+\index{I\+Si\+PM@{I\+Si\+PM}!Get\+Gain@{Get\+Gain}}
+\index{Get\+Gain@{Get\+Gain}!I\+Si\+PM@{I\+Si\+PM}}
+\subsubsection{\texorpdfstring{Get\+Gain()}{GetGain()}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ I\+Si\+P\+M\+::\+Get\+Gain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Public method to get the gain as stored in the object. 
+
+\begin{DoxyReturn}{Returns}
+a std\+::vector$<$double$>$ of size n\+Pixels with the gain values 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classISiPM_ad8b5408dd198cc4e70f2cdc8244e69c2}\label{classISiPM_ad8b5408dd198cc4e70f2cdc8244e69c2}} 
+\index{I\+Si\+PM@{I\+Si\+PM}!Get\+Opt\+X\+Talk@{Get\+Opt\+X\+Talk}}
+\index{Get\+Opt\+X\+Talk@{Get\+Opt\+X\+Talk}!I\+Si\+PM@{I\+Si\+PM}}
+\subsubsection{\texorpdfstring{Get\+Opt\+X\+Talk()}{GetOptXTalk()}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ I\+Si\+P\+M\+::\+Get\+Opt\+X\+Talk (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Public method to get the optical cross-\/talk as stored in the object. 
+
+\begin{DoxyReturn}{Returns}
+a std\+::vector$<$double$>$ of size n\+Pixels with the optical cross-\/talk values 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classISiPM_ac5dce66434f6fca0dfca279f4a157f30}\label{classISiPM_ac5dce66434f6fca0dfca279f4a157f30}} 
+\index{I\+Si\+PM@{I\+Si\+PM}!Get\+T\+Correction@{Get\+T\+Correction}}
+\index{Get\+T\+Correction@{Get\+T\+Correction}!I\+Si\+PM@{I\+Si\+PM}}
+\subsubsection{\texorpdfstring{Get\+T\+Correction()}{GetTCorrection()}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ I\+Si\+P\+M\+::\+Get\+T\+Correction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Public method to get the temperature correction as stored in the object. 
+
+\begin{DoxyReturn}{Returns}
+a std\+::vector$<$double$>$ of size n\+Pixels with the temperature correction values 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classISiPM_a232f9d00787139b7c972fa6834bc2a43}\label{classISiPM_a232f9d00787139b7c972fa6834bc2a43}} 
+\index{I\+Si\+PM@{I\+Si\+PM}!Set\+Ampl\+To\+PE@{Set\+Ampl\+To\+PE}}
+\index{Set\+Ampl\+To\+PE@{Set\+Ampl\+To\+PE}!I\+Si\+PM@{I\+Si\+PM}}
+\subsubsection{\texorpdfstring{Set\+Ampl\+To\+P\+E()}{SetAmplToPE()}}
+{\footnotesize\ttfamily void I\+Si\+P\+M\+::\+Set\+Ampl\+To\+PE (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{values }\end{DoxyParamCaption})}
+
+
+
+Public method to set the amplitude in A\+DC to photo-\/electron value for each of the Si\+P\+Ms in the camera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em values} & A std\+::vector of size n\+Pixels that contains the A\+DC to photo-\/electron values for each Si\+PM in the camera. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classISiPM_a7f96e36528e099f75a32d54133917ca8}\label{classISiPM_a7f96e36528e099f75a32d54133917ca8}} 
+\index{I\+Si\+PM@{I\+Si\+PM}!Set\+Chg\+To\+PE@{Set\+Chg\+To\+PE}}
+\index{Set\+Chg\+To\+PE@{Set\+Chg\+To\+PE}!I\+Si\+PM@{I\+Si\+PM}}
+\subsubsection{\texorpdfstring{Set\+Chg\+To\+P\+E()}{SetChgToPE()}}
+{\footnotesize\ttfamily void I\+Si\+P\+M\+::\+Set\+Chg\+To\+PE (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{values }\end{DoxyParamCaption})}
+
+
+
+Public method to set the charge in A\+DC to photo-\/electron value for each of the Si\+P\+Ms in the camera Note\+: The charge should be calculated using the sum of the peak of the trace, the sample immediately before and the one immediately after. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em values} & A std\+::vector of size n\+Pixels that contains the A\+DC to photo-\/electron values for each Si\+PM in the camera. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classISiPM_acc5ee63d1ff626fa22d5f522005ca289}\label{classISiPM_acc5ee63d1ff626fa22d5f522005ca289}} 
+\index{I\+Si\+PM@{I\+Si\+PM}!Set\+Gain@{Set\+Gain}}
+\index{Set\+Gain@{Set\+Gain}!I\+Si\+PM@{I\+Si\+PM}}
+\subsubsection{\texorpdfstring{Set\+Gain()}{SetGain()}}
+{\footnotesize\ttfamily void I\+Si\+P\+M\+::\+Set\+Gain (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{values }\end{DoxyParamCaption})}
+
+
+
+Public method to set the gain value for each of the Si\+P\+Ms in the camera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em values} & A std\+::vector of size n\+Pixels that contains the gain values for each Si\+PM in the camera. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classISiPM_a656bda14a56128160c5ff06f01ec8c1e}\label{classISiPM_a656bda14a56128160c5ff06f01ec8c1e}} 
+\index{I\+Si\+PM@{I\+Si\+PM}!Set\+Opt\+X\+Talk@{Set\+Opt\+X\+Talk}}
+\index{Set\+Opt\+X\+Talk@{Set\+Opt\+X\+Talk}!I\+Si\+PM@{I\+Si\+PM}}
+\subsubsection{\texorpdfstring{Set\+Opt\+X\+Talk()}{SetOptXTalk()}}
+{\footnotesize\ttfamily void I\+Si\+P\+M\+::\+Set\+Opt\+X\+Talk (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{values }\end{DoxyParamCaption})}
+
+
+
+Public method to set the optical cross-\/talk value for each of the Si\+P\+Ms in the camera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em values} & A std\+::vector of size n\+Pixels that contains the optical corss-\/talk values for each Si\+PM in the camera. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classISiPM_a915471416f44f92380cc450dce689e25}\label{classISiPM_a915471416f44f92380cc450dce689e25}} 
+\index{I\+Si\+PM@{I\+Si\+PM}!Set\+T\+Correction@{Set\+T\+Correction}}
+\index{Set\+T\+Correction@{Set\+T\+Correction}!I\+Si\+PM@{I\+Si\+PM}}
+\subsubsection{\texorpdfstring{Set\+T\+Correction()}{SetTCorrection()}}
+{\footnotesize\ttfamily void I\+Si\+P\+M\+::\+Set\+T\+Correction (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{values }\end{DoxyParamCaption})}
+
+
+
+Public method to set the temperature correction value for each of the Si\+P\+Ms in the camera. 
+
+Note\+: Temperature correction is calculated as a dividing factor, it should be used to divide any of both To PE conversions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em values} & A std\+::vector of size n\+Pixels that contains the temperature correction values for each Si\+PM in the camera. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+dict/include/I\+Si\+P\+M.\+h\end{DoxyCompactItemize}

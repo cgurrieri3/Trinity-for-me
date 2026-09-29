@@ -1,0 +1,35 @@
+#!/usr/bin/expect -f
+
+
+# Read in the IP address, username, and password from the file
+set file "/data/TrinityLabComputer/control_comp/pass_ctcpu.txt"
+set fh [open $file r]
+gets $fh ip
+gets $fh user
+gets $fh password
+close $fh
+
+# Get Direction from user input
+set status [lindex $argv 0]
+
+# Connect to the remote computer using SSH
+spawn ssh $user@$ip
+
+# Wait for the password prompt and send the password
+expect "password:"
+send "$password\r"
+
+# Execute a command on the remote computer
+expect "trinity@trinityCPU:~$#"
+send "python3 control_software/MagnaPS/magna_$status.py \r"
+
+
+# Wait for the command prompt again
+expect "trinity@trinityCPU:~$#"
+send "exit\r"
+
+# Wait for the SSH session to close
+expect eof
+
+
+

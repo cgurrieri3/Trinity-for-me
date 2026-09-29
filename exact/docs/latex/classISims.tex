@@ -1,0 +1,116 @@
+\hypertarget{classISims}{}\section{I\+Sims Class Reference}
+\label{classISims}\index{I\+Sims@{I\+Sims}}
+
+
+Class with methods to interact with data obtained from simulatiosn.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classISims_ac9f3934037a00911e2482ffc694539b4}\label{classISims_ac9f3934037a00911e2482ffc694539b4}} 
+\hyperlink{classISims_ac9f3934037a00911e2482ffc694539b4}{I\+Sims} ()
+\begin{DoxyCompactList}\small\item\em Public constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classISims_aee093f68f99f2e8e3290a80eedb0f566}\label{classISims_aee093f68f99f2e8e3290a80eedb0f566}} 
+\hyperlink{classISims_aee093f68f99f2e8e3290a80eedb0f566}{$\sim$\+I\+Sims} ()
+\begin{DoxyCompactList}\small\item\em Public destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static double \hyperlink{classISims_a1d3a8745f63eceae6a418bd749a9f4e3}{Generalized\+Poisson} (double $\ast$x, double $\ast$par)
+\begin{DoxyCompactList}\small\item\em Generalized poisson definition. \end{DoxyCompactList}\item 
+static std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \hyperlink{classISims_ae19165760194508b928ad218e2341320}{Optical\+X\+Talk\+Extraction} (std\+::string filename)
+\begin{DoxyCompactList}\small\item\em A method to obtain the optical cross-\/talk from lab measurements summarized in the optical cross talk .csv file Note\+: Deprecated. \end{DoxyCompactList}\item 
+static std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \hyperlink{classISims_a4e7aee18de24c88f2c26be360d3764ed}{Invert\+C\+A\+R\+E\+Trace} (std\+::vector$<$ std\+::vector$<$ int $>$ $\ast$$>$ traces)
+\begin{DoxyCompactList}\small\item\em A method to invert the traces obtained from C\+A\+RE (C\+A\+RE outputs traces in positive polarity, whereas the data from E\+U\+S\+O-\/\+S\+P\+B2 is inverted to negative polarity. \end{DoxyCompactList}\item 
+static std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \hyperlink{classISims_a50c5cd0b1217885e5b7054f67bc681e1}{Invert\+C\+A\+R\+E\+Trace} (std\+::vector$<$ std\+::vector$<$ int $>$$>$ traces)
+\begin{DoxyCompactList}\small\item\em A method to invert the traces obtained from C\+A\+RE (C\+A\+RE outputs traces in positive polarity, whereas the data from E\+U\+S\+O-\/\+S\+P\+B2 is inverted to negative polarity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class with methods to interact with data obtained from simulatiosn. 
+
+The simulation package C\+A\+RE outputs data in a somewhat similar format to Ex\+A\+CT. This class allows converting the data set in order for it to be piped to Ex\+A\+CT modules without the need of developing new algorithms. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classISims_a1d3a8745f63eceae6a418bd749a9f4e3}\label{classISims_a1d3a8745f63eceae6a418bd749a9f4e3}} 
+\index{I\+Sims@{I\+Sims}!Generalized\+Poisson@{Generalized\+Poisson}}
+\index{Generalized\+Poisson@{Generalized\+Poisson}!I\+Sims@{I\+Sims}}
+\subsubsection{\texorpdfstring{Generalized\+Poisson()}{GeneralizedPoisson()}}
+{\footnotesize\ttfamily static double I\+Sims\+::\+Generalized\+Poisson (\begin{DoxyParamCaption}\item[{double $\ast$}]{x,  }\item[{double $\ast$}]{par }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Generalized poisson definition. 
+
+The purpose is to use it as input for a T\+F1. Basicallu it is a poisson distribution which accurately takes optical cross-\/talk into account
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & A double$\ast$ of where to evaluate the Generalized Poisson \\
+\hline
+{\em par} & A double$\ast$ with all the different parameters for a generalized poisson. par\mbox{[}0\mbox{]} is the average of the poisson distribution par\mbox{[}1\mbox{]} is the optical cross-\/talk\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A double with the probability at x 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classISims_a4e7aee18de24c88f2c26be360d3764ed}\label{classISims_a4e7aee18de24c88f2c26be360d3764ed}} 
+\index{I\+Sims@{I\+Sims}!Invert\+C\+A\+R\+E\+Trace@{Invert\+C\+A\+R\+E\+Trace}}
+\index{Invert\+C\+A\+R\+E\+Trace@{Invert\+C\+A\+R\+E\+Trace}!I\+Sims@{I\+Sims}}
+\subsubsection{\texorpdfstring{Invert\+C\+A\+R\+E\+Trace()}{InvertCARETrace()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static std\+::vector$<$std\+::vector$<$int$>$ $>$ I\+Sims\+::\+Invert\+C\+A\+R\+E\+Trace (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ int $>$ $\ast$$>$}]{traces }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+A method to invert the traces obtained from C\+A\+RE (C\+A\+RE outputs traces in positive polarity, whereas the data from E\+U\+S\+O-\/\+S\+P\+B2 is inverted to negative polarity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em traces} & A std\+::vector$<$std\+::vecetor$<$int$>$$\ast$$>$ As obtained from the output of C\+A\+RE simulations. The std\+::vector has dimensions m x n where m is the number of pixels and n the number of samples in the trace\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A std\+::vector$<$std\+::vector$<$int$>$$>$ with the inverted trace using an arbitrary pedestal offset 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classISims_a50c5cd0b1217885e5b7054f67bc681e1}\label{classISims_a50c5cd0b1217885e5b7054f67bc681e1}} 
+\index{I\+Sims@{I\+Sims}!Invert\+C\+A\+R\+E\+Trace@{Invert\+C\+A\+R\+E\+Trace}}
+\index{Invert\+C\+A\+R\+E\+Trace@{Invert\+C\+A\+R\+E\+Trace}!I\+Sims@{I\+Sims}}
+\subsubsection{\texorpdfstring{Invert\+C\+A\+R\+E\+Trace()}{InvertCARETrace()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static std\+::vector$<$std\+::vector$<$int$>$ $>$ I\+Sims\+::\+Invert\+C\+A\+R\+E\+Trace (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ int $>$$>$}]{traces }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+A method to invert the traces obtained from C\+A\+RE (C\+A\+RE outputs traces in positive polarity, whereas the data from E\+U\+S\+O-\/\+S\+P\+B2 is inverted to negative polarity. 
+
+\begin{DoxySeeAlso}{See also}
+Invert\+C\+A\+R\+E\+Trace(std\+::vector$<$std\+::vector$<$int$>$ $\ast$$>$ traces)
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em traces} & A std\+::vector$<$std\+::vecetor$<$int$>$$>$ The std\+::vector has dimensions m x n where m is the number of pixels and n the number of samples in the trace\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A std\+::vector$<$std\+::vector$<$int$>$$>$ with the inverted trace using an arbitrary pedestal offset 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classISims_ae19165760194508b928ad218e2341320}\label{classISims_ae19165760194508b928ad218e2341320}} 
+\index{I\+Sims@{I\+Sims}!Optical\+X\+Talk\+Extraction@{Optical\+X\+Talk\+Extraction}}
+\index{Optical\+X\+Talk\+Extraction@{Optical\+X\+Talk\+Extraction}!I\+Sims@{I\+Sims}}
+\subsubsection{\texorpdfstring{Optical\+X\+Talk\+Extraction()}{OpticalXTalkExtraction()}}
+{\footnotesize\ttfamily static std\+::vector$<$std\+::vector$<$double$>$ $>$ I\+Sims\+::\+Optical\+X\+Talk\+Extraction (\begin{DoxyParamCaption}\item[{std\+::string}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+A method to obtain the optical cross-\/talk from lab measurements summarized in the optical cross talk .csv file Note\+: Deprecated. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & A std\+::string with the name of the file containing the measurements \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+dict/include/I\+Sims.\+h\end{DoxyCompactItemize}

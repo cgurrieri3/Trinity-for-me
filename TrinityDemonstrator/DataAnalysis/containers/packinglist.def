@@ -1,0 +1,28 @@
+Bootstrap: docker
+From: rootproject/root:6.30.04-ubuntu22.04
+
+%post
+	chmod 777 /tmp
+	apt-get update -y
+	apt-get install -y \
+		git \
+		cmake \
+		python3 \
+
+	git clone https://github.gatech.edu/aotte6/Trinity.git
+	cd Trinity
+	git sparse-checkout init --cone
+	git sparse-checkout set exact
+	git checkout main
+	mkdir -p /exact
+	cp -r exact/* /exact/
+	cd /exact
+	make clean
+	make 
+
+%environment
+	export EXACT_HOME=/exact
+	LD_LIBRARY_PATH=/exact/dict	
+	export LD_LIBRARY_PATH=/usr/lib/oracle/21/client64/lib:/usr/local/lib:$LD_LIBRARY_PATH
+	export EXACT_DIR=/Trinity/exact
+  

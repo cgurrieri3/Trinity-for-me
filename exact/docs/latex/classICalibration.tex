@@ -1,0 +1,345 @@
+\hypertarget{classICalibration}{}\section{I\+Calibration Class Reference}
+\label{classICalibration}\index{I\+Calibration@{I\+Calibration}}
+
+
+Class used to calculate correction factors for each of the Si\+P\+Ms.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classICalibration_a8ffdb45c17889268d414d456f05aa18b}{I\+Calibration} (const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Public constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classICalibration_a80bc6211630a34579171d9de6e923fdf}\label{classICalibration_a80bc6211630a34579171d9de6e923fdf}} 
+\hyperlink{classICalibration_a80bc6211630a34579171d9de6e923fdf}{$\sim$\+I\+Calibration} ()
+\begin{DoxyCompactList}\small\item\em A destructor. \end{DoxyCompactList}\item 
+double \hyperlink{classICalibration_a608320bee8a2e8c3d7442948e9de619a}{Get\+Amplitude} (int pixel\+ID) const
+\begin{DoxyCompactList}\small\item\em A method used to obtain the conversion factor in A\+DC to PE for the amplitude of a pulse for a specific pixel. \end{DoxyCompactList}\item 
+double \hyperlink{classICalibration_a4a6789b63abdee20d8b294e8a235cd7b}{Get\+Err\+Amplitude} (int pixel\+ID) const
+\begin{DoxyCompactList}\small\item\em A method used to obtain the error on the measurement of the conversion factor in A\+DC to PE for the amplitude of a pulse for a specific pixel. \end{DoxyCompactList}\item 
+double \hyperlink{classICalibration_a8f875ad909694df49d4cae6497f243e6}{Get\+Charge} (int pixel\+ID) const
+\begin{DoxyCompactList}\small\item\em A method used to obtain the conversion factor in A\+DC to PE for the cahrge of a pulse for a specific pixel. \end{DoxyCompactList}\item 
+double \hyperlink{classICalibration_acbcfe549397fc403e48ab8201f159eee}{Get\+Err\+Charge} (int pixel\+ID) const
+\begin{DoxyCompactList}\small\item\em A method used to obtain the error on the measurement of the conversion factor in A\+DC to PE for the charge of a pulse for a specific pixel. \end{DoxyCompactList}\item 
+double \hyperlink{classICalibration_a3ae2db09d81b9373b55ad2b8ea5afc50}{Get\+V\+Offset\+Px} (int pixel\+ID)
+\begin{DoxyCompactList}\small\item\em A method used to obtain the voltage offset set for the pixel in the camera. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \hyperlink{classICalibration_a4dbadee1b28bf393a45a8573ad49bc70}{Get\+V\+Offset\+Px} ()
+\begin{DoxyCompactList}\small\item\em A method used to obtain the voltage offset set for all pixels in the camera. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static double \hyperlink{classICalibration_a42508d0371c83992228e8fe8f0fe9abc}{Get\+Relative\+Over\+Voltage} (int pixel\+ID, double operating\+Vol, double nominal\+Vol)
+\begin{DoxyCompactList}\small\item\em A method to calculate the relative over voltage compared to the nominal voltage used for the lab measurements. \end{DoxyCompactList}\item 
+static double \hyperlink{classICalibration_abf475c05f96c8431e2a929eb330f2c1c}{Get\+Over\+Voltage} (int pixel\+ID, double operating\+Vol)
+\begin{DoxyCompactList}\small\item\em A method to calculate the over voltage of the Si\+PM. \end{DoxyCompactList}\item 
+static double \hyperlink{classICalibration_ac30326a45d0d7e63e4b62054d9289b89}{Get\+Relative\+Gain} (int pixel\+ID, double sipm\+Temp, double Operating\+Vol)
+\begin{DoxyCompactList}\small\item\em A method to calculate the relative gain of the Si\+PM when compared to room temperature at which the lab measurements where performed. \end{DoxyCompactList}\item 
+static int \hyperlink{classICalibration_a702b4ec0056e3c1afc66f27c9b85a499}{Get\+Measurement\+Line} (std\+::string filename, std\+::string measurement)
+\begin{DoxyCompactList}\small\item\em A method that obtains on which line of a text file the data related to a measurement is present. \end{DoxyCompactList}\item 
+static double \hyperlink{classICalibration_accaa04857537b7774657e76f4b67cbda}{Get\+Measurement\+From\+File} (int pixel\+ID, double sipm\+Temp, double Operating\+Vol, std\+::string filename, std\+::string measurement, std\+::string bias\+Voltage\+Ref=\char`\"{}A\+BS\char`\"{})
+\begin{DoxyCompactList}\small\item\em A method to obtain a measurement from the file containing all of the measurements for the Si\+PM. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{classICalibration_a754365b6cc94bbec25a5cede2d245e9e}{Get\+Closest\+Temperature\+Line} (double sipm\+Temp, std\+::string filename, std\+::string measurement)
+\begin{DoxyCompactList}\small\item\em A private method to find the closest temperature line in the measurement file to that of the Si\+PM. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classICalibration_a953bf9ab7ba0ac7f7ba26d2af0c5f592}\label{classICalibration_a953bf9ab7ba0ac7f7ba26d2af0c5f592}} 
+std\+::vector$<$ double $>$ \hyperlink{classICalibration_a953bf9ab7ba0ac7f7ba26d2af0c5f592}{amplitudes}
+\begin{DoxyCompactList}\small\item\em A\+DC to photo-\/electron conversion for amplitude. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classICalibration_a6f2a51226f49e4fbb10f19f38db05ff0}\label{classICalibration_a6f2a51226f49e4fbb10f19f38db05ff0}} 
+std\+::vector$<$ double $>$ \hyperlink{classICalibration_a6f2a51226f49e4fbb10f19f38db05ff0}{err\+Amplitudes}
+\begin{DoxyCompactList}\small\item\em Error in the A\+DC to photo-\/electron conversion for amplitude. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classICalibration_a59181afe6c712d28ccdb0d1b1901737e}\label{classICalibration_a59181afe6c712d28ccdb0d1b1901737e}} 
+std\+::vector$<$ double $>$ \hyperlink{classICalibration_a59181afe6c712d28ccdb0d1b1901737e}{charges}
+\begin{DoxyCompactList}\small\item\em A\+DC to photo-\/electron conversion for charge. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classICalibration_a8aa9bc9b799683b8022afd572005419c}\label{classICalibration_a8aa9bc9b799683b8022afd572005419c}} 
+std\+::vector$<$ double $>$ \hyperlink{classICalibration_a8aa9bc9b799683b8022afd572005419c}{err\+Charges}
+\begin{DoxyCompactList}\small\item\em Error in the A\+DC to photo-\/electron conversion for charge. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class used to calculate correction factors for each of the Si\+P\+Ms. 
+
+During the data acquisition 2 things affect the response of the Si\+P\+Ms, temperature and operating voltage. The calculations to obtain the correct gain and temperature corrections are performed by this class 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classICalibration_a8ffdb45c17889268d414d456f05aa18b}\label{classICalibration_a8ffdb45c17889268d414d456f05aa18b}} 
+\index{I\+Calibration@{I\+Calibration}!I\+Calibration@{I\+Calibration}}
+\index{I\+Calibration@{I\+Calibration}!I\+Calibration@{I\+Calibration}}
+\subsubsection{\texorpdfstring{I\+Calibration()}{ICalibration()}}
+{\footnotesize\ttfamily I\+Calibration\+::\+I\+Calibration (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})}
+
+
+
+Public constructor. 
+
+Uses a file with the A\+DC to PE conversion factors and errors for each of the Si\+P\+Ms as measured in the lab
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & A string with the file that contains the measurements \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classICalibration_a608320bee8a2e8c3d7442948e9de619a}\label{classICalibration_a608320bee8a2e8c3d7442948e9de619a}} 
+\index{I\+Calibration@{I\+Calibration}!Get\+Amplitude@{Get\+Amplitude}}
+\index{Get\+Amplitude@{Get\+Amplitude}!I\+Calibration@{I\+Calibration}}
+\subsubsection{\texorpdfstring{Get\+Amplitude()}{GetAmplitude()}}
+{\footnotesize\ttfamily double I\+Calibration\+::\+Get\+Amplitude (\begin{DoxyParamCaption}\item[{int}]{pixel\+ID }\end{DoxyParamCaption}) const}
+
+
+
+A method used to obtain the conversion factor in A\+DC to PE for the amplitude of a pulse for a specific pixel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pixel\+ID} & An int with the ID of the pixel\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a double with the conversion from A\+DC to photo-\/electrons for amplitude. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classICalibration_a8f875ad909694df49d4cae6497f243e6}\label{classICalibration_a8f875ad909694df49d4cae6497f243e6}} 
+\index{I\+Calibration@{I\+Calibration}!Get\+Charge@{Get\+Charge}}
+\index{Get\+Charge@{Get\+Charge}!I\+Calibration@{I\+Calibration}}
+\subsubsection{\texorpdfstring{Get\+Charge()}{GetCharge()}}
+{\footnotesize\ttfamily double I\+Calibration\+::\+Get\+Charge (\begin{DoxyParamCaption}\item[{int}]{pixel\+ID }\end{DoxyParamCaption}) const}
+
+
+
+A method used to obtain the conversion factor in A\+DC to PE for the cahrge of a pulse for a specific pixel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pixel\+ID} & An int with the ID of the pixel\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a double with the conversion from A\+DC to photo-\/electrons for charge. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classICalibration_a754365b6cc94bbec25a5cede2d245e9e}\label{classICalibration_a754365b6cc94bbec25a5cede2d245e9e}} 
+\index{I\+Calibration@{I\+Calibration}!Get\+Closest\+Temperature\+Line@{Get\+Closest\+Temperature\+Line}}
+\index{Get\+Closest\+Temperature\+Line@{Get\+Closest\+Temperature\+Line}!I\+Calibration@{I\+Calibration}}
+\subsubsection{\texorpdfstring{Get\+Closest\+Temperature\+Line()}{GetClosestTemperatureLine()}}
+{\footnotesize\ttfamily static int I\+Calibration\+::\+Get\+Closest\+Temperature\+Line (\begin{DoxyParamCaption}\item[{double}]{sipm\+Temp,  }\item[{std\+::string}]{filename,  }\item[{std\+::string}]{measurement }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+A private method to find the closest temperature line in the measurement file to that of the Si\+PM. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sipm\+Temp} & A double with the temperature of the Si\+PM in C \\
+\hline
+{\em filename} & A std\+::string with the name of the measurement file \\
+\hline
+{\em measurement} & A std\+::string with the name of the measurement of interest\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An int with the line where the closest temperature is located 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classICalibration_a4a6789b63abdee20d8b294e8a235cd7b}\label{classICalibration_a4a6789b63abdee20d8b294e8a235cd7b}} 
+\index{I\+Calibration@{I\+Calibration}!Get\+Err\+Amplitude@{Get\+Err\+Amplitude}}
+\index{Get\+Err\+Amplitude@{Get\+Err\+Amplitude}!I\+Calibration@{I\+Calibration}}
+\subsubsection{\texorpdfstring{Get\+Err\+Amplitude()}{GetErrAmplitude()}}
+{\footnotesize\ttfamily double I\+Calibration\+::\+Get\+Err\+Amplitude (\begin{DoxyParamCaption}\item[{int}]{pixel\+ID }\end{DoxyParamCaption}) const}
+
+
+
+A method used to obtain the error on the measurement of the conversion factor in A\+DC to PE for the amplitude of a pulse for a specific pixel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pixel\+ID} & An int with the ID of the pixel\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a double with the error on the measurement of the conversion from A\+DC to photo-\/electrons for amplitude. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classICalibration_acbcfe549397fc403e48ab8201f159eee}\label{classICalibration_acbcfe549397fc403e48ab8201f159eee}} 
+\index{I\+Calibration@{I\+Calibration}!Get\+Err\+Charge@{Get\+Err\+Charge}}
+\index{Get\+Err\+Charge@{Get\+Err\+Charge}!I\+Calibration@{I\+Calibration}}
+\subsubsection{\texorpdfstring{Get\+Err\+Charge()}{GetErrCharge()}}
+{\footnotesize\ttfamily double I\+Calibration\+::\+Get\+Err\+Charge (\begin{DoxyParamCaption}\item[{int}]{pixel\+ID }\end{DoxyParamCaption}) const}
+
+
+
+A method used to obtain the error on the measurement of the conversion factor in A\+DC to PE for the charge of a pulse for a specific pixel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pixel\+ID} & An int with the ID of the pixel\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a double with the error on the measurement of the conversion from A\+DC to photo-\/electrons for charge. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classICalibration_accaa04857537b7774657e76f4b67cbda}\label{classICalibration_accaa04857537b7774657e76f4b67cbda}} 
+\index{I\+Calibration@{I\+Calibration}!Get\+Measurement\+From\+File@{Get\+Measurement\+From\+File}}
+\index{Get\+Measurement\+From\+File@{Get\+Measurement\+From\+File}!I\+Calibration@{I\+Calibration}}
+\subsubsection{\texorpdfstring{Get\+Measurement\+From\+File()}{GetMeasurementFromFile()}}
+{\footnotesize\ttfamily static double I\+Calibration\+::\+Get\+Measurement\+From\+File (\begin{DoxyParamCaption}\item[{int}]{pixel\+ID,  }\item[{double}]{sipm\+Temp,  }\item[{double}]{Operating\+Vol,  }\item[{std\+::string}]{filename,  }\item[{std\+::string}]{measurement,  }\item[{std\+::string}]{bias\+Voltage\+Ref = {\ttfamily \char`\"{}ABS\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+A method to obtain a measurement from the file containing all of the measurements for the Si\+PM. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pixel\+ID} & An int with the pixel ID of interest \\
+\hline
+{\em sipm\+Temp} & A double with the temperature of the Si\+PM in C \\
+\hline
+{\em Operating\+Vol} & A double with the operating voltage in V \\
+\hline
+{\em filename} & A std\+::string with the name of the file that contains the measurements \\
+\hline
+{\em measurement} & A std\+::string with the measurement name in the file to extract\\
+\hline
+\end{DoxyParams}
+Optional parameters\+: 
+\begin{DoxyParams}{Parameters}
+{\em bias\+Voltage\+Ref} & A std\+::string describing if the provided Operating\+Voltage is the over voltage or absolute (\char`\"{}\+R\+E\+L\char`\"{},\char`\"{}\+A\+B\+S\char`\"{}). Default is \char`\"{}\+A\+B\+S\char`\"{}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A double with the value of the measurement at that voltage and temperature 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classICalibration_a702b4ec0056e3c1afc66f27c9b85a499}\label{classICalibration_a702b4ec0056e3c1afc66f27c9b85a499}} 
+\index{I\+Calibration@{I\+Calibration}!Get\+Measurement\+Line@{Get\+Measurement\+Line}}
+\index{Get\+Measurement\+Line@{Get\+Measurement\+Line}!I\+Calibration@{I\+Calibration}}
+\subsubsection{\texorpdfstring{Get\+Measurement\+Line()}{GetMeasurementLine()}}
+{\footnotesize\ttfamily static int I\+Calibration\+::\+Get\+Measurement\+Line (\begin{DoxyParamCaption}\item[{std\+::string}]{filename,  }\item[{std\+::string}]{measurement }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+A method that obtains on which line of a text file the data related to a measurement is present. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & A string with the file with the measurements for the Si\+PM \\
+\hline
+{\em measurement} & A string describing which measurement to extract\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An int with the line number where the measurement appears 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classICalibration_abf475c05f96c8431e2a929eb330f2c1c}\label{classICalibration_abf475c05f96c8431e2a929eb330f2c1c}} 
+\index{I\+Calibration@{I\+Calibration}!Get\+Over\+Voltage@{Get\+Over\+Voltage}}
+\index{Get\+Over\+Voltage@{Get\+Over\+Voltage}!I\+Calibration@{I\+Calibration}}
+\subsubsection{\texorpdfstring{Get\+Over\+Voltage()}{GetOverVoltage()}}
+{\footnotesize\ttfamily static double I\+Calibration\+::\+Get\+Over\+Voltage (\begin{DoxyParamCaption}\item[{int}]{pixel\+ID,  }\item[{double}]{operating\+Vol }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+A method to calculate the over voltage of the Si\+PM. 
+
+The over voltage is defined as
+
+O.\+V. = (operating\+Voltage -\/ breakdown\+Voltage)/(breakdown\+Voltage)
+
+
+\begin{DoxyParams}{Parameters}
+{\em pixel\+ID} & An int with the pixel ID of interes \\
+\hline
+{\em operating\+Vol} & The voltage at which the Si\+PM was biased in V\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A double with the O.\+V. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classICalibration_ac30326a45d0d7e63e4b62054d9289b89}\label{classICalibration_ac30326a45d0d7e63e4b62054d9289b89}} 
+\index{I\+Calibration@{I\+Calibration}!Get\+Relative\+Gain@{Get\+Relative\+Gain}}
+\index{Get\+Relative\+Gain@{Get\+Relative\+Gain}!I\+Calibration@{I\+Calibration}}
+\subsubsection{\texorpdfstring{Get\+Relative\+Gain()}{GetRelativeGain()}}
+{\footnotesize\ttfamily static double I\+Calibration\+::\+Get\+Relative\+Gain (\begin{DoxyParamCaption}\item[{int}]{pixel\+ID,  }\item[{double}]{sipm\+Temp,  }\item[{double}]{Operating\+Vol }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+A method to calculate the relative gain of the Si\+PM when compared to room temperature at which the lab measurements where performed. 
+
+The relative gain is defined as follows
+
+G(\+T\+\_\+\+Lab)/G(T) = 1/(1-\/\+Br\+Vper\+Deg$\ast$((T-\/\+T\+\_\+\+Lab)/(Operating\+Voltage-\/\+Breakdown\+Voltage)))
+
+
+\begin{DoxyParams}{Parameters}
+{\em pixel\+ID} & An int with the pixel\+ID of interest \\
+\hline
+{\em sipm\+Temp} & A double with the temperature of the Si\+PM in C \\
+\hline
+{\em Operating\+Vol} & A double with the operating voltage in V\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A double with the relative\+Gain 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classICalibration_a42508d0371c83992228e8fe8f0fe9abc}\label{classICalibration_a42508d0371c83992228e8fe8f0fe9abc}} 
+\index{I\+Calibration@{I\+Calibration}!Get\+Relative\+Over\+Voltage@{Get\+Relative\+Over\+Voltage}}
+\index{Get\+Relative\+Over\+Voltage@{Get\+Relative\+Over\+Voltage}!I\+Calibration@{I\+Calibration}}
+\subsubsection{\texorpdfstring{Get\+Relative\+Over\+Voltage()}{GetRelativeOverVoltage()}}
+{\footnotesize\ttfamily static double I\+Calibration\+::\+Get\+Relative\+Over\+Voltage (\begin{DoxyParamCaption}\item[{int}]{pixel\+ID,  }\item[{double}]{operating\+Vol,  }\item[{double}]{nominal\+Vol }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+A method to calculate the relative over voltage compared to the nominal voltage used for the lab measurements. 
+
+The relative over voltage is defined as
+
+R.\+O.\+V. = (operating\+Voltage -\/ breakdown\+Voltage)/(nominal\+Voltage -\/ breakdown\+Voltage)
+
+
+\begin{DoxyParams}{Parameters}
+{\em pixel\+ID} & An int with the pixel ID of interes \\
+\hline
+{\em operating\+Vol} & The voltage at which the Si\+PM was biased in V \\
+\hline
+{\em nominal\+Vol} & The voltage used in the lab measurements in V\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A double with the R.\+O.\+V. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classICalibration_a3ae2db09d81b9373b55ad2b8ea5afc50}\label{classICalibration_a3ae2db09d81b9373b55ad2b8ea5afc50}} 
+\index{I\+Calibration@{I\+Calibration}!Get\+V\+Offset\+Px@{Get\+V\+Offset\+Px}}
+\index{Get\+V\+Offset\+Px@{Get\+V\+Offset\+Px}!I\+Calibration@{I\+Calibration}}
+\subsubsection{\texorpdfstring{Get\+V\+Offset\+Px()}{GetVOffsetPx()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double I\+Calibration\+::\+Get\+V\+Offset\+Px (\begin{DoxyParamCaption}\item[{int}]{pixel\+ID }\end{DoxyParamCaption})}
+
+
+
+A method used to obtain the voltage offset set for the pixel in the camera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pixel\+ID} & An int with the pixel ID of which the voltage offset is to be retrieved\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A double with the offset setting in mV 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classICalibration_a4dbadee1b28bf393a45a8573ad49bc70}\label{classICalibration_a4dbadee1b28bf393a45a8573ad49bc70}} 
+\index{I\+Calibration@{I\+Calibration}!Get\+V\+Offset\+Px@{Get\+V\+Offset\+Px}}
+\index{Get\+V\+Offset\+Px@{Get\+V\+Offset\+Px}!I\+Calibration@{I\+Calibration}}
+\subsubsection{\texorpdfstring{Get\+V\+Offset\+Px()}{GetVOffsetPx()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ I\+Calibration\+::\+Get\+V\+Offset\+Px (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+A method used to obtain the voltage offset set for all pixels in the camera. 
+
+\begin{DoxyReturn}{Returns}
+A std\+::vector$<$double$>$ with the offset setting in mV 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+dict/include/I\+Calibration.\+h\end{DoxyCompactItemize}

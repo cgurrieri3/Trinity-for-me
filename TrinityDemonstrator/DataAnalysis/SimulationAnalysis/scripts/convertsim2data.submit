@@ -1,0 +1,60 @@
+sysFilePath = /storage/osg-otte1/shared/TrinityDemonstrator
+folderPath = DataAnalysis/SimulationAnalysis/scripts
+container_image = $(sysFilePath)/DataAnalysis/containers/rootandexact.sif
+
+# Ensure host paths are visible inside the container
+#+ApptainerBind = "/storage,/tmp,/dev,/proc,/exact"
+
+
+executable = run_condor.sh
+ # name of the bash script or python or root 
+
+arguments = $(Date) $(id_ers) $ENV(USER)
+getenv = True
+
+# Keep your environment variables
+#getenv = False
+
+log = $(sysFilePath)/$(folderPath)/.logs/HT_condor_$ENV(USER)_$(date)_$(id_ers).log 
+# HTCondor log
+
+error = $(sysFilePath)/$(folderPath)/.logs/Program_$ENV(USER)_$(date)_$(id_ers).err 
+#Standard Error - program and HTCondor errors
+
+output = $(sysFilePath)/$(folderPath)/.logs/Program_$ENV(USER)_$(date)_$(id_ers).out 
+# program terminal output (not output files)
+
+
+transfer_input_files = $(sysFilePath)/simdata/roots/diffuse/$(Date)_$(id_ers)/GROPT/Tilt_91.560000,$(sysFilePath)/$(folderPath)/SimRootFiles, $(sysFilePath)/$(folderPath)/run_condor.sh
+#any file that needs to included for the job - everything minus executable
+
+
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_output_files =  DataAnalysis/SimulationAnalysis/data/$ENV(USER)_data
+
+
+# these are PER JOB
+request_cpus = 1
+
+request_memory = 0.5GB 
+# these are PER JOB
+
+JobBatchName = "SD_$(date)_$(id_ers)"
+
+# space for all files input and output and intermediate files
+request_disk = 2GB 
+max_retries=3
+# these are PER JOB
+
+# Tell HTCondor to run 3 instances of our job:
+###----------#####
+# Queue! HAS TO BE THE LAST LINE
+###----------#####
+# MAGICAL
+# synatax 
+# queue + num - que this many identical jobs (EXACT  SAME JOB)
+# use case - executable can create independent jobs (script creates difference between jobs)
+# randomw number simulations 
+queue Date, id_ers from folders.csv 

@@ -1,0 +1,12 @@
+*.png
+*.mp4
+*.log
+*.tiff
+*.jpg
+*.jpeg
+*.mov
+*.pdf
+*.root
+*.o
+lab_computer/cams/*oauth2.json
+lab_computer/cams/client_secrets.json

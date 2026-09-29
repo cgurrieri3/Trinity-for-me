@@ -1,0 +1,28 @@
+#!/usr/bin/expect -f
+
+# Read login info from file
+set user "trinity"
+
+# Set Vars
+set latest_IN [lindex $argv 0]
+set latest_OUT [lindex $argv 1]
+
+# Spawn incam
+#spawn scp -i ~/.ssh/trinitySite /home/mpotts32/cams/IN/$latest_IN  $user@130.207.188.86:/httpdocs/wp-content/uploads/demonstrator-uploads/INCAM.jpg
+
+#expect eof
+
+# Spawn outcam
+#spawn scp -i ~/.ssh/trinitySite /home/mpotts32/cams/OUT/$latest_OUT  $user@130.207.188.86:/httpdocs/wp-content/uploads/demonstrator-uploads/OUTCAM.jpg
+
+#expect eof
+
+
+# Spawn Horizon cam 
+#spawn scp -i ~/.ssh/trinitySite /home/mpotts32/cams/Horizon/jpg/horizon_snap.jpg $user@130.207.188.86:/httpdocs/wp-content/uploads/demonstrator-uploads/Horizon.jpg
+
+#expect eof
+
+spawn scp -i /root/.ssh/trinitySite /data/TrinityLabComputer/scheduling/schedule.jpg $user@130.207.49.19:/httpdocs/wp-content/uploads/demonstrator-uploads/Schedule.jpg
+
+expect eof

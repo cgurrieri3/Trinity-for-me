@@ -1,0 +1,63 @@
+# Edit this file to introduce tasks to be run by cron.
+# 
+# Each task to run has to be defined through a single line
+# indicating with different fields when the task will be run
+# and what command to run for the task
+# 
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').
+# 
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+# 
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+# 
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+# 
+# For more information see the manual pages of crontab(5) and cron(8)
+# 
+# m h  dom mon dow   command
+#Update to websites
+*/5 * * * * /data/TrinityLabComputer/cams/horizonsnap.py >> /data/TrinityLabComputer/cams/hcron.log 2>&1 # update horizon cam images
+* * * * * /data/TrinityLabComputer/cams/update_site.exp $(ls -t /data/TrinityLabComputer/cams/IN/|head -1) $(ls -t /data/TrinityLabComputer/cams/OUT/|head -1) >> /data/TrinityLabComputer/cams/scron.log 2>&1
+
+0 11 * * * /usr/bin/python3 /data/TrinityLabComputer/scheduling/scheduler.py >> /data/TrinityLabComputer/scheduling/cron.log 2>&1 # adds the schedule to the website
+
+# Copy files/images Control Computer -> This Lab Computer (cos-4a10345)
+* * * * * /usr/bin/expect /data/TrinityLabComputer/weather/update_wx.sh >> /data/TrinityLabComputer/weather/cron.log 2>&1
+* * * * * /usr/bin/expect /data/TrinityLabComputer/cams/update_cams.sh >> /data/TrinityLabComputer/cams/cron.log 2>&1
+* * * * * /usr/bin/expect /data/TrinityLabComputer/Database/ctcpu_state_mess/Log/update_sm.sh >> /data/TrinityLabComputer/Database/ctcpu_state_mess/cron.log 2>&1
+
+# create videos from webcam photos
+0 23 * * * /data/TrinityLabComputer/cams/vid.py -d $(date +\%Y\%m\%d) >> /data/TrinityLabComputer/cams/cron_vid.log 2>&1
+
+# Upload timelapse to Youtube
+0 1 * * * /data/TrinityLabComputer/cams/upload_vid.sh >> /data/TrinityLabComputer/cams/vid_log.txt 2>&1
+
+# Email Summaries of Data from prior night
+0 9 * * * /data/TrinityLabComputer/DataSummary/scripts/rsyncanddelete.sh >> /data/TrinityLabComputer/DataSummary/scripts/create.log 2>&1
+20 9 * * * /data/TrinityLabComputer/DataSummary/scripts/createDataSummary.sh >> /data/TrinityLabComputer/DataSummary/scripts/create.log 2>&1
+45 9 * * * /data/TrinityLabComputer/DataSummary/scripts/createEventCleaning.sh >> /data/TrinityLabComputer/DataSummary/scripts/create.log 2>&1
+20 9 * * * /data/TrinityLabComputer/DataSummary/scripts/createMergedData.sh >> /data/TrinityLabComputer/DataSummary/scripts/createMe.log 2>&1
+0 9 * * * /data/TrinityLabComputer/Database/ctcpu_state_mess/csv_saves/create_csv.sh >> /data/TrinityLabComputer/Database/ctcpu_state_mess/csv_saves/cron.log 2>&1
+10 9 * * * /data/TrinityLabComputer/DataSummary/scripts/updateSMonHive.sh >>/data/TrinityLabComputer/DataSummary/scripts/updateSMonHive.log 2>&1
+30 10 * * * /data/TrinityLabComputer/DataSummary/email_dataSummary.py >> /data/TrinityLabComputer/DataSummary/cemail.log 2>&1
+
+#Send out emails for observing
+59 11 * * * /usr/bin/bash /data/TrinityLabComputer/scheduling/Observation_email_reminder/run_send_reminder.sh
+*/5 * * * * python3 /data/TrinityLabComputer/scheduling/Observation_email_reminder/check_observation_start.py >> /data/TrinityLabComputer/scheduling/Observation_email_reminder/obs_check.log 2>&1
+
+#restart Grafana uploads upon reboot
+@reboot /data/TrinityLabComputer/Database/restartSM.sh
+@reboot /data/TrinityLabComputer/Database/restartWX.sh
+
+# clean up logs 
+58 11 * * 2 /data/TrinityLabComputer/obs_prgm/LOGS/renamelog.sh 
+
+* * * * * sudo -u sstepanoff3 /data/TrinityLabComputer/cams/statemessages/take_graphan_images.sh >> /data/TrinityLabComputer/cams/statemessages/update_grafana.log 2>&1
+
+*/5 * * * * /data/TrinityLabComputer/control_comp/checkSSHconnection.exp >> /data/TrinityLabComputer/control_comp/SSHconnection.log

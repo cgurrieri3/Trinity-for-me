@@ -1,0 +1,103 @@
+\hypertarget{classIFile}{}\section{I\+File Class Reference}
+\label{classIFile}\index{I\+File@{I\+File}}
+
+
+Class used for Merged files I/O.  
+
+
+
+
+{\ttfamily \#include $<$I\+File.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classIFile_af289b51cd89f7e858cedc3b996883be1}{I\+File} (std\+::string filename, std\+::string mode=\char`\"{}R\+E\+AD\char`\"{})
+\begin{DoxyCompactList}\small\item\em Constructor taking 2 arguments. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIFile_a76f15a1ef952c31f9622263591e3150c}\label{classIFile_a76f15a1ef952c31f9622263591e3150c}} 
+\hyperlink{classIFile_a76f15a1ef952c31f9622263591e3150c}{$\sim$\+I\+File} ()
+\begin{DoxyCompactList}\small\item\em A destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{classIFile_a467351b7318960864d75018f2a3b8466}{Get\+Tree\+ID} (std\+::string tree\+Name)
+\begin{DoxyCompactList}\small\item\em Public member returning the tree ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIFile_a14a6bdfbeb5d99eb8fdde9ad21ad7566}\label{classIFile_a14a6bdfbeb5d99eb8fdde9ad21ad7566}} 
+T\+File $\ast$ \hyperlink{classIFile_a14a6bdfbeb5d99eb8fdde9ad21ad7566}{I\+T\+File}
+\begin{DoxyCompactList}\small\item\em T\+File object for opening R\+O\+OT file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIFile_ab0da04ee48eebbe973f0cc0b897062c4}\label{classIFile_ab0da04ee48eebbe973f0cc0b897062c4}} 
+T\+Tree $\ast$ \hyperlink{classIFile_ab0da04ee48eebbe973f0cc0b897062c4}{tree\+H\+L\+ED}
+\begin{DoxyCompactList}\small\item\em T\+Tree object containing H\+L\+ED triggered events. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIFile_affa51dff120036964e5a408b0805a014}\label{classIFile_affa51dff120036964e5a408b0805a014}} 
+T\+Tree $\ast$ \hyperlink{classIFile_affa51dff120036964e5a408b0805a014}{tree\+Bi\+Focal}
+\begin{DoxyCompactList}\small\item\em T\+Tree object containing Bi\+Focal triggered events. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIFile_a3dbab19469b1c7b4b1edb70bc19fcf19}\label{classIFile_a3dbab19469b1c7b4b1edb70bc19fcf19}} 
+T\+Tree $\ast$ \hyperlink{classIFile_a3dbab19469b1c7b4b1edb70bc19fcf19}{tree\+Forced}
+\begin{DoxyCompactList}\small\item\em T\+Tree object containing Forced triggered events. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIFile_a53549985d2ab3ee76f3d0100edf2aa95}\label{classIFile_a53549985d2ab3ee76f3d0100edf2aa95}} 
+T\+Tree $\ast$ \hyperlink{classIFile_a53549985d2ab3ee76f3d0100edf2aa95}{tree\+Test}
+\begin{DoxyCompactList}\small\item\em T\+Tree object containing Test (single\+Focus) triggered events. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIFile_a78a13dba2a86546e9c85570ae2eafc97}\label{classIFile_a78a13dba2a86546e9c85570ae2eafc97}} 
+void \hyperlink{classIFile_a78a13dba2a86546e9c85570ae2eafc97}{Get\+Trees} ()
+\begin{DoxyCompactList}\small\item\em Private member used to obtain T\+Trees from R\+O\+OT file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class used for Merged files I/O. 
+
+Used to contain T\+File with events. It allows loading the trees and using the data in methods and modules without losing reference to the T\+File. Since R\+O\+OT Histograms attach to the T\+File, creating it inside a method destroys it once the method exits. This causes Seg\+Faults. In order to avoid this, the class \hyperlink{classIFile}{I\+File} was created that contains all the trees in the raw data file from the CT. Creates a new T\+File and keeps it alive, while initializing all trees from a standard D\+AQ from the CT.
+
+A Tree ID was created to keep reference of the different trees
+
+0\+: \char`\"{}\+H\+L\+E\+D\char`\"{} 1\+: \char`\"{}\+Bi\+Focal\char`\"{} 2\+: \char`\"{}\+Test\char`\"{} 3\+: \char`\"{}\+Forced\char`\"{} 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classIFile_af289b51cd89f7e858cedc3b996883be1}\label{classIFile_af289b51cd89f7e858cedc3b996883be1}} 
+\index{I\+File@{I\+File}!I\+File@{I\+File}}
+\index{I\+File@{I\+File}!I\+File@{I\+File}}
+\subsubsection{\texorpdfstring{I\+File()}{IFile()}}
+{\footnotesize\ttfamily I\+File\+::\+I\+File (\begin{DoxyParamCaption}\item[{std\+::string}]{filename,  }\item[{std\+::string}]{mode = {\ttfamily \char`\"{}READ\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Constructor taking 2 arguments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & a string matching the file to open \\
+\hline
+{\em mode} & a string with which modality to use (\char`\"{}\+R\+E\+A\+D\char`\"{},\char`\"{}\+U\+P\+D\+A\+T\+E\char`\"{},\char`\"{}\+R\+E\+C\+R\+E\+A\+T\+E\char`\"{}) same as for R\+O\+OT T\+File \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classIFile_a467351b7318960864d75018f2a3b8466}\label{classIFile_a467351b7318960864d75018f2a3b8466}} 
+\index{I\+File@{I\+File}!Get\+Tree\+ID@{Get\+Tree\+ID}}
+\index{Get\+Tree\+ID@{Get\+Tree\+ID}!I\+File@{I\+File}}
+\subsubsection{\texorpdfstring{Get\+Tree\+I\+D()}{GetTreeID()}}
+{\footnotesize\ttfamily static int I\+File\+::\+Get\+Tree\+ID (\begin{DoxyParamCaption}\item[{std\+::string}]{tree\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Public member returning the tree ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tree\+Name} & a string matching the name of the tree to obtain its ID. Not case sensitive, can be hled, bifocal, test, forced \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an int with the tree\+ID 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+dict/include/I\+File.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,31 @@
+
+set currentDate [exec date +%Y%m%d | tr -d '\n']
+set shortDate [exec date +%y%m%d | tr -d '\n']
+# Set variables for source and destination paths
+set sourcePath "/home/trinity/control_software/fcutils/test/LOGS/rc.log"
+set destinationPath "/home/trinity/Documents/Data/$currentDate/LOGS/"
+
+
+# Set the timeout for expect commands
+set timeout 10
+
+# Create the destination folder if it doesn't exist
+spawn mkdir -p $destinationPath
+expect {
+    "*(y/n)*" {
+        send "y\r"
+    }
+}
+
+
+# Spawn the "mv" command
+spawn mv $sourcePath $destinationPath
+spawn mv "/home/trinity/control_software/fcutils/test/LOGS/startup.log" $destinationPath
+spawn mv "/home/trinity/control_software/fcutils/test/LOGS/dp.log" $destinationPath
+spawn mv "/home/trinity/control_software/fcutils/test/LOGS/Client_LVPS.log" $destinationPath
+spawn mv "/home/trinity/control_software/fcutils/test/LOGS/Client_TB.log" $destinationPath
+spawn mv "/home/trinity/control_software/fcutils/test/LOGS/Client_SIAB.log" $destinationPath
+spawn mv "/home/trinity/control_software/fcutils/test/LOGS/Client_CoBo.log" $destinationPath
+spawn mv "/home/trinity/control_software/fcutils/test/LOGS/Client.log" $destinationPath
+spawn mv "/home/trinity/control_software/Archive/LOGS/State_MSG_LOG_${shortDate}.bin" "$destinationPath"
+expect eof

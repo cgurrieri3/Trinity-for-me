@@ -1,0 +1,33 @@
+This is the flatfield calibration from the flasher
+
+i thought nepomuk called this a gain calibration at some point so i may need to chagne it back to flatfielding at some point 
+
+
+This script will only create 
+the calibration factors using the `CalibrationFactor.cpp` and `CalibrationFactor.h` files.
+
+## Overview
+*First change the path at the beginning of the script 
+
+These files implement the calculation of calibration factors for the flasher system. The calibration factors are used to correct for variations in detector response and ensure accurate measurements.
+
+## Files
+
+- **CalibrationFactor.cpp**: Contains the implementation of the calibration factor calculation logic.
+- **CalibrationFactor.h**: makes the code cleaner and stores includes and fucntions
+
+## Usage
+---- Buzard and OsPool----
+you need to run this in a container that has root and exact 
+
+Use ./compile_script to make as it will open the contianer and make (can do ./compile_script clean)
+Use ./run_script.sh YYYYMMDD to run the script. It will open the contianer and then run the script and place the outputs
+Use ./run_condor.sh - part of the submit for HTCOndors jobs (no done yet)
+
+
+
+----- HIVE ----
+with your exact loaded
+make
+./FlasherCalibration YYYYMMDD of data
+(note this will work for merged data)

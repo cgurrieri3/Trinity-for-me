@@ -1,0 +1,17 @@
+JOB Merge /home/projects/GATech_Otte/TrinityDemonstrator/DataAnalysis/MergedData/condense_SM.submit
+JOB Calibration /home/projects/GATech_Otte/TrinityDemonstrator/DataAnalysis/flasher_calibration/condense_SM.submit
+JOB Cleaning /home/projects/GATech_Otte/TrinityDemonstrator/DataAnalysis/event_cleaning/condense_SM.submit
+
+VARS Merge Date="20260715"
+VARS Calibration Date="20260715"
+VARS Cleaning Date="20260715"
+
+SCRIPT PRE Merge /home/projects/GATech_Otte/TrinityDemonstrator/DataAnalysis/dagMAN/preMerged.sh 20260715
+SCRIPT PRE Calibration /home/projects/GATech_Otte/TrinityDemonstrator/DataAnalysis/dagMAN/preCalibration.sh 20260715
+SCRIPT PRE Cleaning /home/projects/GATech_Otte/TrinityDemonstrator/DataAnalysis/dagMAN/preCleaning.sh 20260715
+
+PARENT Merge CHILD Calibration
+PARENT Calibration CHILD Cleaning
+
+CONFIG dag.conf
+

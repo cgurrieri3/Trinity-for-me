@@ -1,0 +1,9 @@
+# Disabling State Messages and Sleeping for 10 seconds
+100D00000000000000
+10
+# Resetting All the SIABs and Sleeping for 5 seconds
+200000FFFF01000000
+5
+# Killing All Client Processes (SIAB, TRGB, CoBo, LVPS, getEccServer, dataRouter) and Sleeping for 5 seconds
+101700000000000000
+5

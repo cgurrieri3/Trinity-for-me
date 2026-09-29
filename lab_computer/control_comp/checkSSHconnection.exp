@@ -1,0 +1,46 @@
+#!/usr/bin/expect -f
+
+# Set variables
+set SERVER_IP "172.16.17.74"
+set PWD "/data/TrinityLabComputer/control_comp/"
+
+# Function to check if the SSH connection is open
+proc check_ssh_connection {} {
+    spawn ping -c1 -W3 $::SERVER_IP
+    expect {
+        "100% packet loss, time 0ms" {
+            return 1
+        }
+        "rtt min/avg/max/mdev*" {
+            return 0
+        }
+    }
+    close
+}
+
+# Function to send the reboot command to the remote server
+proc send_reboot_command {} {
+    spawn $::PWD/outletcontrol.exp wc 2 reboot
+    expect {
+	"SSH connection timeout!*" {
+	    puts "[get_timestamp] - Rebooting outlet 2 on WC-PDU - FAILED"
+	}
+	eof {
+	    puts "[get_timestamp] - Rebooting outlet 2 on WC-PDU - SUCCESS"
+	    return 0
+	}
+    }
+}
+
+# Function to get the current timestamp
+proc get_timestamp {} {
+    return [clock format [clock seconds] -format "%Y-%m-%d %H:%M:%S"]
+}
+
+# Infinite loop to check the SSH connection every minute
+if {[check_ssh_connection] == 0} {
+    puts "[get_timestamp] - SSH connection is open."
+} else {
+    puts "[get_timestamp] - SSH connection is not available."
+    send_reboot_command
+}

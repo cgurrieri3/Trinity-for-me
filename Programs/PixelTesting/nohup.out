@@ -1,0 +1,28 @@
+  File "testSIABs.py", line 271
+    trim_log_file(log_file, max_lines=5000):
+                                           ^
+SyntaxError: invalid syntax
+  File "testSIABs.py", line 271
+    trim_log_file(log_file, max_lines=5000):
+                                           ^
+SyntaxError: invalid syntax
+  File "testSIABs.py", line 271
+    trim_log_file(log_file, max_lines=5000):
+                                           ^
+SyntaxError: invalid syntax
+Traceback (most recent call last):
+  File "testSIABs.py", line 288, in <module>
+    tRate=get_new_tRate()
+  File "testSIABs.py", line 164, in get_new_tRate
+    log=LastNlines(f'{rcLOG_path}',3)
+  File "testSIABs.py", line 120, in LastNlines
+    with open(fname,encoding="utf8", errors='ignore') as file:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/trinity/Programs/Trinity/control_software/fcutils/test/LOGS/rc.log'
+Traceback (most recent call last):
+  File "testSIABs.py", line 288, in <module>
+    tRate=get_new_tRate()
+  File "testSIABs.py", line 164, in get_new_tRate
+    log=LastNlines(f'{rcLOG_path}',3)
+  File "testSIABs.py", line 120, in LastNlines
+    with open(fname,encoding="utf8", errors='ignore') as file:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/trinity/Programs/Trinity/control_software/fcutils/test/LOGS/rc.log'

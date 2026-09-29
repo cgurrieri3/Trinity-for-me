@@ -1,0 +1,25 @@
+Output,Title,Histogram,File,Zaxis
+Triggered20PE,Single_triggered_pixel_above_20_PE,PreN20250424-F04:21-E0TH2F,/storage/hive/project/phy-otte/sstepanoff3/event_cleaning/OutputRank8test/EventCleanedCluster20250424_TC_481_TB_239_NP_481_s_256_FA_800_mp_1_er_100_tr_1.root,PE
+SimGoldPlated,Simulated_Gold_Plated_Events,hrun2_BSM_1.000_E_8.000000_Ze_45.000000_Az_0.000000_60.rootPixelsPE,/storage/hive/project/phy-otte/sstepanoff3/SimulationData/data/20250529/plots_run2_BSM_1.000_E_8.000000_Ze_45.000000_Az_0.000000_60.root,Photons
+SimExpectedGoldPlate,Expected_Camera_Response,PreN20250529-F111111_0-E0TH2F,/storage/hive/project/phy-otte/sstepanoff3/event_cleaning/OutputSim/EventCleanedCluster20250529_111111_jbs_TC_481_TB_239_NP_481_s_256_FA_800_mp_1_er_100_tr_1.root,PE
+CleanedSimGoldPlated,Cleaned_Gold_Plated_Event,PostN20250529-F111111_0-E0TH2F,/storage/hive/project/phy-otte/sstepanoff3/event_cleaning/OutputSim/EventCleanedCluster20250529_111111_jbs_TC_481_TB_239_NP_481_s_256_FA_800_mp_1_er_100_tr_1.root,PE
+Muon1,Moun_Sample_1,Hcam1%--File#%04:10--%Event#%33,/storage/hive/project/phy-otte/sstepanoff3/event_cleaning/OutputMuon/EventCleanedCluster20241011_TC_192_TB_238_NP_192_s_256_FA_800_mp_2_er_100_tr_1.root,PE
+Muon2,Moun_Sample_2,Hcam1%--File#%03:16--%Event#%60,/storage/hive/project/phy-otte/sstepanoff3/event_cleaning/OutputMuon/EventCleanedCluster20241011_TC_192_TB_238_NP_192_s_256_FA_800_mp_2_er_100_tr_1.root,PE
+Elec1,Electronic_Sample_1,combined_PreN20250325-F04:02-E47TH2F,/storage/hive/project/phy-otte/sstepanoff3/event_cleaning/CombineEventCleaningFiles/Rank8_3Core200PE5Pix_20250625_all.root,PE
+Elec2,Electronic_Sample_2,combined_PreN20250225-F08:43-E5TH2F,/storage/hive/project/phy-otte/sstepanoff3/event_cleaning/CombineEventCleaningFiles/Rank8_3Core200PE5Pix_20250625_all.root,PE
+Elec3,Electronic_Sample_3,combined_PreN20250225-F07:15-E16TH2F,/storage/hive/project/phy-otte/sstepanoff3/event_cleaning/CombineEventCleaningFiles/Rank8_3Core200PE5Pix_20250625_all.root,PE
+MuonTrack1,Muon_Track_Sample_1,combined_PreN20241110-F08:51-E19TH2F,/storage/hive/project/phy-otte/sstepanoff3/event_cleaning/CombineEventCleaningFiles/Rank8_3Core200PE5Pix_20250625_all.root,PE
+MuonTrack2,Muon_Track_Sample_2,combined_PreN20241028-F05:43-E31TH2F,/storage/hive/project/phy-otte/sstepanoff3/event_cleaning/CombineEventCleaningFiles/Rank8_3Core200PE5Pix_20250625_all.root,PE
+MuonTrack3,Muon_Track_Sample_3,combined_PreN20250128-F05:14-E13TH2F,/storage/hive/project/phy-otte/sstepanoff3/event_cleaning/CombineEventCleaningFiles/Rank8_3Core200PE5Pix_20250625_all.root,PE
+MuonTrack4,Muon_Track_Sample_4,combined_PreN20241203-F12:28-E51TH2F,/storage/hive/project/phy-otte/sstepanoff3/event_cleaning/CombineEventCleaningFiles/Rank8_3Core200PE5Pix_20250625_all.root,PE
+Haze1,Haze_Sample_1,combined_PreN20250424-F08:51-E14TH2F,/storage/hive/project/phy-otte/sstepanoff3/event_cleaning/CombineEventCleaningFiles/Rank8_3Core200PE5Pix_20250625_all.root,PE
+Haze2,Haze_Sample_2,combined_PreN20250224-F10:48-E6TH2F,/storage/hive/project/phy-otte/sstepanoff3/event_cleaning/CombineEventCleaningFiles/Rank8_3Core200PE5Pix_20250625_all.root,PE
+Haze3,Haze_Sample_3,combined_PreN20241228-F12:49-E39TH2F,/storage/hive/project/phy-otte/sstepanoff3/event_cleaning/CombineEventCleaningFiles/Rank85Pixels_noSizeCut_20250703_all.root,PE
+ParrellelRows1,Parrellel_Rows_Sample_1,combined_PreN20241130-F06:23-E8TH2F,/storage/hive/project/phy-otte/sstepanoff3/event_cleaning/CombineEventCleaningFiles/Rank8_3Core200PE5Pix_20250625_all.root,PE
+ParrellelRows2,Parrellel_Rows_Sample_2,combined_PreN20241222-F04:06-E20TH2F,/storage/hive/project/phy-otte/sstepanoff3/event_cleaning/CombineEventCleaningFiles/Rank8_3Core200PE5Pix_20250625_all.root,PE
+ParrellelRows3,Parrellel_Rows_Sample_3,combined_PreN20250424-F09:57-E11TH2F,/storage/hive/project/phy-otte/sstepanoff3/event_cleaning/CombineEventCleaningFiles/Rank8_3Core200PE5Pix_20250625_all.root,PE
+newMuon,Muon_Track_Sample_5,PreN20241022-FMerged_Cobo0_AsAd0_2024-10-22T03:38:57.570_0000.root-E2TH2F, /storage/osg-otte1/shared/TrinityDemonstrator/DataAnalysis/event_cleaning/EventSelection/EventSelectionPlots.root,PE
+
+
+
+

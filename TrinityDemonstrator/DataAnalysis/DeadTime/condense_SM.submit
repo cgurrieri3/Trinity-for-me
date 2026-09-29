@@ -1,0 +1,64 @@
+sysFilePath = /storage/osg-otte1/shared/TrinityDemonstrator
+container_image = $(sysFilePath)/DataAnalysis/containers/rootandexact.sif
+
+# Ensure host paths are visible inside the container
+#+ApptainerBind = "/storage,/tmp,/dev,/proc,/exact"
+
+executable = run_condor.sh
+ # name of the bash script or python or root 
+
+arguments = $(Date) 
+# $(Filename)
+# $ENV(USER)
+getenv = True
+# ^ added user env and getenv=True - same as event_cleaning condense_SM.submit
+
+# Keep your environment variables
+#getenv = False
+
+# add user env to filepath and to file name (like in event_cleaning)
+log = $(sysFilePath)/DataAnalysis/DeadTime/.log/$ENV(USER)/HT_condor_$ENV(USER)_$(Date).log 
+# HTCondor log
+
+# add user env to filepath and file name
+error = $(sysFilePath)/DataAnalysis/DeadTime/.log/$ENV(USER)/Program_$ENV(USER)_$(Date).err 
+#Standard Error - program and HTCondor errors
+
+# add user env to filepath and file name
+output = $(sysFilePath)/DataAnalysis/DeadTime/.log/$ENV(USER)/Program_$ENV(USER)_$(Date).out 
+# program terminal output (not output files)
+
+transfer_input_files = $(sysFilePath)/DataAnalysis/MergedData/Output/$(Date),$(sysFilePath)/DataAnalysis/DeadTime/DeadTime
+#any file that needs to included for the job - everything minus executable
+# replaced DeadTime output path with Merged data output path (1st path)
+
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_output_files = DataAnalysis/DeadTime/Output
+
+
+request_cpus = 1
+ # these are PER JOB
+
+request_memory = 1GB 
+# these are PER JOB
+
+JobBatchName = "DT_$(Date)"
+
+# space for all files input and output and intermediate files
+request_disk = 10GB
+max_retries = 3
+# these are PER JOB
+
+# Tell HTCondor to run 3 instances of our job:
+###----------#####
+# Queue! HAS TO BE THE LAST LINE
+###----------#####
+# MAGICAL
+# synatax 
+# queue + num - que this many identical jobs (EXACT  SAME JOB)
+# use case - executable can create independent jobs (script creates difference between jobs)
+# randomw number simulations 
+# queue Filename from $(sysFilePath)/DataAnalysis/DeadTime/Output/dates_found.txt
+queue

@@ -1,0 +1,194 @@
+#include "stdio.h"
+#include "opencv2/highgui/highgui_c.h"
+#include "opencv2/imgproc.hpp"
+#include "opencv2/imgcodecs.hpp"
+#include "opencv2/core/mat.hpp"
+#include "opencv2/core/core_c.h"
+#include "opencv2/core.hpp"
+#include "ASICamera2.h"
+#include <sys/time.h>
+#include <time.h>
+#include <unistd.h>
+#include "pthread.h"
+#include <string>
+#include <iostream>
+#include <iomanip>
+#include <ctime>
+#include <sstream>
+
+int main(int argc, char* argv[])
+{
+    //array of bayer filter types
+	const char* bayer[] = {"RG","BG","GR","GB"};
+    //initialize variables used in main
+	int i;
+
+	int CamNum=0;
+    int bin = 1;
+    int Image_type = 2;
+    int exp_micros;
+    int iMaxWidth, iMaxHeight;
+    long imgSize;
+    unsigned char* imgBuf;
+    long ltemp = 0;
+
+    ASI_BOOL bAuto = ASI_FALSE;
+
+	IplImage *pRgb;
+
+	if(argc >> 1){
+		std::size_t pos;
+		int tmult = 1;
+		for(i = 1; i < argc; i++){
+			if(strcmp(argv[i],"s") == 0){
+				tmult = 1000000;
+			}
+			else if(strcmp(argv[i],"ms") == 0){
+				tmult = 1000;
+			}
+			else{
+				exp_micros = std::stoi(argv[i],&pos);
+			}
+		}
+		exp_micros *= tmult;
+	}
+	else{
+		exp_micros = 1000000;
+	}
+	printf("%i micro second exposure\n",exp_micros);
+
+    int numDevices = ASIGetNumOfConnectedCameras();
+    //print connected devices (should be 1, indexed at 0)
+    if(numDevices <= 0)
+	{
+		printf("No camera connected, press any key to exit\n");
+		getchar();
+		return -1;
+	}
+	else
+    {
+		printf("Attached cameras:\n");
+    }
+
+    //get information about camera index 0
+    ASI_CAMERA_INFO ASICameraInfo;
+
+    ASIGetCameraProperty(&ASICameraInfo, 0);
+    printf("Initializing camera: %s", ASICameraInfo.Name);
+    //error if ASIOpenCamera function fails
+    if(ASIOpenCamera(CamNum) != ASI_SUCCESS)
+	{
+		printf("Open Camera error, are you root? Press any key to exit\n");
+		getchar();
+		return -1;
+	}
+
+    //initialize camera index 0
+    ASIInitCamera(0);
+    
+    //print information about camera index 0
+    printf("%s information\n",ASICameraInfo.Name);
+	iMaxWidth = ASICameraInfo.MaxWidth;
+	iMaxHeight =  ASICameraInfo.MaxHeight;
+	printf("Resolution: %dX%d\n", iMaxWidth, iMaxHeight);
+    printf("Color Camera: bayer pattern: %s\n",bayer[ASICameraInfo.BayerPattern]);
+	ASIGetControlValue(CamNum, ASI_TEMPERATURE, &ltemp, &bAuto);
+	printf("Sensor temperature: %02f\n", (float)ltemp/10.0);
+    //set image format options
+    ASISetROIFormat(CamNum, iMaxWidth, iMaxHeight, bin, (ASI_IMG_TYPE)Image_type);
+    //create appropriate opencv image object
+	int bufDepth;
+	if(Image_type == ASI_IMG_RAW16){
+		pRgb=cvCreateImage(cvSize(iMaxWidth, iMaxHeight), IPL_DEPTH_16U, 1);
+    		bufDepth = 2;
+	}
+	else if(Image_type == ASI_IMG_RGB24){
+		pRgb=cvCreateImage(cvSize(iMaxWidth, iMaxHeight), IPL_DEPTH_8U, 3);
+    		bufDepth = 3;
+	}
+	else{
+		pRgb=cvCreateImage(cvSize(iMaxWidth, iMaxHeight), IPL_DEPTH_8U, 1);
+    		bufDepth = 1;
+	}
+   	imgSize = iMaxWidth*iMaxHeight*bufDepth;
+	imgBuf = new unsigned char[imgSize];
+
+    //set camera control values
+    ASISetControlValue(CamNum, ASI_GAIN, 0, ASI_FALSE);
+    ASISetControlValue(CamNum, ASI_EXPOSURE, exp_micros, ASI_FALSE);
+	ASISetControlValue(CamNum, ASI_BANDWIDTHOVERLOAD, 80, ASI_FALSE);
+
+    //begin camera exposure
+	ASI_EXPOSURE_STATUS status;
+	ASIStartExposure(CamNum, ASI_FALSE);
+	usleep(10000);//10ms
+	status = ASI_EXP_WORKING;
+	while(status == ASI_EXP_WORKING)
+	{
+		ASIGetExpStatus(CamNum, &status);		
+	}
+	if(status == ASI_EXP_SUCCESS)
+	{
+		ASIGetDataAfterExp(CamNum, imgBuf, imgSize);
+		if(Image_type==ASI_IMG_RAW16)
+		{
+    			unsigned short *pCv16bit = (unsigned short *)(pRgb->imageData);
+			unsigned short *pImg16bit = (unsigned short *)imgBuf;
+			for(int y = 0; y < iMaxHeight; y++)
+			{
+				memcpy(pCv16bit, pImg16bit, iMaxWidth*2);
+				pCv16bit+=iMaxWidth;
+				pImg16bit+=iMaxWidth;
+			}
+		}
+		else if(Image_type==ASI_IMG_RGB24)
+		{
+			unsigned char *pCv8bit = (unsigned char *)pRgb->imageData;
+			unsigned char *pImg8bit = (unsigned char *)imgBuf;
+			for(int y = 0; y < iMaxHeight*3; y++)
+			{
+				memcpy(pCv8bit, pImg8bit, iMaxWidth);
+				pCv8bit+=iMaxWidth;
+				pImg8bit+=iMaxWidth;
+			}
+		}
+		else{
+			unsigned char *pCv8bit = (unsigned char *)pRgb->imageData;
+			unsigned char *pImg8bit = (unsigned char *)imgBuf;
+			for(int y = 0; y < iMaxHeight; y++)
+			{
+				memcpy(pCv8bit, pImg8bit, iMaxWidth);
+				pCv8bit+=iMaxWidth;
+				pImg8bit+=iMaxWidth;
+			}
+		}
+		cv::Mat mat = cv::cvarrToMat(pRgb);
+		cv::flip(mat, mat, 0);
+		cv::flip(mat, mat, 1);
+		
+		std::time_t t = std::time(nullptr);
+		std::tm tm = *std::localtime(&t);
+		std::ostringstream oss;
+		oss << std::put_time(&tm, "%Y%m%d_%H-%M-%S");
+		std::string filename = oss.str();
+		char* outputdir;
+		sprintf(outputdir,"/home/cam/Horizon/tiff/%s.tiff",filename.c_str());
+		cv::imwrite(outputdir, mat);
+		sprintf(outputdir,"/home/cam/Horizon/jpg/%s.jpg",filename.c_str());
+		cv::Mat cmat;
+		mat.convertTo(mat,0,1/256.0);
+		cv::cvtColor(mat,cmat,cv::COLOR_BayerGR2BGR);
+		cv::imwrite(outputdir, cmat);
+	}
+    else{
+        printf("Camera failed to begin exposure, image was not recorded\n");
+	printf("%i\n",status);
+    }
+    ASIStopExposure(CamNum);
+	ASICloseCamera(CamNum);
+	cvReleaseImage(&pRgb);
+	if(imgBuf){
+		delete[] imgBuf;
+    }
+    return 1;
+}

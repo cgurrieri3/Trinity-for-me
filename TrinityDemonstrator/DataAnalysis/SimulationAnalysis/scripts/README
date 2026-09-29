@@ -1,0 +1,50 @@
+This script takes the simulation data and then convert them to mimic real data to run through the eventcleaning
+
+to just run the script locally on a single file 
+./run_script.sh <YYYYMMDD> <SIMRUN> [GROPT|CARE]
+./run_script.sh 20260803 muonkiet CARE
+./run_script.sh 20260413 16190401_daro GROPT
+
+./run_all this will run all on the local node (slow)
+
+the 4th argument of SimRootFiles picks which simulation stage to read.
+GROPT (the default) reads the ray traced photons out of T1 and makes the
+1mm / 6mm camera views. CARE reads the FADC traces out of Events/T0 and
+makes the 16x16 PE camera view from the sample at timebin 25. Both read the
+same ISOG row for a shower, so the event label, the Sim tree and the Test
+tree carry the same information either way. GROPT writes
+datafiles_<date>_<simrun>.root as before, CARE writes
+datafiles_<date>_<simrun>_CARE.root so the two do not overwrite.
+
+to recompile 
+./compile_script.sh
+
+to submit as a job for all nights 
+create the file that has all sim files to run over 
+./get_folders_tocsv.sh 
+then 
+condor_submit convertsim2data.submit convertsim2data.submit
+    uses ./run_condor.sh for inside the job
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------
+HIVE how to run
+how to run
+
+./SimRootFiles YYYYMMDD SIMRUN MOUNT [GROPT|CARE]
+samples
+./SimRootFiles 20250529 Tilt_91.560000 y
+./SimRootFiles 20250529 Tilt_91.560000 y CARE

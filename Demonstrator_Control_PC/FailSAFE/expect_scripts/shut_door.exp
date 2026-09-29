@@ -1,0 +1,18 @@
+#!/usr/bin/expect
+
+# spawns the command that needs to close the door
+spawn uswitch -dir down
+
+expect {
+    "$ " {
+        # This is the prompt after the command finishes
+        send "exit\r"
+    }
+    "SomeExpectedOutput" {
+        # If there is a specific output, you can handle it here
+    }
+}
+
+# Wait for the process to finish
+expect eof
+

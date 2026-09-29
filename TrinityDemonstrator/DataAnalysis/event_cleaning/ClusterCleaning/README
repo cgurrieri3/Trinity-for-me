@@ -1,0 +1,33 @@
+
+
+on buzzard this can be compiled with ./compile_script.sh
+
+
+LD_LIBRARY_PATH=/storage/hive/project/phy-otte/sstepanoff3/exact/dict
+export LD_LIBRARY_PATH=/usr/lib/oracle/21/client64/lib:/usr/local/lib:$LD_LIBRARY_PATH
+export EXACT_DIR=/storage/hive/project/phy-otte/sstepanoff3/exact
+
+Cleaning a single folder of regular data
+the data needs to already be merged
+./ClusterCleaning <yyyymmdd>  
+Example: ./ClusterCleaning 20250423
+
+Cleaning bkg data
+the data needs to already be merged and a background text file containeda list of files needs to be created
+bkg files location shared/Trinity/DataAnalysis/DataTxtFiles/BackgroundSamples/RandomSampling/.Once the file is in there
+call the filename without the file extention and  the file name MUST contain "bkg"
+./ClusterCleaning <Filename> 
+./ClusterCleaning bkg10hours or ./ClusterCleaning bkg40hours
+
+Cleaning Muon data
+This will  work from the file of muon data like the bkg data.  however muon data required the Forced Branch to gather data
+
+call the  muon cleaning with 
+
+./ClusterCleaning muon20241011
+
+
+rootcling -f EventInfoDict.cpp -c EventInfo.h LinkDef.h  remake the dictionary 
+
+
+

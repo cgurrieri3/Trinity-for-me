@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# Set the job parameters
+set timeout 600
+set salloc_command "salloc -N 1 -A hive-aotte6\r"
+
+spawn bash 
+# Start the salloc command
+send $salloc_command
+
+# Wait for the prompt that indicates the interactive session is ready
+expect "$ "
+
+send "hostname\r"
+sleep 2
+# Wait for the script to finish
+expect "$ "
+send "module unload anaconda3\r"
+sleep 5
+expect "$ "
+send "mysqld_safe\r"
+expect "$ "
+
+#!/bin/bash
+
+# Set the job parameters
+timeout=600
+salloc_command="salloc -N 1 -A hive-aotte6"
+
+# Start the salloc command
+eval $salloc_command
+
+# Wait for the prompt that indicates the interactive session is ready
+# (Assuming the prompt is "$ ")
+sleep 2
+
+# Send the hostname command
+hostname
+
+# Wait for the command to finish
+sleep 2
+
+# Unload the anaconda3 module
+module unload anaconda3
+
+# Wait for the command to finish
+sleep 5
+
+# Start mysqld_safe
+mysqld_safe &
+
+# Exit the script
+exit 0

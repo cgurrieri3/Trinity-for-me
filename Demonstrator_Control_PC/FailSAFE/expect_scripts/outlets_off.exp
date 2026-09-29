@@ -1,0 +1,19 @@
+#!/usr/bin/expect
+
+# spawns the command that needs to close the door
+spawn obs_pwr_off
+
+expect {
+    "$ " {
+        # This is the prompt after the command finishes
+        send "exit\r"
+    }
+    "SomeExpectedOutput" {
+        # If there is a specific output, you can handle it here
+    }
+}
+
+# sleep for a bit
+sleep 15
+# Wait for the process to finish
+expect eof

@@ -1,0 +1,118 @@
+/* config.h.in.  Generated from configure.ac by autoheader.  */
+
+/* define if the Boost library is available */
+#undef HAVE_BOOST
+
+/* define if the Boost::Filesystem library is available */
+#undef HAVE_BOOST_FILESYSTEM
+
+/* define if the Boost::PROGRAM_OPTIONS library is available */
+#undef HAVE_BOOST_PROGRAM_OPTIONS
+
+/* define if the Boost::System library is available */
+#undef HAVE_BOOST_SYSTEM
+
+/* define if the Boost::Thread library is available */
+#undef HAVE_BOOST_THREAD
+
+/* Defined if the CCfits library is available */
+#undef HAVE_CCFITS
+
+/* define if the compiler supports basic C++11 syntax */
+#undef HAVE_CXX11
+
+/* Define to 1 if you have the <dlfcn.h> header file. */
+#undef HAVE_DLFCN_H
+
+/* Define to 1 if you have the <exception> header file. */
+#undef HAVE_EXCEPTION
+
+/* Define to 1 if you have the <inttypes.h> header file. */
+#undef HAVE_INTTYPES_H
+
+/* Define to 1 if you have the <iostream> header file. */
+#undef HAVE_IOSTREAM
+
+/* Define to 1 if you have the <list> header file. */
+#undef HAVE_LIST
+
+/* Define to 1 if you have the <memory> header file. */
+#undef HAVE_MEMORY
+
+/* Define to 1 if you have the <memory.h> header file. */
+#undef HAVE_MEMORY_H
+
+/* Define if you have Qwt library */
+#undef HAVE_QWT
+
+/* define if the QwtPlot3d library is available */
+#undef HAVE_QWT_PLOT_3D
+
+/* Whether the ROOT framework has been found */
+#undef HAVE_ROOT
+
+/* Define to 1 if you have the <set> header file. */
+#undef HAVE_SET
+
+/* Define to 1 if you have the <sstream> header file. */
+#undef HAVE_SSTREAM
+
+/* Define to 1 if you have the <stdint.h> header file. */
+#undef HAVE_STDINT_H
+
+/* Define to 1 if you have the <stdlib.h> header file. */
+#undef HAVE_STDLIB_H
+
+/* Define to 1 if you have the <string> header file. */
+#undef HAVE_STRING
+
+/* Define to 1 if you have the <strings.h> header file. */
+#undef HAVE_STRINGS_H
+
+/* Define to 1 if you have the <string.h> header file. */
+#undef HAVE_STRING_H
+
+/* Define to 1 if you have the <sys/stat.h> header file. */
+#undef HAVE_SYS_STAT_H
+
+/* Define to 1 if you have the <sys/types.h> header file. */
+#undef HAVE_SYS_TYPES_H
+
+/* Define to 1 if you have the <unistd.h> header file. */
+#undef HAVE_UNISTD_H
+
+/* Define to 1 if you have the <utility> header file. */
+#undef HAVE_UTILITY
+
+/* Define to 1 if you have the <vector> header file. */
+#undef HAVE_VECTOR
+
+/* Define to the sub-directory where libtool stores uninstalled libraries. */
+#undef LT_OBJDIR
+
+/* Name of package */
+#undef PACKAGE
+
+/* Define to the address where bug reports for this package should be sent. */
+#undef PACKAGE_BUGREPORT
+
+/* Define to the full name of this package. */
+#undef PACKAGE_NAME
+
+/* Define to the full name and version of this package. */
+#undef PACKAGE_STRING
+
+/* Define to the one symbol short name of this package. */
+#undef PACKAGE_TARNAME
+
+/* Define to the home page for this package. */
+#undef PACKAGE_URL
+
+/* Define to the version of this package. */
+#undef PACKAGE_VERSION
+
+/* Define to 1 if you have the ANSI C header files. */
+#undef STDC_HEADERS
+
+/* Version number of package */
+#undef VERSION

@@ -1,0 +1,305 @@
+\hypertarget{classEvent}{}\section{Event Class Reference}
+\label{classEvent}\index{Event@{Event}}
+
+
+Class used for combining Trigger Board data and Co\+Bo data (Trigger information and raw data)  
+
+
+
+
+{\ttfamily \#include $<$Event.\+h$>$}
+
+
+
+Inheritance diagram for Event\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=125pt]{classEvent__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEvent_a5a40dd4708297f7031e29b39e039ae10}\label{classEvent_a5a40dd4708297f7031e29b39e039ae10}} 
+\hyperlink{classEvent_a5a40dd4708297f7031e29b39e039ae10}{Event} ()
+\begin{DoxyCompactList}\small\item\em Constructor taking no arguments. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEvent_a7704ec01ce91e673885792054214b3d2}\label{classEvent_a7704ec01ce91e673885792054214b3d2}} 
+\hyperlink{classEvent_a7704ec01ce91e673885792054214b3d2}{$\sim$\+Event} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \hyperlink{classEvent_a5c49a13db44604d6a0e2f9cd98375044}{Set\+Co\+Bo\+Time} (U\+Long64\+\_\+t rcv\+Time)
+\begin{DoxyCompactList}\small\item\em Public member used to set the value for the cobo time at which the event was recorded. \end{DoxyCompactList}\item 
+void \hyperlink{classEvent_ac73a250bfe5eb42e8eb74766a42a6973}{Set\+U\+N\+I\+X\+Time} (U\+Long64\+\_\+t rcv\+Time)
+\begin{DoxyCompactList}\small\item\em Public member used to set the value for the U\+N\+IX time at which the event was recorded. \end{DoxyCompactList}\item 
+void \hyperlink{classEvent_a3ac44ccc4562c58ec07b12d96709e0aa}{Set\+T\+B\+Time} (U\+Long64\+\_\+t rcv\+Time)
+\begin{DoxyCompactList}\small\item\em Public member used to set the value for the Trigger Board time at which the event was recorded in TB clock ticks. \end{DoxyCompactList}\item 
+void \hyperlink{classEvent_ab084c2b49b15b135cd7a43f1919e4fb9}{Set\+Event\+Type} (Int\+\_\+t rcv\+Event\+Type)
+\begin{DoxyCompactList}\small\item\em Public member used to set the type of event (based on which trigger type was issued) \end{DoxyCompactList}\item 
+void \hyperlink{classEvent_aba7eeb4eb55183924e5a89e2256b9f5a}{Set\+R\+O\+I\+Music\+ID} (vector$<$ Int\+\_\+t $>$ music\+I\+Ds)
+\begin{DoxyCompactList}\small\item\em Public member used to set the value for the 2 cells that triggered the readout. \end{DoxyCompactList}\item 
+void \hyperlink{classEvent_afd0ba9e203e0619bc8022bb4579d9eea}{Set\+R\+O\+I\+Pixel\+ID} (vector$<$ Int\+\_\+t $>$ pix\+I\+Ds)
+\begin{DoxyCompactList}\small\item\em Public member used to set the value for the region of interest around the triggered cells. \end{DoxyCompactList}\item 
+void \hyperlink{classEvent_a7d14a089a358b6ac34b19db29b37d089}{Set\+Signal\+Value} (vector$<$ vector$<$ Int\+\_\+t $>$$>$ signal\+Trace)
+\begin{DoxyCompactList}\small\item\em Public member used to set the value for the traces of each pixel captured at the time of readout. \end{DoxyCompactList}\item 
+U\+Long64\+\_\+t \hyperlink{classEvent_a2e1f120d13a6ebdd348546ee057cb72b}{Get\+Co\+Bo\+Time} ()
+\begin{DoxyCompactList}\small\item\em Public member used to get the value for the cobo time at which the event was recorded. \end{DoxyCompactList}\item 
+U\+Long64\+\_\+t \hyperlink{classEvent_aa62f35c4492f0111b8142362f608b5bf}{Get\+U\+N\+I\+X\+Time} ()
+\begin{DoxyCompactList}\small\item\em Public member used to get the value for the U\+N\+IX time at which the event was recorded. \end{DoxyCompactList}\item 
+U\+Long64\+\_\+t \hyperlink{classEvent_afe50196d5416bcf700843a2d299efa9f}{Get\+T\+B\+Time} ()
+\begin{DoxyCompactList}\small\item\em Public member used to get the value for the Trigger Board time at which the event was recorded in TB clock ticks. \end{DoxyCompactList}\item 
+Int\+\_\+t \hyperlink{classEvent_a3f345178041566aa9be891c5ed73529b}{Get\+Event\+Type} ()
+\begin{DoxyCompactList}\small\item\em Public member used to get the type of event (based on which trigger type was issued) \end{DoxyCompactList}\item 
+vector$<$ Int\+\_\+t $>$ \hyperlink{classEvent_ac1cd2aa5cf840e254b4e680394040a06}{Get\+R\+O\+I\+Music\+ID} ()
+\begin{DoxyCompactList}\small\item\em Public member used to get the value for the 2 cells that triggered the readout. \end{DoxyCompactList}\item 
+vector$<$ Int\+\_\+t $>$ \hyperlink{classEvent_a940ee7417960962d77566282ce761115}{Get\+R\+O\+I\+Pixel\+ID} ()
+\begin{DoxyCompactList}\small\item\em Public member used to get the value for the region of interest around the triggered cells. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ Int\+\_\+t $>$ $>$ \hyperlink{classEvent_a8e4f3e73f998f0b414de116d7f586b14}{Get\+Signal\+Value} ()
+\begin{DoxyCompactList}\small\item\em Public member used to get the value for the traces of each pixel captured at the time of readout. \end{DoxyCompactList}\item 
+vector$<$ Int\+\_\+t $>$ \hyperlink{classEvent_af98017ed419946ec1981ea489dcf10b2}{Get\+Signal\+Value} (int pix\+ID)
+\begin{DoxyCompactList}\small\item\em Public member used to get the value of the trace for a specific pixel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEvent_a8f351e105236524468b73d91d2615b3b}\label{classEvent_a8f351e105236524468b73d91d2615b3b}} 
+U\+Long64\+\_\+t \hyperlink{classEvent_a8f351e105236524468b73d91d2615b3b}{tb\+\_\+time}
+\begin{DoxyCompactList}\small\item\em unsigned 64 bit number containing time \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEvent_a2e08e4fe9fcde15df6ca07f3d32ada4a}\label{classEvent_a2e08e4fe9fcde15df6ca07f3d32ada4a}} 
+U\+Long64\+\_\+t \hyperlink{classEvent_a2e08e4fe9fcde15df6ca07f3d32ada4a}{cobo\+\_\+time}
+\begin{DoxyCompactList}\small\item\em unsigned 64 bit number containing time \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEvent_a0b1b0be65d07df7718ac5862e79a8d50}\label{classEvent_a0b1b0be65d07df7718ac5862e79a8d50}} 
+U\+Long64\+\_\+t \hyperlink{classEvent_a0b1b0be65d07df7718ac5862e79a8d50}{unix\+\_\+time}
+\begin{DoxyCompactList}\small\item\em unsigned 64 bit number containing time \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEvent_a80a5b8fc11fb6501fdc9962c9ae3825a}\label{classEvent_a80a5b8fc11fb6501fdc9962c9ae3825a}} 
+Int\+\_\+t \hyperlink{classEvent_a80a5b8fc11fb6501fdc9962c9ae3825a}{event\+Type}
+\begin{DoxyCompactList}\small\item\em int number containing event type \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEvent_a7332d4d5c8ad1d7d81e2c7c2e44bc27b}\label{classEvent_a7332d4d5c8ad1d7d81e2c7c2e44bc27b}} 
+vector$<$ vector$<$ Int\+\_\+t $>$ $>$ \hyperlink{classEvent_a7332d4d5c8ad1d7d81e2c7c2e44bc27b}{signal\+Value}
+\begin{DoxyCompactList}\small\item\em std\+::vector of size 512x512 conatining the 512 samples in a trace for each of the 512 pixels \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEvent_ab57fdbb443ae1280ebb8f13592be2dcd}\label{classEvent_ab57fdbb443ae1280ebb8f13592be2dcd}} 
+vector$<$ Int\+\_\+t $>$ \hyperlink{classEvent_ab57fdbb443ae1280ebb8f13592be2dcd}{roi\+Music\+ID}
+\begin{DoxyCompactList}\small\item\em std\+::vector of size 2 containing the I\+Ds for the triggered cells \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classEvent_a277770d922cbcd9518b429b57ae0a07a}\label{classEvent_a277770d922cbcd9518b429b57ae0a07a}} 
+vector$<$ Int\+\_\+t $>$ \hyperlink{classEvent_a277770d922cbcd9518b429b57ae0a07a}{roi\+Pixel\+ID}
+\begin{DoxyCompactList}\small\item\em std\+::vector of size 36 containing the pixel I\+Ds for the region of interest \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class used for combining Trigger Board data and Co\+Bo data (Trigger information and raw data) 
+
+Class stores the raw data from the Co\+Bo as form of traces for each event and sorted according to pixel number. Each object also contains trigger information like time of trigger and trigger cell that caused the readout. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classEvent_a2e1f120d13a6ebdd348546ee057cb72b}\label{classEvent_a2e1f120d13a6ebdd348546ee057cb72b}} 
+\index{Event@{Event}!Get\+Co\+Bo\+Time@{Get\+Co\+Bo\+Time}}
+\index{Get\+Co\+Bo\+Time@{Get\+Co\+Bo\+Time}!Event@{Event}}
+\subsubsection{\texorpdfstring{Get\+Co\+Bo\+Time()}{GetCoBoTime()}}
+{\footnotesize\ttfamily U\+Long64\+\_\+t Event\+::\+Get\+Co\+Bo\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Public member used to get the value for the cobo time at which the event was recorded. 
+
+\begin{DoxyReturn}{Returns}
+An unsigned 64 bit number used to store the time in 10s of nanoseconds 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEvent_a3f345178041566aa9be891c5ed73529b}\label{classEvent_a3f345178041566aa9be891c5ed73529b}} 
+\index{Event@{Event}!Get\+Event\+Type@{Get\+Event\+Type}}
+\index{Get\+Event\+Type@{Get\+Event\+Type}!Event@{Event}}
+\subsubsection{\texorpdfstring{Get\+Event\+Type()}{GetEventType()}}
+{\footnotesize\ttfamily Int\+\_\+t Event\+::\+Get\+Event\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Public member used to get the type of event (based on which trigger type was issued) 
+
+\begin{DoxyReturn}{Returns}
+An int that categorizes the different trigger types (\char`\"{}hled\char`\"{},\char`\"{}bifocal\char`\"{},\char`\"{}forced\char`\"{},\char`\"{}test\char`\"{}) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEvent_ac1cd2aa5cf840e254b4e680394040a06}\label{classEvent_ac1cd2aa5cf840e254b4e680394040a06}} 
+\index{Event@{Event}!Get\+R\+O\+I\+Music\+ID@{Get\+R\+O\+I\+Music\+ID}}
+\index{Get\+R\+O\+I\+Music\+ID@{Get\+R\+O\+I\+Music\+ID}!Event@{Event}}
+\subsubsection{\texorpdfstring{Get\+R\+O\+I\+Music\+I\+D()}{GetROIMusicID()}}
+{\footnotesize\ttfamily vector$<$Int\+\_\+t$>$ Event\+::\+Get\+R\+O\+I\+Music\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Public member used to get the value for the 2 cells that triggered the readout. 
+
+Each of these cells is connected to 8 pixels. \begin{DoxyReturn}{Returns}
+A std\+::vector of size 2 (typically) conatining the 2 cell I\+Ds that issued the trigger 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEvent_a940ee7417960962d77566282ce761115}\label{classEvent_a940ee7417960962d77566282ce761115}} 
+\index{Event@{Event}!Get\+R\+O\+I\+Pixel\+ID@{Get\+R\+O\+I\+Pixel\+ID}}
+\index{Get\+R\+O\+I\+Pixel\+ID@{Get\+R\+O\+I\+Pixel\+ID}!Event@{Event}}
+\subsubsection{\texorpdfstring{Get\+R\+O\+I\+Pixel\+I\+D()}{GetROIPixelID()}}
+{\footnotesize\ttfamily vector$<$Int\+\_\+t$>$ Event\+::\+Get\+R\+O\+I\+Pixel\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Public member used to get the value for the region of interest around the triggered cells. 
+
+The R\+OI is defined as the 16 pixels related to the triggered cell plus a ring of 1 pixel around them. \begin{DoxyReturn}{Returns}
+A std\+::vector of size 36 (typically) containing the region of interest including the pixels in the triggered cell plus a ring around them 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEvent_a8e4f3e73f998f0b414de116d7f586b14}\label{classEvent_a8e4f3e73f998f0b414de116d7f586b14}} 
+\index{Event@{Event}!Get\+Signal\+Value@{Get\+Signal\+Value}}
+\index{Get\+Signal\+Value@{Get\+Signal\+Value}!Event@{Event}}
+\subsubsection{\texorpdfstring{Get\+Signal\+Value()}{GetSignalValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily vector$<$vector$<$Int\+\_\+t$>$ $>$ Event\+::\+Get\+Signal\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Public member used to get the value for the traces of each pixel captured at the time of readout. 
+
+\begin{DoxyReturn}{Returns}
+A std\+::vector of size 512x512 (typically) with the trace for each of the pixels at the time of trigger 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEvent_af98017ed419946ec1981ea489dcf10b2}\label{classEvent_af98017ed419946ec1981ea489dcf10b2}} 
+\index{Event@{Event}!Get\+Signal\+Value@{Get\+Signal\+Value}}
+\index{Get\+Signal\+Value@{Get\+Signal\+Value}!Event@{Event}}
+\subsubsection{\texorpdfstring{Get\+Signal\+Value()}{GetSignalValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily vector$<$Int\+\_\+t$>$ Event\+::\+Get\+Signal\+Value (\begin{DoxyParamCaption}\item[{int}]{pix\+ID }\end{DoxyParamCaption})}
+
+
+
+Public member used to get the value of the trace for a specific pixel. 
+
+\begin{DoxyReturn}{Returns}
+A std\+::vector of size 512 (typically) with the trace for the specified pixel at the time of trigger 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEvent_afe50196d5416bcf700843a2d299efa9f}\label{classEvent_afe50196d5416bcf700843a2d299efa9f}} 
+\index{Event@{Event}!Get\+T\+B\+Time@{Get\+T\+B\+Time}}
+\index{Get\+T\+B\+Time@{Get\+T\+B\+Time}!Event@{Event}}
+\subsubsection{\texorpdfstring{Get\+T\+B\+Time()}{GetTBTime()}}
+{\footnotesize\ttfamily U\+Long64\+\_\+t Event\+::\+Get\+T\+B\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Public member used to get the value for the Trigger Board time at which the event was recorded in TB clock ticks. 
+
+\begin{DoxyReturn}{Returns}
+An unsigned 64 bit number used to store the time in 10s of nanoseconds 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEvent_aa62f35c4492f0111b8142362f608b5bf}\label{classEvent_aa62f35c4492f0111b8142362f608b5bf}} 
+\index{Event@{Event}!Get\+U\+N\+I\+X\+Time@{Get\+U\+N\+I\+X\+Time}}
+\index{Get\+U\+N\+I\+X\+Time@{Get\+U\+N\+I\+X\+Time}!Event@{Event}}
+\subsubsection{\texorpdfstring{Get\+U\+N\+I\+X\+Time()}{GetUNIXTime()}}
+{\footnotesize\ttfamily U\+Long64\+\_\+t Event\+::\+Get\+U\+N\+I\+X\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Public member used to get the value for the U\+N\+IX time at which the event was recorded. 
+
+\begin{DoxyReturn}{Returns}
+An unsigned 64 bit number used to store the time in 10s of nanoseconds 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEvent_a5c49a13db44604d6a0e2f9cd98375044}\label{classEvent_a5c49a13db44604d6a0e2f9cd98375044}} 
+\index{Event@{Event}!Set\+Co\+Bo\+Time@{Set\+Co\+Bo\+Time}}
+\index{Set\+Co\+Bo\+Time@{Set\+Co\+Bo\+Time}!Event@{Event}}
+\subsubsection{\texorpdfstring{Set\+Co\+Bo\+Time()}{SetCoBoTime()}}
+{\footnotesize\ttfamily void Event\+::\+Set\+Co\+Bo\+Time (\begin{DoxyParamCaption}\item[{U\+Long64\+\_\+t}]{rcv\+Time }\end{DoxyParamCaption})}
+
+
+
+Public member used to set the value for the cobo time at which the event was recorded. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rcv\+Time} & An unsigned 64 bit number used to store the time in 10s of nanoseconds \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEvent_ab084c2b49b15b135cd7a43f1919e4fb9}\label{classEvent_ab084c2b49b15b135cd7a43f1919e4fb9}} 
+\index{Event@{Event}!Set\+Event\+Type@{Set\+Event\+Type}}
+\index{Set\+Event\+Type@{Set\+Event\+Type}!Event@{Event}}
+\subsubsection{\texorpdfstring{Set\+Event\+Type()}{SetEventType()}}
+{\footnotesize\ttfamily void Event\+::\+Set\+Event\+Type (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{rcv\+Event\+Type }\end{DoxyParamCaption})}
+
+
+
+Public member used to set the type of event (based on which trigger type was issued) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rcv\+Event\+Type} & An int that categorizes the different trigger types (\char`\"{}hled\char`\"{},\char`\"{}bifocal\char`\"{},\char`\"{}forced\char`\"{},\char`\"{}test\char`\"{}) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEvent_aba7eeb4eb55183924e5a89e2256b9f5a}\label{classEvent_aba7eeb4eb55183924e5a89e2256b9f5a}} 
+\index{Event@{Event}!Set\+R\+O\+I\+Music\+ID@{Set\+R\+O\+I\+Music\+ID}}
+\index{Set\+R\+O\+I\+Music\+ID@{Set\+R\+O\+I\+Music\+ID}!Event@{Event}}
+\subsubsection{\texorpdfstring{Set\+R\+O\+I\+Music\+I\+D()}{SetROIMusicID()}}
+{\footnotesize\ttfamily void Event\+::\+Set\+R\+O\+I\+Music\+ID (\begin{DoxyParamCaption}\item[{vector$<$ Int\+\_\+t $>$}]{music\+I\+Ds }\end{DoxyParamCaption})}
+
+
+
+Public member used to set the value for the 2 cells that triggered the readout. 
+
+Each of these cells is connected to 8 pixels. 
+\begin{DoxyParams}{Parameters}
+{\em music\+I\+Ds} & A std\+::vector of size 2 (typically) conatining the 2 cell I\+Ds that issued the trigger \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEvent_afd0ba9e203e0619bc8022bb4579d9eea}\label{classEvent_afd0ba9e203e0619bc8022bb4579d9eea}} 
+\index{Event@{Event}!Set\+R\+O\+I\+Pixel\+ID@{Set\+R\+O\+I\+Pixel\+ID}}
+\index{Set\+R\+O\+I\+Pixel\+ID@{Set\+R\+O\+I\+Pixel\+ID}!Event@{Event}}
+\subsubsection{\texorpdfstring{Set\+R\+O\+I\+Pixel\+I\+D()}{SetROIPixelID()}}
+{\footnotesize\ttfamily void Event\+::\+Set\+R\+O\+I\+Pixel\+ID (\begin{DoxyParamCaption}\item[{vector$<$ Int\+\_\+t $>$}]{pix\+I\+Ds }\end{DoxyParamCaption})}
+
+
+
+Public member used to set the value for the region of interest around the triggered cells. 
+
+The R\+OI is defined as the 16 pixels related to the triggered cell plus a ring of 1 pixel around them. 
+\begin{DoxyParams}{Parameters}
+{\em pix\+I\+Ds} & A std\+::vector of size 36 (typically) containing the region of interest including the pixels in the triggered cell plus a ring around them \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEvent_a7d14a089a358b6ac34b19db29b37d089}\label{classEvent_a7d14a089a358b6ac34b19db29b37d089}} 
+\index{Event@{Event}!Set\+Signal\+Value@{Set\+Signal\+Value}}
+\index{Set\+Signal\+Value@{Set\+Signal\+Value}!Event@{Event}}
+\subsubsection{\texorpdfstring{Set\+Signal\+Value()}{SetSignalValue()}}
+{\footnotesize\ttfamily void Event\+::\+Set\+Signal\+Value (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ Int\+\_\+t $>$$>$}]{signal\+Trace }\end{DoxyParamCaption})}
+
+
+
+Public member used to set the value for the traces of each pixel captured at the time of readout. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em signal\+Trace} & A std\+::vector of size 512x512 (typically) with the trace for each of the pixels at the time of trigger \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEvent_a3ac44ccc4562c58ec07b12d96709e0aa}\label{classEvent_a3ac44ccc4562c58ec07b12d96709e0aa}} 
+\index{Event@{Event}!Set\+T\+B\+Time@{Set\+T\+B\+Time}}
+\index{Set\+T\+B\+Time@{Set\+T\+B\+Time}!Event@{Event}}
+\subsubsection{\texorpdfstring{Set\+T\+B\+Time()}{SetTBTime()}}
+{\footnotesize\ttfamily void Event\+::\+Set\+T\+B\+Time (\begin{DoxyParamCaption}\item[{U\+Long64\+\_\+t}]{rcv\+Time }\end{DoxyParamCaption})}
+
+
+
+Public member used to set the value for the Trigger Board time at which the event was recorded in TB clock ticks. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rcv\+Time} & An unsigned 64 bit number used to store the time in 10s of nanoseconds \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEvent_ac73a250bfe5eb42e8eb74766a42a6973}\label{classEvent_ac73a250bfe5eb42e8eb74766a42a6973}} 
+\index{Event@{Event}!Set\+U\+N\+I\+X\+Time@{Set\+U\+N\+I\+X\+Time}}
+\index{Set\+U\+N\+I\+X\+Time@{Set\+U\+N\+I\+X\+Time}!Event@{Event}}
+\subsubsection{\texorpdfstring{Set\+U\+N\+I\+X\+Time()}{SetUNIXTime()}}
+{\footnotesize\ttfamily void Event\+::\+Set\+U\+N\+I\+X\+Time (\begin{DoxyParamCaption}\item[{U\+Long64\+\_\+t}]{rcv\+Time }\end{DoxyParamCaption})}
+
+
+
+Public member used to set the value for the U\+N\+IX time at which the event was recorded. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rcv\+Time} & An unsigned 64 bit number used to store the time in 10s of nanoseconds \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+dict/include/Event.\+h\end{DoxyCompactItemize}

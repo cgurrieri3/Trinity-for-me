@@ -1,0 +1,43 @@
+#!/usr/bin/expect -f
+
+
+if {[llength $argv] ==0} {
+    puts stderr "Usage: $argv0 DIRECTION PUSH_DURATION(optional)"
+    exit 1
+}
+
+# Read in the IP address, username, and password from the file
+set file "/data/TrinityLabComputer/control_comp/login_info.txt"
+set fh [open $file r]
+gets $fh ip
+gets $fh user
+gets $fh password
+close $fh
+
+# Get Direction from user input
+set direction [lindex $argv 0]
+
+# Set Push Duration
+set dt [lindex $argv 1]
+if {$dt == ""} { # if argument isn't provided use the default of 12 seconds
+    set dt "12"
+}
+
+# Connect to the remote computer using SSH
+#spawn ssh $user@$ip
+set labuser $env(USER)
+spawn ssh -i /home/$labuser/.ssh/cntlcpu $user@$ip
+
+
+
+# Wait for the password prompt and send the password
+#expect "password:"
+#send "$password\r"
+
+# Execute a command on the remote computer
+expect "root@pe100a:~#"
+send "uswitch -dir $direction -dt $dt\r"
+
+# Wait for the command to finish and exit
+expect "root@pe100a:~#"
+send "exit\r"

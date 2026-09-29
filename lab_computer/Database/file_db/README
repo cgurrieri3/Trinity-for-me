@@ -1,0 +1,19 @@
+
+How to use 
+load_dbTDFiles.py: 
+Use load_dbTDFiles.py -d YYYYMMDD and this will take all the .sql files located in hiveData/Output convert them to .csv and then load them into
+influx db server and delete the .sql files
+
+Use backup_loaddbTDFiles.py -d YYYYMMDD -n # and this will run load_dbTDFiles.py for as many nights as you want in a row
+
+See data in influxdb database
+influx
+show databases
+use dbTDFiles
+show measurements
+select * from WeatherInfo;
+select last(*) from WeatherInfo;
+select * from DataInfo where "Filename" =~ /2025-02-09/ gets a certian date infor
+select count(*) from DataInfo where hvValues1 > 44.0 AND musicpower1 = 1
+
+See sql for query types/influxdb website

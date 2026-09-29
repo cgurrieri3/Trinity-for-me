@@ -1,0 +1,25 @@
+#!/usr/bin/expect -f
+
+set timeout -1
+set password "trinity22!"
+
+
+# Update images from control PC to local PC
+# Limit bandwidth to 600 KB/s for image transfer (each image has a max size of 300 KB)
+spawn rsync -Pau --bwlimit=600 root@172.16.17.74:/home/cam/Horizon/ /data/TrinityLabComputer/cams/Horizon/
+
+# Expect either the password prompt or any other prompt indicating no password is needed
+expect {
+    -re ".*password:" {
+        # Send the password
+        send "$password\r"
+        exp_continue
+    }
+    "receiving incremental file list" {
+        # No password is needed, proceed without sending the password
+        # You can replace "another_prompt_pattern" with the actual prompt pattern
+        # indicating no password is needed
+        exp_continue
+    }
+}
+

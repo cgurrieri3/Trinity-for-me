@@ -1,0 +1,71 @@
+---------------- BUZZARD and OSpool -------------------
+
+*** you need to use contiainers ***
+container path Buzzard: /storage/osg-otte1/shared/TrinityDemonstrator/DataAnalysis/containers
+container path OSPool: /ospool/ap40/data/sofia.stepanoff/TrinityDemonstrator/DataAnalysis/containers
+    you want to store the container in the long term cached storage so that your jobs done need to file transfer in the container each time instead it is already present. This helps saves time and compiles with ospool runs https://portal.osg-htc.org/documentation/htc_workloads/managing_data/osdf/
+container : rootandexact.sif - has root and exact compiled
+
+To run with HTCondor as a batch of jobs per night for muliple nights using a .csv that contains all target nights
+Use ./submit_night.sh YYYYMMDD for a single batched night or 
+./submit_night.sh file.csv to provide a list of nights to run
+Sample ./submit_night.sh condor_list/Rank8.csv
+
+
+# Deperceated location is correct now on OSpool 
+# You will need to move the data after it is complete
+# you can do this with 
+# ./move_merged_files.sh . Output
+# ./move_merged_files.sh <location from> <locations to>
+
+
+these are already built into the scripts 
+to run a single night not as a job
+./run_script.sh - calls and mounts the container to allow the fill function to work. 
+ - changed the way ./FileMerge runs - so now arguments are YYYYMMDD mount_filepath(within TrinityDemonstrator) singlefile?
+  
+ ./runscript.sh YYYYMMDD n so just to run a whole day
+ ./runscript.sh YYYYMMDD filename will run just one file 
+
+
+
+Running with HTCondor
+To run a whole night use
+./submit.sh YYYYMMDD - this will run every file in a night as its own job (this is needed as to not bog down file transfers)
+    # Deperciated
+    #- watcher.py: This uses a watcher script to ensure file will be transfered after completation #to the correct desitnation as HTCondor can not handle this 
+    - condense_SM.submit: this handle the HTCondor job creatation and enviromnet and well as input and output files
+    - run_condor.sh: This is the exactable run by the HTCondor job that will create the file structure and all of the movemenent to make the script run in the enviroment
+
+
+
+To run a single file use - but uou should just use ./submit_night.sh YYYYMMDD
+./condense_SM.submit YYYYMMDD Filename
+** You will need to move the root file upon completation unless you start the watcher script **
+
+
+to recompile 
+if you are just remaking in the /scripts/MergedData/ there is a file that will recompile
+./complile_script.sh - loads the contianer and makes the script 
+
+to start the watcher script independently you will need to open the python container 
+apptainer exec python3_10.py 
+
+# Deperciated
+# All files wiil  end up in the Merged Directory folder and need to be sorted 
+# This sorting into Output/YYYYMMDD can be done with 
+# ./move_sorted_files . Output
+
+---------------- HIVE -------------------
+
+# how to run file merge script
+sbatch submit.sbatch YYYYMMDD 
+# or 
+
+will take all the ancillary data from Statemessages, Weather, Celestial positions and add them to the data .root files 
+./FileMerge 20250124 
+# or AllFileMerge.py
+
+will add the absolute gain informaiton to the data .root files
+./AllCalibData 20250124
+

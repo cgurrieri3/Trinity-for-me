@@ -1,0 +1,45 @@
+Event cleaning script with local and job sumbission options
+For more information on how the eventcleaning works see the eventcleaning pdf
+
+
+Containers /DataAnalysis/containers
+
+------------------------------ Buzzard or OSpool (contianers) -----------------------------------------------------------
+*First change the path at the beginning of the script 
+
+To run with the container localy use
+./run_script.sh YYYYMMDD n
+    This will use a container and mount the system directories to locate and create the eventcleaning files
+    n - runs all files for that night
+    Uses: ClusterCleaning/EventCleaning
+    Container: rootandexact
+
+To run with HTCondor as a batch of jobs per night for muliple nights using a .csv that contains all target nights
+Use ./submit_night.sh YYYYMMDD for a single batched night or 
+./submit_night.sh file.csv to provide a list of nights to run
+Sample ./submit_nights.sh condor_list/Rank8.csv
+
+
+
+Reducing the output to a single file per night
+use the ./run_reduce_script.sh path/to/directory 
+sample ./run_reduce_script.sh Outputs/sstepanoff3_DataFiles
+    This will take all the event cleanings data with timestamps *HH:DD.root and combine them into a single file for the nigth
+    *PLEASE NOTE THIS WILL OVERRIDE ITSELF so be careful*
+    This code runs off of reducedata.sh
+
+DEPECEATED
+To run with HTcondor as a job this works for one night and sends each file as its own job
+Use ./sumbit.sh filename.csv - csv contains a list of YYYYMMDD to submit
+./submit.sh YYYYMMDD - just get one date
+
+This will run the individual job
+submit.sh - the script that reads in all the merged file for that date and processes the event cleaning one by one file 
+condor_submit "Date=YYYYMMDD" "Filename=Mergedfile" condense_SM.submit
+    This will use a HTCondor job to use the container and run the script on the HTC. 
+    Sumbit Script: condense_SM.submit
+    Uses: run_condor.sh
+    Container: rootandexact.sif 
+run_condor.sh - this creates the container enviroment for running the event cleaning and all the files organized into the correct file structure. 
+
+

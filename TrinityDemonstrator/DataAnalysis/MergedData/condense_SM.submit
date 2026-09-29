@@ -1,0 +1,79 @@
+sysFilePath = /home/sofia.stepanoff/TrinityDemonstrator
+OSDF_path = osdf:///ospool/uw-shared/projects/GATech_Otte/TrinityDemonstrator
+# /ospool/uw-shared/projects/GATech_Otte for group use - cached so be careful 
+# /ospool/ap40/data/sofia.stepanoff/TrinityDemonstrator - personal cached stoages
++SingularityImage = "$(OSDF_path)/DataAnalysis/containers/rootandexact.sif"
+
+
+universe = vanilla
+
+executable = run_condor.sh
+ # name of the bash script or python or root 
+
+arguments = $(Date) $(Filename) $ENV(USER)
+getenv = True
+# ^ added user env and getenv=True - same as event_cleaning condense_SM.submit 
+
+# Keep your environment variables
+#getenv = False
+
+# add user env to filepath and to file name (like in event_cleaning)
+log = $(sysFilePath)/DataAnalysis/MergedData/.logs/$ENV(USER)/HT_condor_$ENV(USER)_$(Date)_$(Filename).log 
+# HTCondor log
+
+# add user env to filepath and file name
+error = $(sysFilePath)/DataAnalysis/MergedData/.logs/$ENV(USER)/Program_$ENV(USER)_$(Date)_$(Filename).err 
+#Standard Error - program and HTCondor errors
+
+# add user env to filepath and file name
+output = $(sysFilePath)/DataAnalysis/MergedData/.logs/$ENV(USER)/Program_$ENV(USER)_$(Date)_$(Filename).out 
+# program terminal output (not output files)
+
+
+transfer_input_files = \
+$(OSDF_path)/Data/$(Date)/RawDataMerged/$(Filename), \
+$(sysFilePath)/DataAnalysis/MergedData/scripts/MergeData/FileMerge, \
+$(sysFilePath)/DataAnalysis/MergedData/scripts/IncludeCalibrationData/AddCalibData, \
+$(sysFilePath)/DataAnalysis/MergedData/run_condor.sh, \ 
+$(OSDF_path)/DataAnalysis/AncillaryData/Data2/statemessages$(Date).csv, \
+$(OSDF_path)/DataAnalysis/AncillaryData/Data1/celestialPositions$(Date).csv, \
+$(OSDF_path)/MiscData/WeatherData/weather/weather_$(Date), \
+$(sysFilePath)/DataAnalysis/exact/data/SiPMTempatureCorrections.csv, \
+$(sysFilePath)/DataAnalysis/exact/data/UCTempatureCorrections.csv, \
+$(sysFilePath)/DataAnalysis/MergedData/scripts/ReduceInfo/ReduceDataInfoSaved 
+
+
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT_OR_EVICT
+
+OUTPATH1=DataAnalysis/MergedData/Output/$(Date)/Merged_$(Filename)
+OUTPATH2=DataAnalysis/MergedData/ReducedInfoOutput/$(Date)/Reduced_Merged_$(Filename)
+transfer_output_files = $(OUTPATH1), $(OUTPATH2)
+transfer_output_remaps = "$(OUTPATH1)=$(OSDF_path)/$(OUTPATH1);$(OUTPATH2)=$(OSDF_path)/$(OUTPATH2)"
+
+#transfer_output_files = DataAnalysis/MergedData/Output/$(Date)/Merged_$(Filename), DataAnalysis/MergedData/ReducedInfoOutput/$(Date)/Reduced_Merged_$(Filename)
+#transfer_output_remaps = "Merged_$(Filename)=$(OSDF_path)/DataAnalysis/MergedData/Output/$(Date)/Merged_$(Filename);Reduced_Merged_$(Filename)=$(OSDF_path)/DataAnalysis/MergedData/ReducedInfoOutput/$(Date)/Reduced_Merged_$(Filename)"
+
+request_cpus = 1
+ # these are PER JOB
+
+request_memory = 1GB 
+# these are PER JOB
+
+JobBatchName = "MD_$(Date)"
+
+# space for all files input and output and intermediate files
+request_disk = 4GB 
+# these are PER JOB
+
+# Tell HTCondor to run 3 instances of our job:
+###----------#####
+# Queue! HAS TO BE THE LAST LINE
+###----------#####
+# MAGICAL
+# synatax 
+# queue + num - que this many identical jobs (EXACT  SAME JOB)
+# use case - executable can create independent jobs (script creates difference between jobs)
+# randomw number simulations 
+queue Filename from $(sysFilePath)/DataAnalysis/data_lists/file_list_$(Date).txt

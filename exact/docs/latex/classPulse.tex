@@ -1,0 +1,363 @@
+\hypertarget{classPulse}{}\section{Pulse Class Reference}
+\label{classPulse}\index{Pulse@{Pulse}}
+
+
+The main class for analyzing a trace obtained from data acquisition.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPulse_a8b6f1069c6cf1323363b33752b264a1f}{Pulse} (Read\+Configuration $\ast$config, std\+::vector$<$ Int\+\_\+t $>$ samples)
+\begin{DoxyCompactList}\small\item\em Public contructor (legacy) \end{DoxyCompactList}\item 
+\hyperlink{classPulse_afc85a424b08596f5022919ca5ea9ffa4}{Pulse} (vector$<$ Int\+\_\+t $>$ samples)
+\begin{DoxyCompactList}\small\item\em Public constructor using only the trace. \end{DoxyCompactList}\item 
+\hyperlink{classPulse_a820248c8392c0c894beba568da50145a}{Pulse} (vector$<$ int $>$ samples, Int\+\_\+t t\+Start, Int\+\_\+t t\+End, int n\+Samples=512, bool is\+Pedestal\+Sub=true)
+\begin{DoxyCompactList}\small\item\em Public constructor. \end{DoxyCompactList}\item 
+\hyperlink{classPulse_ac1326dc991e88a469630b45bb01d88b0}{Pulse} (vector$<$ float $>$ samples, Int\+\_\+t t\+Start, Int\+\_\+t t\+End, int n\+Samples=512, bool is\+Pedestal\+Sub=true)
+\begin{DoxyCompactList}\small\item\em Public constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPulse_a0081f88108dfc1585a23eae533be0190}\label{classPulse_a0081f88108dfc1585a23eae533be0190}} 
+\hyperlink{classPulse_a0081f88108dfc1585a23eae533be0190}{$\sim$\+Pulse} ()
+\begin{DoxyCompactList}\small\item\em Public destructor. \end{DoxyCompactList}\item 
+Double\+\_\+t \hyperlink{classPulse_a40819da67d9c6494b0171c32d4b5ea42}{Get\+Pedestal} ()
+\begin{DoxyCompactList}\small\item\em Public method to get the value stored in pedestal member. \end{DoxyCompactList}\item 
+float \hyperlink{classPulse_ad1c6b05032aaae9972b80566e5cd7c35}{Get\+Pedestal\+R\+MS} ()
+\begin{DoxyCompactList}\small\item\em Public method to get the value stored in pedestal\+R\+MS member. \end{DoxyCompactList}\item 
+int \hyperlink{classPulse_a89afa9f7773d73122d7b0926382e30d3}{Get\+Amplitude} ()
+\begin{DoxyCompactList}\small\item\em Public method to get the value stored in amplitude member. \end{DoxyCompactList}\item 
+int \hyperlink{classPulse_a74658eb6ed6d5ad2dadf3e3642a687a2}{Get\+Charge} ()
+\begin{DoxyCompactList}\small\item\em Public method to get the value stored in charge member. \end{DoxyCompactList}\item 
+int \hyperlink{classPulse_aab7891a017015171250c3e290ac4a3eb}{Get\+Time\+Peak} ()
+\begin{DoxyCompactList}\small\item\em Public method to get the value stored in time\+Peak member. \end{DoxyCompactList}\item 
+int \hyperlink{classPulse_a726a4179243d4386a909e5d21b2b1c9f}{Get\+F\+W\+HM} ()
+\begin{DoxyCompactList}\small\item\em Public method to get the value stored in time\+F\+W\+HM member. \end{DoxyCompactList}\item 
+int \hyperlink{classPulse_a4f92bb4c6f55908515a6bffdac10e81e}{Get\+FW} ()
+\begin{DoxyCompactList}\small\item\em Public method to get the value stored in time\+FW member. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classPulse_a20e3e828ac32e06c115f8fcdcfeec312}{Calc\+Pedestal} (Int\+\_\+t n\+Samples\+Pedestal)
+\begin{DoxyCompactList}\small\item\em A private member used to calculate the pedestal. \end{DoxyCompactList}\item 
+void \hyperlink{classPulse_a78588477ccc3242861a8dceece91ca73}{Calc\+Amplitude} ()
+\begin{DoxyCompactList}\small\item\em A private member used to calculate the amplitude. \end{DoxyCompactList}\item 
+void \hyperlink{classPulse_af28426090374eae4d640fb68432424f4}{Calc\+Charge} (Int\+\_\+t t\+Win\+St, Int\+\_\+t t\+Win\+End, Int\+\_\+t t\+Win\+Ext, Bool\+\_\+t is\+Revolving)
+\begin{DoxyCompactList}\small\item\em Sums the specified number of samples within the window to obtain the charge contained in the pulse. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPulse_ad9660f8802d0fad7d9bf37d6b9ae23d1}\label{classPulse_ad9660f8802d0fad7d9bf37d6b9ae23d1}} 
+void \hyperlink{classPulse_ad9660f8802d0fad7d9bf37d6b9ae23d1}{Calc\+Peak\+Time} ()
+\begin{DoxyCompactList}\small\item\em Private member not implemented. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPulse_a2878e0ef3b6f4562bc573a814e5045bc}\label{classPulse_a2878e0ef3b6f4562bc573a814e5045bc}} 
+void \hyperlink{classPulse_a2878e0ef3b6f4562bc573a814e5045bc}{Calc\+F\+W\+HM} ()
+\begin{DoxyCompactList}\small\item\em Private member not implemented. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPulse_adb2f06fded260feed0fee9195e27fdf1}\label{classPulse_adb2f06fded260feed0fee9195e27fdf1}} 
+void \hyperlink{classPulse_adb2f06fded260feed0fee9195e27fdf1}{Calc\+FW} ()
+\begin{DoxyCompactList}\small\item\em Private member not implemented. \end{DoxyCompactList}\item 
+void \hyperlink{classPulse_a6465dc326f636cfdfeb0271899b4f350}{Find\+Peak\+Time} (Int\+\_\+t t\+Win\+St, Int\+\_\+t t\+Win\+End)
+\begin{DoxyCompactList}\small\item\em Private member to find on which time bin, within a range the pulse achieves a maximum. \end{DoxyCompactList}\item 
+void \hyperlink{classPulse_a09a13c062dc658a32a621ae72625676a}{Find\+Peak} ()
+\begin{DoxyCompactList}\small\item\em Private member to find what the peak is at the obtained peak time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPulse_aa12830521e153112820bc6ee0b5c5017}\label{classPulse_aa12830521e153112820bc6ee0b5c5017}} 
+Int\+\_\+t \hyperlink{classPulse_aa12830521e153112820bc6ee0b5c5017}{n\+Samples\+Pulse}
+\begin{DoxyCompactList}\small\item\em An int with the number of samples in a trace. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPulse_ab3afb498afb4eca2b6c6d0dd9dd51bec}\label{classPulse_ab3afb498afb4eca2b6c6d0dd9dd51bec}} 
+Double\+\_\+t \hyperlink{classPulse_ab3afb498afb4eca2b6c6d0dd9dd51bec}{pedestal}
+\begin{DoxyCompactList}\small\item\em A double with the pedestal value of the trace. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPulse_a866843d06db2db2900ecfac5c7d5cfe7}\label{classPulse_a866843d06db2db2900ecfac5c7d5cfe7}} 
+int \hyperlink{classPulse_a866843d06db2db2900ecfac5c7d5cfe7}{amplitude}
+\begin{DoxyCompactList}\small\item\em An int with the maximum of the trace when comapared to the pedestal. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPulse_a229bdafb47630796a5df185971872d4e}\label{classPulse_a229bdafb47630796a5df185971872d4e}} 
+int \hyperlink{classPulse_a229bdafb47630796a5df185971872d4e}{charge}
+\begin{DoxyCompactList}\small\item\em An in with the charge contained within the peak of the trace. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPulse_a6cd30f26434ed4ddf212fb56ec5bceff}\label{classPulse_a6cd30f26434ed4ddf212fb56ec5bceff}} 
+int \hyperlink{classPulse_a6cd30f26434ed4ddf212fb56ec5bceff}{time\+Peak}
+\begin{DoxyCompactList}\small\item\em An int with the time bin where the trace achieves its maximum. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPulse_abbd514600d70e7791673c66152c91e2f}\label{classPulse_abbd514600d70e7791673c66152c91e2f}} 
+int \hyperlink{classPulse_abbd514600d70e7791673c66152c91e2f}{time\+F\+W\+HM}
+\begin{DoxyCompactList}\small\item\em An int with the Full width at half max of the pulse. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPulse_a89c2ae2c429c6b64ea2e5e7c7630f0b0}\label{classPulse_a89c2ae2c429c6b64ea2e5e7c7630f0b0}} 
+int \hyperlink{classPulse_a89c2ae2c429c6b64ea2e5e7c7630f0b0}{time\+FW}
+\begin{DoxyCompactList}\small\item\em An int wit the full width of the pulse. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPulse_a4d5a1c2ae9a55fbf9ebd8514c1554a8b}\label{classPulse_a4d5a1c2ae9a55fbf9ebd8514c1554a8b}} 
+float \hyperlink{classPulse_a4d5a1c2ae9a55fbf9ebd8514c1554a8b}{pedestal\+R\+MS}
+\begin{DoxyCompactList}\small\item\em A float with the R\+MS of the pedestal values. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPulse_a73ce37158adfc90e8ec03efbe08641e0}\label{classPulse_a73ce37158adfc90e8ec03efbe08641e0}} 
+Double\+\_\+t \hyperlink{classPulse_a73ce37158adfc90e8ec03efbe08641e0}{time\+Integration}
+\begin{DoxyCompactList}\small\item\em A double with how many samples to use for integration. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPulse_a06b5a0a179c529bb8d6447ba2dd24917}\label{classPulse_a06b5a0a179c529bb8d6447ba2dd24917}} 
+vector$<$ Int\+\_\+t $>$ \hyperlink{classPulse_a06b5a0a179c529bb8d6447ba2dd24917}{trace}
+\begin{DoxyCompactList}\small\item\em A std\+::vector with the trace to be analyzed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The main class for analyzing a trace obtained from data acquisition. 
+
+\hyperlink{classPulse}{Pulse} is the backbone of the anlaysis software in Ex\+A\+CT. It analyzes the traces provided and obtains the information thaty characterize the particular signal. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPulse_a8b6f1069c6cf1323363b33752b264a1f}\label{classPulse_a8b6f1069c6cf1323363b33752b264a1f}} 
+\index{Pulse@{Pulse}!Pulse@{Pulse}}
+\index{Pulse@{Pulse}!Pulse@{Pulse}}
+\subsubsection{\texorpdfstring{Pulse()}{Pulse()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Pulse\+::\+Pulse (\begin{DoxyParamCaption}\item[{Read\+Configuration $\ast$}]{config,  }\item[{std\+::vector$<$ Int\+\_\+t $>$}]{samples }\end{DoxyParamCaption})}
+
+
+
+Public contructor (legacy) 
+
+Used when Ex\+A\+CT was set to online mode and analysis happened during flight
+
+
+\begin{DoxyParams}{Parameters}
+{\em config} & A Read\+Configuration$\ast$ which contains the configuration of the analysis software \\
+\hline
+{\em samples} & A std\+::vector with the trace for a specific pixel \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPulse_afc85a424b08596f5022919ca5ea9ffa4}\label{classPulse_afc85a424b08596f5022919ca5ea9ffa4}} 
+\index{Pulse@{Pulse}!Pulse@{Pulse}}
+\index{Pulse@{Pulse}!Pulse@{Pulse}}
+\subsubsection{\texorpdfstring{Pulse()}{Pulse()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Pulse\+::\+Pulse (\begin{DoxyParamCaption}\item[{vector$<$ Int\+\_\+t $>$}]{samples }\end{DoxyParamCaption})}
+
+
+
+Public constructor using only the trace. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em samples} & A std\+::vector with the trace for a specific pixel \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPulse_a820248c8392c0c894beba568da50145a}\label{classPulse_a820248c8392c0c894beba568da50145a}} 
+\index{Pulse@{Pulse}!Pulse@{Pulse}}
+\index{Pulse@{Pulse}!Pulse@{Pulse}}
+\subsubsection{\texorpdfstring{Pulse()}{Pulse()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Pulse\+::\+Pulse (\begin{DoxyParamCaption}\item[{vector$<$ int $>$}]{samples,  }\item[{Int\+\_\+t}]{t\+Start,  }\item[{Int\+\_\+t}]{t\+End,  }\item[{int}]{n\+Samples = {\ttfamily 512},  }\item[{bool}]{is\+Pedestal\+Sub = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Public constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em samples} & A std\+::vector$<$int$>$ with the trace for a specific pixel \\
+\hline
+{\em t\+Start} & An int specifying where the window for the search starts \\
+\hline
+{\em t\+End} & An int specifying where the window for the search ends\\
+\hline
+\end{DoxyParams}
+Optional parameters\+: 
+\begin{DoxyParams}{Parameters}
+{\em n\+Samples} & An int with the number of samples in the std\+::vector. Default is 512 \\
+\hline
+{\em is\+Pedestal\+Sub} & A bool specifying whether the pedestal should be subtracted or not. Default is true \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPulse_ac1326dc991e88a469630b45bb01d88b0}\label{classPulse_ac1326dc991e88a469630b45bb01d88b0}} 
+\index{Pulse@{Pulse}!Pulse@{Pulse}}
+\index{Pulse@{Pulse}!Pulse@{Pulse}}
+\subsubsection{\texorpdfstring{Pulse()}{Pulse()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Pulse\+::\+Pulse (\begin{DoxyParamCaption}\item[{vector$<$ float $>$}]{samples,  }\item[{Int\+\_\+t}]{t\+Start,  }\item[{Int\+\_\+t}]{t\+End,  }\item[{int}]{n\+Samples = {\ttfamily 512},  }\item[{bool}]{is\+Pedestal\+Sub = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Public constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em samples} & A std\+::vector$<$float$>$ with the trace for a specific pixel \\
+\hline
+{\em t\+Start} & An int specifying where the window for the search starts \\
+\hline
+{\em t\+End} & An int specifying where the window for the search ends\\
+\hline
+\end{DoxyParams}
+Optional parameters\+: 
+\begin{DoxyParams}{Parameters}
+{\em n\+Samples} & An int with the number of samples in the std\+::vector. Default is 512 \\
+\hline
+{\em is\+Pedestal\+Sub} & A bool specifying whether the pedestal should be subtracted or not. Default is true \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classPulse_a78588477ccc3242861a8dceece91ca73}\label{classPulse_a78588477ccc3242861a8dceece91ca73}} 
+\index{Pulse@{Pulse}!Calc\+Amplitude@{Calc\+Amplitude}}
+\index{Calc\+Amplitude@{Calc\+Amplitude}!Pulse@{Pulse}}
+\subsubsection{\texorpdfstring{Calc\+Amplitude()}{CalcAmplitude()}}
+{\footnotesize\ttfamily void Pulse\+::\+Calc\+Amplitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A private member used to calculate the amplitude. 
+
+The peaking time is used and the pedestal obtained from \hyperlink{classPulse_a20e3e828ac32e06c115f8fcdcfeec312}{Calc\+Pedestal(\+Int\+\_\+t n\+Samples\+Pedestal)} is subtracted. \mbox{\Hypertarget{classPulse_af28426090374eae4d640fb68432424f4}\label{classPulse_af28426090374eae4d640fb68432424f4}} 
+\index{Pulse@{Pulse}!Calc\+Charge@{Calc\+Charge}}
+\index{Calc\+Charge@{Calc\+Charge}!Pulse@{Pulse}}
+\subsubsection{\texorpdfstring{Calc\+Charge()}{CalcCharge()}}
+{\footnotesize\ttfamily void Pulse\+::\+Calc\+Charge (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{t\+Win\+St,  }\item[{Int\+\_\+t}]{t\+Win\+End,  }\item[{Int\+\_\+t}]{t\+Win\+Ext,  }\item[{Bool\+\_\+t}]{is\+Revolving }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sums the specified number of samples within the window to obtain the charge contained in the pulse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+Win\+St} & An int specifying where the window for integration starts \\
+\hline
+{\em t\+Win\+End} & An int specifying where the window for integration ends \\
+\hline
+{\em t\+Win\+Ext} & An int how many samples to use in the integration \\
+\hline
+{\em is\+Revolving} & A bool to define if the time window should be revolving. If set to true, t\+Win\+Ext is centered around the peak of the pulse. If not, the first t\+Win\+Ext samples starting from t\+Win\+St are summed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPulse_a20e3e828ac32e06c115f8fcdcfeec312}\label{classPulse_a20e3e828ac32e06c115f8fcdcfeec312}} 
+\index{Pulse@{Pulse}!Calc\+Pedestal@{Calc\+Pedestal}}
+\index{Calc\+Pedestal@{Calc\+Pedestal}!Pulse@{Pulse}}
+\subsubsection{\texorpdfstring{Calc\+Pedestal()}{CalcPedestal()}}
+{\footnotesize\ttfamily void Pulse\+::\+Calc\+Pedestal (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{n\+Samples\+Pedestal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A private member used to calculate the pedestal. 
+
+This is the legacy method for calculating the pedestal and should be substituted for the method described in \hyperlink{classIUtilities_a65527a73c39d6cae81f6a09fb9a44d93}{I\+Utilities\+::\+Get\+Pedestal\+Average()}
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classIUtilities_a65527a73c39d6cae81f6a09fb9a44d93}{I\+Utilities\+::\+Get\+Pedestal\+Average}(std\+::vector$<$int$>$ \hyperlink{classPulse_a06b5a0a179c529bb8d6447ba2dd24917}{trace}, int t\+Window=20,int pad=10, bool is\+Un\+Correlated=true)
+\end{DoxySeeAlso}
+This method sums the first n\+Samples\+Pedstal and finds their average
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+Samples\+Pedestal} & An int describing how many samples to use \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPulse_a09a13c062dc658a32a621ae72625676a}\label{classPulse_a09a13c062dc658a32a621ae72625676a}} 
+\index{Pulse@{Pulse}!Find\+Peak@{Find\+Peak}}
+\index{Find\+Peak@{Find\+Peak}!Pulse@{Pulse}}
+\subsubsection{\texorpdfstring{Find\+Peak()}{FindPeak()}}
+{\footnotesize\ttfamily void Pulse\+::\+Find\+Peak (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Private member to find what the peak is at the obtained peak time. 
+
+\mbox{\Hypertarget{classPulse_a6465dc326f636cfdfeb0271899b4f350}\label{classPulse_a6465dc326f636cfdfeb0271899b4f350}} 
+\index{Pulse@{Pulse}!Find\+Peak\+Time@{Find\+Peak\+Time}}
+\index{Find\+Peak\+Time@{Find\+Peak\+Time}!Pulse@{Pulse}}
+\subsubsection{\texorpdfstring{Find\+Peak\+Time()}{FindPeakTime()}}
+{\footnotesize\ttfamily void Pulse\+::\+Find\+Peak\+Time (\begin{DoxyParamCaption}\item[{Int\+\_\+t}]{t\+Win\+St,  }\item[{Int\+\_\+t}]{t\+Win\+End }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Private member to find on which time bin, within a range the pulse achieves a maximum. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t\+Win\+St} & An int specifying where the window for the search starts \\
+\hline
+{\em t\+Win\+End} & An int specifying where the window for the search ends \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPulse_a89afa9f7773d73122d7b0926382e30d3}\label{classPulse_a89afa9f7773d73122d7b0926382e30d3}} 
+\index{Pulse@{Pulse}!Get\+Amplitude@{Get\+Amplitude}}
+\index{Get\+Amplitude@{Get\+Amplitude}!Pulse@{Pulse}}
+\subsubsection{\texorpdfstring{Get\+Amplitude()}{GetAmplitude()}}
+{\footnotesize\ttfamily int Pulse\+::\+Get\+Amplitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Public method to get the value stored in amplitude member. 
+
+\begin{DoxyReturn}{Returns}
+An int with the value of the amplitude 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPulse_a74658eb6ed6d5ad2dadf3e3642a687a2}\label{classPulse_a74658eb6ed6d5ad2dadf3e3642a687a2}} 
+\index{Pulse@{Pulse}!Get\+Charge@{Get\+Charge}}
+\index{Get\+Charge@{Get\+Charge}!Pulse@{Pulse}}
+\subsubsection{\texorpdfstring{Get\+Charge()}{GetCharge()}}
+{\footnotesize\ttfamily int Pulse\+::\+Get\+Charge (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Public method to get the value stored in charge member. 
+
+\begin{DoxyReturn}{Returns}
+An int with the value of the charge 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPulse_a4f92bb4c6f55908515a6bffdac10e81e}\label{classPulse_a4f92bb4c6f55908515a6bffdac10e81e}} 
+\index{Pulse@{Pulse}!Get\+FW@{Get\+FW}}
+\index{Get\+FW@{Get\+FW}!Pulse@{Pulse}}
+\subsubsection{\texorpdfstring{Get\+F\+W()}{GetFW()}}
+{\footnotesize\ttfamily int Pulse\+::\+Get\+FW (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Public method to get the value stored in time\+FW member. 
+
+\begin{DoxyReturn}{Returns}
+An int with the value of the time\+FW 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPulse_a726a4179243d4386a909e5d21b2b1c9f}\label{classPulse_a726a4179243d4386a909e5d21b2b1c9f}} 
+\index{Pulse@{Pulse}!Get\+F\+W\+HM@{Get\+F\+W\+HM}}
+\index{Get\+F\+W\+HM@{Get\+F\+W\+HM}!Pulse@{Pulse}}
+\subsubsection{\texorpdfstring{Get\+F\+W\+H\+M()}{GetFWHM()}}
+{\footnotesize\ttfamily int Pulse\+::\+Get\+F\+W\+HM (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Public method to get the value stored in time\+F\+W\+HM member. 
+
+\begin{DoxyReturn}{Returns}
+An int with the value of the time\+F\+W\+HM 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPulse_a40819da67d9c6494b0171c32d4b5ea42}\label{classPulse_a40819da67d9c6494b0171c32d4b5ea42}} 
+\index{Pulse@{Pulse}!Get\+Pedestal@{Get\+Pedestal}}
+\index{Get\+Pedestal@{Get\+Pedestal}!Pulse@{Pulse}}
+\subsubsection{\texorpdfstring{Get\+Pedestal()}{GetPedestal()}}
+{\footnotesize\ttfamily Double\+\_\+t Pulse\+::\+Get\+Pedestal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Public method to get the value stored in pedestal member. 
+
+\begin{DoxyReturn}{Returns}
+a double with the value of the pedestal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPulse_ad1c6b05032aaae9972b80566e5cd7c35}\label{classPulse_ad1c6b05032aaae9972b80566e5cd7c35}} 
+\index{Pulse@{Pulse}!Get\+Pedestal\+R\+MS@{Get\+Pedestal\+R\+MS}}
+\index{Get\+Pedestal\+R\+MS@{Get\+Pedestal\+R\+MS}!Pulse@{Pulse}}
+\subsubsection{\texorpdfstring{Get\+Pedestal\+R\+M\+S()}{GetPedestalRMS()}}
+{\footnotesize\ttfamily float Pulse\+::\+Get\+Pedestal\+R\+MS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Public method to get the value stored in pedestal\+R\+MS member. 
+
+\begin{DoxyReturn}{Returns}
+a float with the value of the pedestal\+R\+MS 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPulse_aab7891a017015171250c3e290ac4a3eb}\label{classPulse_aab7891a017015171250c3e290ac4a3eb}} 
+\index{Pulse@{Pulse}!Get\+Time\+Peak@{Get\+Time\+Peak}}
+\index{Get\+Time\+Peak@{Get\+Time\+Peak}!Pulse@{Pulse}}
+\subsubsection{\texorpdfstring{Get\+Time\+Peak()}{GetTimePeak()}}
+{\footnotesize\ttfamily int Pulse\+::\+Get\+Time\+Peak (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Public method to get the value stored in time\+Peak member. 
+
+\begin{DoxyReturn}{Returns}
+An int with the value of the time\+Peak 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+dict/include/Pulse.\+h\end{DoxyCompactItemize}

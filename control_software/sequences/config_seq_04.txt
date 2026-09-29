@@ -1,0 +1,30 @@
+# Disabling State Messages and Sleeping for 15 seconds
+100D00000000000000
+15
+# Load the bottom Music Configuration from EEPROM and Sleeping for 5 Seconds
+20FFFFFFFF11010000
+5
+# Load the top Music Configuration from EEPROM and Sleeping for 5 Seconds
+20FFFFFFFF11020000
+5
+# Write the Loaded Configuration into bottom Music chips and Sleeping for 30 Seconds
+20FFFFFFFF13010000
+30
+# Write the Loaded Configuration into top Music chips and Sleeping for 30 Seconds
+20FFFFFFFF13020000
+30
+# Load the Bias Voltage into top and Bottom Music chips and Sleeping for 90 Seconds
+20FFFFFFFF24000000
+90
+# Enabling the ADC Run on SIABs and Sleeping for 5 seconds
+*20FFFFFFFF18000000
+5
+# Recording the ADC offset and Sleeping for 5 seconds
+*20FFFFFFFF1C000000
+5
+# Configure the Trigger Board and Sleeping for 5 seconds
+3005050502000F51C3
+5
+# Initialize the CoBo and Sleeping for 30 seconds
+400300000000000000
+30

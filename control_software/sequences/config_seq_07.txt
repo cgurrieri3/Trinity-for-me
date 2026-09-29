@@ -1,0 +1,21 @@
+# Load the bottom Music Configuration from EEPROM and Sleeping for 5 Seconds
+200000FFFF11010000
+5
+# Load the top Music Configuration from EEPROM and Sleeping for 5 Seconds
+200000FFFF11020000
+5
+# Write the Loaded Configuration into bottom Music chips and Sleeping for 30 Seconds
+200000FFFF13010000
+15
+# Write the Loaded Configuration into top Music chips and Sleeping for 30 Seconds
+200000FFFF13020000
+15
+# Load the Bias Voltage into top and Bottom Music chips and Sleeping for 90 Seconds
+200000FFFF24000000
+50
+# Configure the Trigger Board and Sleeping for 5 seconds
+3005080502000F51C3
+5
+# Initialize the CoBo and Sleeping for 30 seconds
+400300000000000000
+30

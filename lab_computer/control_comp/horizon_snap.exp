@@ -1,0 +1,44 @@
+#!/usr/bin/expect -f
+
+
+if {[llength $argv] ==0} {
+    puts stderr "Usage: $argv0 DIRECTION PUSH_DURATION(optional)"
+    exit 1
+}
+
+# Read in the IP address, username, and password from the file
+set file "/data/TrinityLabComputer/control_comp/login_info.txt"
+set fh [open $file r]
+gets $fh ip
+gets $fh user
+gets $fh password
+close $fh
+
+# Get Direction from user input
+set duration [lindex $argv 0]
+set unit [lindex $argv 1]
+
+
+# Connect to the remote computer using SSH
+spawn ssh $user@$ip
+
+# Wait for the password prompt and send the password
+expect "password:"
+send "$password\r"
+
+# Execute a command on the remote computer
+expect "root@pe100a:~#"
+send "horizonsnap $duration $unit\r"
+
+if {$unit eq "s"} {
+    sleep $duration
+} elseif {$unit eq "ms"} {
+    set result [expr {$duration / 10**3}]
+    sleep $result
+} else {
+    set result [expr {$duration / 10**6}]
+    sleep $result
+}
+# Wait for the command to finish and exit
+expect "root@pe100a:~#"
+send "exit\r"
